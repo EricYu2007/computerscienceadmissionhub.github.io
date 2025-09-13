@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Computer Science Course Finder</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f4f4f4; 
+            line-height: 1.6;
+        }
+        header { 
+            background: #35424a; 
+            color: #ffffff; 
+            padding: 20px 0; 
+            text-align: center; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container { 
+            width: 80%; 
+            margin: auto; 
+            overflow: hidden; 
+        }
+        .university-list { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            gap: 20px;
+        }
+        .university-card { 
+            background: #ffffe0; 
+            border: #ccc 1px solid; 
+            padding: 20px; 
+            width: 300px; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .university-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .university-card p {
+            margin: 8px 0;
+        }
+        .university-card button {
+            background: #08d28f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .university-card button:hover {
+            background: #08cdd0;
+        }
+        .university-card button.selected {
+            background: #35424a;
+        }
+        .probability { 
+            height: 20px; 
+            width: 20px; 
+            border-radius: 50%; 
+            display: inline-block; 
+            margin-left: 10px; 
+            vertical-align: middle;
+        }
+        .probability.green { background-color: #4CAF50; }
+        .probability.yellow { background-color: #FFEB3B; }
+        .probability.red { background-color: #f44336; }
+        .instructions {
+            background: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .next-button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .next-button {
+            background: #35424a;
+            color: white;
+            border: none;
+            text-align: center;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        .next-button.enabled {
+            background: #08d28f;
+            opacity: 1;
+        }
+        .next-button.enabled:hover {
+            background: #08cdd0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(8, 210, 143, 0.4);
+        }
+        .next-button:active {
+            transform: translateY(0);
+        }
+        .shortlist-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #08d28f;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UK Computer Science Course Finder</h1>
+            <p>Your one-stop platform to help with your application.</p>
+        </div>
+    </header>
+
+    <div class="shortlist-counter" id="shortlist-counter">0</div>
+
+    <div class="container">
+        <div class="instructions">
+            <h3>How to Use This Tool</h3>
+            <p>Select up to 5 universities to add to your shortlist. After selection, you'll be able to compare requirements and see your chances of admission.</p>
+        </div>
+        
+        <!-- Section 1: University List & Shortlist -->
+        <section id="universities">
+            <h2>Top UK Universities for Computer Science</h2>
+            <p>Select up to 5 universities to add to your shortlist.</p>
+            <div class="university-list">
+                <!-- University Cards will be generated by JavaScript -->
+            </div>
+        </section>
+    </div>
+    <div class="next-button-container">
+        <button class="next-button" id="next-button">Next →</button>
+    </div>
+
+    <script>
+        // University data
+        const universities = [
+            {
+                name: "University of Oxford",
+                aLevels: "A*AA (Maths A*)",
+                ib: "39 points",
+                admissionTest: "MAT",
+                fees: "£39,010",
+                location: "Oxford, England",
+                language: "IELTS 7.5 (minimum 7.0 in each component)"
+            },
+            {
+                name: "University of Cambridge",
+                aLevels: "A*A*A",
+                ib: "40-42 points",
+                admissionTest: "TMUA",
+                fees: "£37,293",
+                location: "Cambridge, England",
+                language: "IELTS 7.5 (minimum 7.0 in each component)"
+            },
+            {
+                name: "Imperial College London",
+                aLevels: "A*A*A",
+                ib: "39 points",
+                admissionTest: "None",
+                fees: "£35,100",
+                location: "London, England",
+                language: "IELTS 7.0 (minimum 6.5 in each component)"
+            },
+            {
+                name: "University of St Andrews",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£23,800",
+                location: "St Andrews, Scotland",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {
+                name: "University of Birmingham",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£32,100",
+                location: "Birmingham, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {
+                name: "University of Bath",
+                aLevels: "A*AA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£25,900",
+                location: "Bath, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {
+                name: "University of Warwick",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£26,700",
+                location: "Coventry, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {
+                name: "University of Bristol",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£27,000",
+                location: "Bristol, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Manchester",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Manchester, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "King's College London",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£27,000",
+                location: "London, England",
+                language: "IELTS 7.0 (minimum 6.5 in each component)"
+            },
+            {   
+                name: "Durham University",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Durham, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University College London (UCL)",
+                aLevels: "A*AA",
+                ib: "38 points",
+                admissionTest: "None",
+                fees: "£28,000",
+                location: "London, England",
+                language: "IELTS 7.0 (minimum 6.5 in each component)"
+            },
+            {   
+                name: "University of Sheffield",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Sheffield, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Southampton",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Southampton, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Glasgow",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Glasgow, Scotland",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Edinburgh",
+                aLevels: "AAA",
+                ib: "36 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Edinburgh, Scotland",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of York",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "York, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Exeter",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Exeter, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "University of Nottingham",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Nottingham, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            },
+            {   
+                name: "Loughborough University",
+                aLevels: "AAB",
+                ib: "34 points",
+                admissionTest: "None",
+                fees: "£25,000",
+                location: "Loughborough, England",
+                language: "IELTS 6.5 (minimum 6.0 in each component)"
+            }
+        ];
+
+        // Initialize shortlist array
+        let shortlist = [];
+        const MAX_SELECTION = 5;
+
+        // DOM elements
+        const universityList = document.querySelector('.university-list');
+        const nextButton = document.getElementById('next-button');
+        const shortlistCounter = document.getElementById('shortlist-counter');
+
+        // Generate university cards
+        universities.forEach((uni, index) => {
+            const card = document.createElement('div');
+            card.className = 'university-card';
+            card.innerHTML = `
+                <h3>${uni.name}</h3>
+                <p><strong>A-levels:</strong> ${uni.aLevels}</p>
+                <p><strong>IB:</strong> ${uni.ib}</p>
+                <p><strong>Admission Test:</strong> ${uni.admissionTest}</p>
+                <p><strong>Fees (Int'l):</strong> ${uni.fees}</p>
+                <p><strong>Location:</strong> ${uni.location}</p>
+                <p><strong>Language Requirements:</strong> ${uni.language}</p>
+                <button data-id="${index}">Add to Shortlist</button>
+            `;
+            universityList.appendChild(card);
+        });
+
+        // Add event listeners to buttons
+        document.querySelectorAll('.university-card button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = parseInt(e.target.getAttribute('data-id'));
+                const university = universities[id];
+                
+                // Check if already in shortlist
+                const index = shortlist.findIndex(item => item.name === university.name);
+                
+                if (index === -1) {
+                    // Add to shortlist if not already there and we have space
+                    if (shortlist.length < MAX_SELECTION) {
+                        shortlist.push(university);
+                        e.target.textContent = 'Remove from Shortlist';
+                        e.target.classList.add('selected');
+                    } else {
+                        alert(`You can only select up to ${MAX_SELECTION} universities.`);
+                    }
+                } else {
+                    // Remove from shortlist
+                    shortlist.splice(index, 1);
+                    e.target.textContent = 'Add to Shortlist';
+                    e.target.classList.remove('selected');
+                }
+                
+                // Update UI
+                updateShortlistCounter();
+                updateNextButton();
+            });
+        });
+
+        // Update shortlist counter
+        function updateShortlistCounter() {
+            shortlistCounter.textContent = shortlist.length;
+        }
+
+        // Update next button state
+        function updateNextButton() {
+            if (shortlist.length > 0) {
+                nextButton.classList.add('enabled');
+            } else {
+                nextButton.classList.remove('enabled');
+            }
+        }
+
+        // Next button functionality
+        nextButton.addEventListener('click', () => {
+            if (shortlist.length > 0) {
+                // Store shortlist in localStorage for the next page
+                localStorage.setItem('universityShortlist', JSON.stringify(shortlist));
+
+                // Redirect to next steps page (you'll need to create this)
+                window.location.href = 'home-page.html';
+            } else {
+                alert('Please select at least one university to continue.');
+            }
+        });
+
+        // Initialize UI
+        updateShortlistCounter();
+        updateNextButton();
+    </script>
+</body>
+</html>

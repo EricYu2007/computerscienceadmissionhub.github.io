@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK University Admission Calculator</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --primary-hover: #0d62c9;
+            --dark-bg: #2c3e50;
+            --light-bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --error-color: #e74c3c;
+            --warning-color: #f39c12;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--light-bg); 
+            line-height: 1.6;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header { 
+            background: var(--dark-bg); 
+            color: #ffffff; 
+            padding: 30px 0; 
+            text-align: center; 
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .calculator-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-container h2 {
+            color: var(--dark-bg);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.7rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .qualification-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .qualification-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-bg);
+        }
+        
+        .calculate-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .calculate-button:hover {
+            background: var(--primary-hover);
+        }
+        
+        .results-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .results-container h2 {
+            color: var(--dark-bg);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .university-chance {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .university-info {
+            flex: 1;
+        }
+        
+        .university-info h3 {
+            margin-bottom: 5px;
+            color: var(--dark-bg);
+        }
+        
+        .chance-bar-container {
+            width: 200px;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .chance-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .chance-percentage {
+            width: 80px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .info-text {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.95rem;
+        }
+        
+        .probability-label {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+            background-color: #eee;
+        }
+        
+        .very-high {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .high {
+            background-color: #7ebc6f;
+            color: white;
+        }
+        
+        .medium {
+            background-color: var(--warning-color);
+            color: white;
+        }
+        
+        .low {
+            background-color: #e67e22;
+            color: white;
+        }
+        
+        .very-low {
+            background-color: var(--error-color);
+            color: white;
+        }
+        
+        .requirements-warning {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .university-chance {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .chance-bar-container {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .chance-percentage {
+                text-align: center;
+                width: 100%;
+            }
+        }
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .navigation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .nav-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-buttons">
+            <button id="back-to-selection" class="nav-button">
+            ← Back to University Selection
+        </button>
+        <button id="back-to-home" class="nav-button">
+            ← Back to Main Page
+        </button>
+    </div>
+        <header>
+            <h1>Admission Chance Calculator</h1>
+            <p>UK University Computer Science Programs</p>
+        </header>
+        
+        <div class="calculator-container">
+            <h2>Select Your Qualification Type</h2>
+            
+            <div class="info-text">
+                <p><strong>Note:</strong> Select your qualification type to see relevant input fields. This calculator provides estimates based on actual admission statistics.</p>
+            </div>
+            
+            <form id="chance-calculator-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="qualification-type">Qualification Type</label>
+                        <select id="qualification-type" required>
+                            <option value="">Select your qualification</option>
+                            <option value="alevels">A-levels</option>
+                            <option value="ib">International Baccalaureate (IB)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="alevels-section" class="qualification-section" style="display: none;">
+                    <h3>A-levels Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="alevels">A-level Grades</label>
+                            <select id="alevels">
+                                <option value="">Select your grades</option>
+                                <option value="40">A*A*A*</option>
+                                <option value="35">A*A*A</option>
+                                <option value="30">A*AA</option>
+                                <option value="25">AAA</option>
+                                <option value="20">AAB</option>
+                                <option value="15">ABB</option>
+                                <option value="10">BBB</option>
+                                <option value="5">Below BBB</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="maths">A-level Maths Grade</label>
+                            <select id="maths">
+                                <option value="">Select your maths grade</option>
+                                <option value="10">A*</option>
+                                <option value="8">A</option>
+                                <option value="6">B</option>
+                                <option value="4">C</option>
+                                <option value="2">Below C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ib-section" class="qualification-section" style="display: none;">
+                    <h3>International Baccalaureate Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ib">IB Points</label>
+                            <select id="ib">
+                                <option value="">Select your points</option>
+                                <option value="45">43-45</option>
+                                <option value="40">40-42</option>
+                                <option value="37">36-39</option>
+                                <option value="33">33-35</option>
+                                <option value="30">30-32</option>
+                                <option value="27">27-29</option>
+                                <option value="24">24-26</option>
+                                <option value="20">Below 24</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ib-maths">IB Maths Grade</label>
+                            <select id="ib-maths">
+                                <option value="">Select your IB maths grade</option>
+                                <option value="10">7</option>
+                                <option value="8">6</option>
+                                <option value="6">5</option>
+                                <option value="4">4</option>
+                                <option value="2">Below 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="qualification-section">
+                    <h3>Additional Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="personal-statement">Personal Statement Quality</label>
+                            <select id="personal-statement" required>
+                                <option value="10">Excellent (Exceptional projects and motivation)</option>
+                                <option value="8">Good (Strong interest and relevant experience)</option>
+                                <option value="6">Average (Some relevant experience)</option>
+                                <option value="4">Below Average (Limited experience)</option>
+                                <option value="2">Poor (Little to no relevant experience)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="international">Are you an international student?</label>
+                            <select id="international" required>
+                                <option value="">Select</option>
+                                <option value="no">No (UK Student)</option>
+                                <option value="yes">Yes (International)</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group" id="ielts-container" style="display: none;">
+                            <label for="ielts">IELTS Score (if known)</label>
+                            <select id="ielts">
+                                <option value="0">Not taken yet</option>
+                                <option value="4.0">4.0</option>
+                                <option value="4.5">4.5</option>
+                                <option value="5.0">5.0</option>
+                                <option value="5.5">5.5</option>
+                                <option value="6.0">6.0</option>
+                                <option value="6.5">6.5</option>
+                                <option value="7.0">7.0</option>
+                                <option value="7.5">7.5</option>
+                                <option value="8.0">8.0</option>
+                                <option value="8.5">8.5</option>
+                                <option value="9.0">9.0</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-button">Calculate My Chances</button>
+            </form>
+        </div>
+        
+        <div class="results-container" id="results-container">
+            <h2>Your Admission Chances</h2>
+            <div id="results-content">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // University data with requirements for both A-levels and IB
+        const universities = [
+            {
+                name: "University of Oxford",
+                baseAcceptance: 0.065,
+                minGrades: 30, // A*AA
+                minIB: 39, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: true,
+                ieltsRequirement: 7.5,
+                weightings: {
+                    grades: 0.40,
+                    maths: 0.20,
+                    interview: 0.25,
+                    personalStatement: 0.10,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Cambridge",
+                baseAcceptance: 0.08,
+                minGrades: 35, // A*A*A
+                minIB: 40, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: true,
+                ieltsRequirement: 7.5,
+                weightings: {
+                    grades: 0.40,
+                    maths: 0.20,
+                    interview: 0.25,
+                    personalStatement: 0.10,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "Imperial College London",
+                baseAcceptance: 0.16,
+                minGrades: 35, // A*A*A
+                minIB: 39, // IB requirement
+                minMaths: 10, // A*
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: true,
+                ieltsRequirement: 7.0,
+                weightings: {
+                    grades: 0.45,
+                    maths: 0.20,
+                    interview: 0.15,
+                    personalStatement: 0.15,
+                    ielts: 0.05
+                }
+            },
+            {   
+                name: "University of St Andrews",
+                baseAcceptance: 0.40,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+
+            },
+            {   
+                name: "University of Birmingham",
+                baseAcceptance: 0.55,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.45,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.35,
+                    ielts: 0.05
+                }
+            },
+            {   
+                name: "University of Bath",
+                baseAcceptance: 0.35,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Warwick",
+                baseAcceptance: 0.45,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Bristol",
+                baseAcceptance: 0.40,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Manchester",
+                baseAcceptance: 0.50,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.45,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.35,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "King's College London",
+                baseAcceptance: 0.45,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.45,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.35,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "Durham University",
+                baseAcceptance: 0.40,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University College London (UCL)",
+                baseAcceptance: 0.35,
+                minGrades: 30, // A*AA
+                minIB: 38, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 7.0,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Sheffield",
+                baseAcceptance: 0.55,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Southampton",
+                baseAcceptance: 0.50,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Glasgow",
+                baseAcceptance: 0.55,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Edinburgh",
+                baseAcceptance: 0.40,
+                minGrades: 25, // AAA
+                minIB: 36, // IB requirement
+                minMaths: 8, // A
+                minIBMaths: 6, // IB Maths 6
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of York",
+                baseAcceptance: 0.55,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            { 
+                name: "University of Exeter",
+                baseAcceptance: 0.50,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "University of Nottingham",
+                baseAcceptance: 0.50,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            },
+            {
+                name: "Loughborough University",
+                baseAcceptance: 0.55,
+                minGrades: 20, // AAB
+                minIB: 34, // IB requirement
+                minMaths: 6, // B
+                minIBMaths: 5, // IB Maths 5
+                requiresInterview: false,
+                ieltsRequirement: 6.5,
+                weightings: {
+                    grades: 0.50,
+                    maths: 0.15,
+                    interview: 0.00,
+                    personalStatement: 0.30,
+                    ielts: 0.05
+                }
+            }
+        ];
+
+        // Handle form submission
+        document.getElementById('chance-calculator-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateChances();
+        });
+
+        // Show/hide qualification sections based on selection
+        document.getElementById('qualification-type').addEventListener('change', function() {
+            const qualType = this.value;
+            document.getElementById('alevels-section').style.display = qualType === 'alevels' ? 'block' : 'none';
+            document.getElementById('ib-section').style.display = qualType === 'ib' ? 'block' : 'none';
+            
+            // Set required attributes accordingly
+            document.getElementById('alevels').required = qualType === 'alevels';
+            document.getElementById('maths').required = qualType === 'alevels';
+            document.getElementById('ib').required = qualType === 'ib';
+            document.getElementById('ib-maths').required = qualType === 'ib';
+        });
+
+        // Show/hide IELTS field based on international status
+        document.getElementById('international').addEventListener('change', function() {
+            const ieltsContainer = document.getElementById('ielts-container');
+            ieltsContainer.style.display = this.value === 'yes' ? 'block' : 'none';
+        });
+
+        // Calculate admission chances
+        function calculateChances() { 
+            // Get selected universities from localStorage
+            const selectedUniversities = JSON.parse(localStorage.getItem('universityShortlist') || '[]');
+            const selectedUniversityNames = selectedUniversities.map(uni => uni.name);
+            const universitiesToCalculate = universities.filter(uni => 
+                  selectedUniversityNames.includes(uni.name)
+            );
+            if (selectedUniversityNames.length === 0) {
+                alert("No universities selected. Calculating for all universities.");
+            }  
+            const universitiesToProcess = universitiesToCalculate.length > 0 ? universitiesToCalculate : universities;
+            const qualType = document.getElementById('qualification-type').value;
+            if (!qualType) {
+                alert("Please select your qualification type");
+                return;
+            }
+            
+            // Get values based on qualification type
+            let gradesScore = 0;
+            let mathsScore = 0;
+            
+            if (qualType === 'alevels') {
+                gradesScore = parseInt(document.getElementById('alevels').value) || 0;
+                mathsScore = parseInt(document.getElementById('maths').value) || 0;
+            } else {
+                const ibScore = parseInt(document.getElementById('ib').value) || 0;
+                gradesScore = Math.min(ibScore, 45) * 40 / 45; // Convert to similar scale as A-levels
+                mathsScore = parseInt(document.getElementById('ib-maths').value) || 0;
+            }
+            
+            const personalStatement = parseInt(document.getElementById('personal-statement').value) || 0;
+            const isInternational = document.getElementById('international').value === 'yes';
+            const ieltsScore = parseFloat(document.getElementById('ielts').value) || 0;
+            
+            // Calculate chances for each university
+            const resultsContainer = document.getElementById('results-container');
+            const resultsContent = document.getElementById('results-content');
+            resultsContent.innerHTML = '';
+            
+            universitiesToProcess.forEach(uni => {
+                // Check if meets minimum requirements
+                let meetsMinimum = true;
+                let rejectionReasons = [];
+                
+                // Check grades based on qualification type
+                const minGradeReq = qualType === 'alevels' ? uni.minGrades : uni.minIB * 40 / 45;
+                const minMathsReq = qualType === 'alevels' ? uni.minMaths : uni.minIBMaths;
+                
+                if (gradesScore < minGradeReq) {
+                    meetsMinimum = false;
+                    rejectionReasons.push("Grades below minimum requirement");
+                }
+                
+                if (mathsScore < minMathsReq) {
+                    meetsMinimum = false;
+                    rejectionReasons.push("Maths grade below requirement");
+                }
+                
+                // Calculate IELTS score if international student
+                let ieltsMultiplier = 1.0;
+                if (isInternational) {
+                    if (ieltsScore >= uni.ieltsRequirement) {
+                        ieltsMultiplier = 1.0;
+                    } else if (ieltsScore >= uni.ieltsRequirement - 0.5) {
+                        ieltsMultiplier = 0.9;
+                    } else if (ieltsScore > 0) {
+                        // IELTS score is too low
+                        meetsMinimum = false;
+                        rejectionReasons.push("IELTS score below requirement");
+                    } else {
+                        // IELTS not taken yet
+                        ieltsMultiplier = 0.95;
+                    }
+                }
+                
+                // Calculate chance based on realistic algorithm
+                let chance = 0;
+                
+                if (meetsMinimum) {
+                    // Start with base acceptance rate
+                    chance = uni.baseAcceptance * 100;
+                    
+                    // Calculate multipliers
+                    const gradeMultiplier = calculateGradeMultiplier(gradesScore, minGradeReq, uni);
+                    const mathsMultiplier = calculateMathsMultiplier(mathsScore, minMathsReq, uni);
+                    const psMultiplier = calculatePersonalStatementMultiplier(personalStatement);
+                    
+                    // Apply multipliers
+                    chance *= gradeMultiplier;
+                    chance *= mathsMultiplier;
+                    chance *= psMultiplier;
+                    
+                    // Apply IELTS multiplier
+                    chance *= ieltsMultiplier;
+                    
+                    // Apply interview adjustment if required
+                    if (uni.requiresInterview) {
+                        // Interview performance is unknown, so we apply a moderate adjustment
+                        chance *= 0.9; // Slightly reduce chance to account for interview uncertainty
+                    }
+                } else {
+                    // If doesn't meet minimum requirements, calculate a reduced chance
+                    chance = uni.baseAcceptance * 100 * 0.2; // 20% of base chance
+                }
+                
+                // Ensure chance is within reasonable bounds
+                chance = Math.min(Math.max(chance, 2), 95);
+                
+                // Create result element
+                const uniElement = document.createElement('div');
+                uniElement.className = 'university-chance';
+                
+                // Determine probability label
+                let labelClass, labelText;
+                if (chance >= 70) {
+                    labelClass = 'very-high';
+                    labelText = 'Very High';
+                } else if (chance >= 40) {
+                    labelClass = 'high';
+                    labelText = 'High';
+                } else if (chance >= 20) {
+                    labelClass = 'medium';
+                    labelText = 'Medium';
+                } else if (chance >= 10) {
+                    labelClass = 'low';
+                    labelText = 'Low';
+                } else {
+                    labelClass = 'very-low';
+                    labelText = 'Very Low';
+                }
+                
+                let requirementsHtml = '';
+                if (!meetsMinimum && rejectionReasons.length > 0) {
+                    requirementsHtml = `<div class="requirements-warning">⚠️ ${rejectionReasons.join(', ')}</div>`;
+                }
+                
+                // Format minimum requirements text based on qualification type
+                const minReqText = getMinimumRequirementsText(uni, qualType, isInternational);
+                
+                uniElement.innerHTML = `
+                    <div class="university-info">
+                        <h3>${uni.name} <span class="probability-label ${labelClass}">${labelText}</span></h3>
+                        <div>Minimum requirements: ${minReqText}</div>
+                        ${requirementsHtml}
+                    </div>
+                    <div class="chance-bar-container">
+                        <div class="chance-bar" style="width: ${chance}%"></div>
+                    </div>
+                    <div class="chance-percentage">${chance.toFixed(1)}%</div>
+                `;
+                
+                resultsContent.appendChild(uniElement);
+            });
+            
+            // Show results
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Helper function to calculate grade multiplier
+        function calculateGradeMultiplier(gradeScore, minGradeReq, uni) {
+            // Check if this is an Oxbridge university
+            const isOxbridge = uni.name.includes("Oxford") || uni.name.includes("Cambridge");
+            const isIC = uni.name.includes("Imperial");
+            
+            if (isOxbridge) {
+                // Special formula for Oxbridge
+                if (gradeScore > minGradeReq) {
+                    return 1.4 * (gradeScore / minGradeReq);
+                } else {
+                    return gradeScore / minGradeReq;
+                }
+            } else if (isIC) {
+                // Special formula for Imperial College
+                if (gradeScore > minGradeReq) {
+                    return 2 * (gradeScore / minGradeReq);
+                } else {
+                    return gradeScore / minGradeReq;
+                }
+            } else {
+                return gradeScore / minGradeReq;
+                
+            }
+        }
+        
+        // Helper function to calculate maths multiplier
+        function calculateMathsMultiplier(mathsScore, minMathsReq, uni) {
+            // Check if this is an Oxbridge university
+            const isOxbridge = uni.name.includes("Oxford") || uni.name.includes("Cambridge");
+            const isIC = uni.name.includes("Imperial");
+            
+            if (isOxbridge) {
+                // Special formula for Oxbridge
+                if (mathsScore > minMathsReq) {
+                    return 1.3 * (mathsScore / minMathsReq);
+                } else {
+                    return mathsScore / minMathsReq;
+                }
+            } else if (isIC) {
+                // Special formula for Imperial College
+                if (mathsScore === minMathsReq) {
+                    return 1.6 * (mathsScore / minMathsReq);
+                } else {
+                    return mathsScore / minMathsReq;
+                }
+            } else {
+                return mathsScore / minMathsReq;
+            }
+        }
+        
+        // Helper function to calculate personal statement multiplier
+        function calculatePersonalStatementMultiplier(psScore) {
+            if (psScore >= 10) return 1.1;         // Excellent
+            if (psScore >= 8) return 1.07;          // Good
+            if (psScore >= 6) return 0.95;          // Average
+            if (psScore >= 4) return 0.88;          // Below Average
+            return 0.7;                            // Poor
+        }
+        
+        // Helper function to format minimum requirements text
+        function getMinimumRequirementsText(uni, qualType, isInternational) {
+            let minReqText = '';
+            
+            if (qualType === 'alevels') {
+                minReqText = `A-level ${getGradeFromScore(uni.minGrades)}, Maths ${getGradeFromScore(uni.minMaths)}`;
+            } else {
+                minReqText = `IB ${uni.minIB}, Maths ${getIBMathsGrade(uni.minIBMaths)}`;
+            }
+            
+            if (isInternational) {
+                minReqText += `, IELTS ${uni.ieltsRequirement}`;
+            }
+            
+            if (uni.requiresInterview) {
+                minReqText += `, Interview required`;
+            }
+            
+            return minReqText;
+        }
+        
+        // Helper function to convert score to A-level grade
+        function getGradeFromScore(score) {
+            const gradeMap = {
+                40: "A*A*A*",
+                35: "A*A*A", 
+                30: "A*AA",
+                25: "AAA",
+                20: "AAB",
+                15: "ABB",
+                10: "BBB",
+                8: "A",
+                10: "A*",
+                6: "B"
+            };
+            return gradeMap[score] || score;
+        }
+        
+        // Helper function for IB Maths grades
+        function getIBMathsGrade(score) {
+            const gradeMap = {
+                10: "7",
+                8: "6", 
+                6: "5",
+                4: "4"
+            };
+            return gradeMap[score] || "3 or below";
+        }
+        document.getElementById('back-to-selection').addEventListener('click', function() {
+            window.location.href = 'index.html'; 
+        });
+
+        document.getElementById('back-to-home').addEventListener('click', function() {
+            window.location.href = 'home-page.html'; 
+        });
+    </script>
+</body>
+</html>

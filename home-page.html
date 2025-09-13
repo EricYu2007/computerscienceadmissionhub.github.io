@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Computer Science Course - Next Steps</title>
+    <style>
+        :root {
+            --primary-color: #08d28f;
+            --primary-hover: #08cdd0;
+            --dark-bg: #35424a;
+            --light-bg: #f4f4f4;
+            --card-bg: #ffffe0;
+            --text-color: #333;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--light-bg); 
+            line-height: 1.6;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header { 
+            background: var(--dark-bg); 
+            color: #ffffff; 
+            padding: 30px 0; 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .navigation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .nav-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .option-card h2 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .option-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .option-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .option-button:hover {
+            background: var(--primary-hover);
+        }
+        
+        .shortlist-summary {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .shortlist-summary h2 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .shortlist-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .shortlist-item {
+            background: var(--light-bg);
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .option-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UK Computer Science Course Finder</h1>
+            <p>Next steps for your university application journey</p>
+        </header>
+
+        <div class="navigation-buttons">
+            <button id="back-to-selection" class="nav-button">
+                ← Back to University Selection
+            </button>
+        </div>
+        <div class="shortlist-summary">
+            <h2>Your Shortlisted Universities</h2>
+            <div class="shortlist-items" id="shortlist-items">
+                <!-- Shortlisted universities will be displayed here -->
+            </div>
+        </div>
+        
+        <div class="options-container">
+            <div class="option-card">
+                <div class="option-icon">📊</div>
+                <h2>Chance Calculator</h2>
+                <p>Estimate your likelihood of admission to your shortlisted universities based on your grades and profile.</p>
+                <button class="option-button" onclick="navigateToChanceCalculator()">Calculate My Chances</button>
+            </div>
+            
+            <div class="option-card">
+                <div class="option-icon">💬</div>
+                <h2>Student Feedback</h2>
+                <p>Read reviews and experiences from current students at your shortlisted universities.</p>
+                <button class="option-button" onclick="navigateToStudentFeedback()">View Student Feedback</button>
+            </div>
+            <div class="option-card">
+                <div class="option-icon">⚖️</div>
+                <h2>Course Comparison</h2>
+                <p>Compare courses, modules, and teaching approaches across your shortlisted universities.</p>
+                <button class="option-button" onclick="navigateToCourseComparison()">Compare Courses</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        Feature selected! This would navigate to the appropriate page.
+    </div>
+
+    <script>
+        // Display shortlisted universities
+        function displayShortlist() {
+            const shortlistJSON = localStorage.getItem('universityShortlist');
+            const shortlist = shortlistJSON ? JSON.parse(shortlistJSON) : [];
+    
+            const shortlistContainer = document.getElementById('shortlist-items');
+            shortlistContainer.innerHTML = '';
+    
+            // Check if shortlist is empty
+            if (shortlist.length === 0) {
+                shortlistContainer.innerHTML = '<p class="empty-message">No universities selected. Please go back and add some to your shortlist.</p>';
+                return;
+            }
+    
+            // Display each university name
+            shortlist.forEach(university => {
+            const item = document.createElement('div');
+            item.className = 'shortlist-item';
+            item.textContent = university.name; // Access the name property
+            shortlistContainer.appendChild(item);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', displayShortlist);
+        
+        // Go back to the previous page
+        function goBack() {
+            location.href = 'index.html';
+        }
+        
+        function navigateToChanceCalculator() {
+            location.href = 'chance-calculator.html';
+        }
+        
+        function navigateToStudentFeedback() {
+            location.href = 'student-feedback.html';
+        }
+
+        function navigateToCourseComparison() {
+            location.href = 'course-comparison.html';
+        }
+
+        document.getElementById('back-to-selection').addEventListener('click', function() {
+            window.location.href = 'universities-selection.html'; 
+        });
+
+        // Initialize the page
+        window.onload = function() {
+            displayShortlist();
+        }
+    </script>
+</body>
+</html>
