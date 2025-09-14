@@ -246,6 +246,12 @@
                 <p>Compare courses, modules, and teaching approaches across your shortlisted universities.</p>
                 <button class="option-button" onclick="navigateToCourseComparison()">Compare Courses</button>
             </div>
+            <div class="option-card">
+                <div class="option-icon">🕒</div>
+                <h2>Crucial Deadlines</h2>
+                <p>View key application deadlines and important dates for your shortlisted universities.</p>
+                <button class="option-button" onclick="navigateToCrucialDeadlines()">View Deadlines</button>
+            </div>
         </div>
     </div>
     
@@ -295,8 +301,12 @@
             location.href = 'course-comparison.html';
         }
 
+        function navigateToCrucialDeadlines() {
+            location.href = 'crucial-deadlines.html';
+        }
+
         document.getElementById('back-to-selection').addEventListener('click', function() {
-            window.location.href = 'index.html'; 
+            window.location.href = 'universities-selection.html'; 
         });
 
         // Initialize the page
@@ -305,5 +315,4 @@
         }
     </script>
 </body>
-
 </html>
