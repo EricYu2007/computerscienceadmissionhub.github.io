@@ -252,6 +252,12 @@
                 <p>View key application deadlines and important dates for your shortlisted universities.</p>
                 <button class="option-button" onclick="navigateToCrucialDeadlines()">View Deadlines</button>
             </div>
+            <div class="option-card">
+                <div class="option-icon">🏆</div>
+                <h2>Useful Competitions</h2>
+                <p>Discover competitions that can enhance your application profile and improve your problem-solving skills.</p>
+                <button class="option-button" onclick="navigateToUsefulCompetitions()">Explore Competitions</button>
+            </div>
         </div>
     </div>
     
@@ -284,6 +290,11 @@
         }
         document.addEventListener('DOMContentLoaded', displayShortlist);
         
+        // Go back to the previous page
+        function goBack() {
+            location.href = 'index.html';
+        }
+        
         function navigateToChanceCalculator() {
             location.href = 'chance-calculator.html';
         }
@@ -300,6 +311,10 @@
             location.href = 'crucial-deadlines.html';
         }
 
+        function navigateToUsefulCompetitions() {
+            location.href = 'useful-competitions.html';
+        }
+
         document.getElementById('back-to-selection').addEventListener('click', function() {
             window.location.href = 'index.html'; 
         });
@@ -311,5 +326,3 @@
     </script>
 </body>
 </html>
-
-
