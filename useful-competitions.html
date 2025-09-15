@@ -15,6 +15,7 @@
             --subject-cs: #ff6b6b;
             --subject-maths: #4ecdc4;
             --subject-physics: #45b7d1;
+            --subject-robotics: #f7b733;
         }
         
         * {
@@ -151,6 +152,12 @@
             gap: 30px;
             margin-bottom: 40px;
         }
+
+        @media (min-width: 769px) {
+            .competitions-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         
         .competition-card {
             background: white;
@@ -188,6 +195,10 @@
         
         .physics-badge {
             background: var(--subject-physics);
+        }
+
+        .robotics-badge {
+            background: var(--subject-robotics);
         }
         
         .competition-card h3 {
@@ -255,7 +266,7 @@
                 ← Back to University Selection
             </button>
             <button id="back-to-home" class="nav-button">
-                ← Back to Main Page
+                ← Back to Home Page
             </button>
         </div>
 
@@ -281,6 +292,7 @@
             <button class="filter-button" data-filter="cs">Computer Science</button>
             <button class="filter-button" data-filter="maths">Mathematics</button>
             <button class="filter-button" data-filter="physics">Physics</button>
+            <button class="filter-button" data-filter="robotics">Robotics</button>
         </div>
         
         <div class="competitions-container">
@@ -324,25 +336,25 @@
                 </div>
                 <a href="https://oucc.uk/" class="competition-link" target="_blank">Learn More</a>
             </div>
-            
+
             <div class="competition-card" data-subject="cs">
                 <span class="subject-badge cs-badge">Computer Science</span>
-                <h3>FIRST Tech Challenge UK</h3>
+                <h3>USA Computing Olympiad (USACO)</h3>
                 <div class="competition-details">
                     <div class="detail-item">
                         <div class="detail-icon">📅</div>
-                        <div class="detail-content">Season runs September to March</div>
+                        <div class="detail-content">Four contests annually: February, March, November, December</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">🎯</div>
-                        <div class="detail-content">For students aged 12-18 (teams of up to 15)</div>
+                        <div class="detail-content">Open to all pre-college students worldwide</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">📝</div>
-                        <div class="detail-content">Robotics competition with emphasis on programming</div>
+                        <div class="detail-content">Programming problems in C++, Java, and Python</div>
                     </div>
                 </div>
-                <a href="https://www.firsttechchallenge.org.uk/" class="competition-link" target="_blank">Learn More</a>
+                <a href="http://www.usaco.org/" class="competition-link" target="_blank">Learn More</a>
             </div>
             
             <!-- Mathematics Competitions -->
@@ -385,25 +397,45 @@
                 </div>
                 <a href="https://www.ukmt.org.uk/competitions/solo/bmo1" class="competition-link" target="_blank">Learn More</a>
             </div>
-            
+
             <div class="competition-card" data-subject="maths">
                 <span class="subject-badge maths-badge">Mathematics</span>
-                <h3>Alan Turing Cryptography Competition</h3>
+                <h3>American Mathematics Competitions (AMC)</h3>
                 <div class="competition-details">
                     <div class="detail-item">
                         <div class="detail-icon">📅</div>
-                        <div class="detail-content">Runs from January to April</div>
+                        <div class="detail-content">AMC12: November</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">🎯</div>
-                        <div class="detail-content">For students in Year 11 and below</div>
+                        <div class="detail-content">For students in Year 12 and 13</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">📝</div>
-                        <div class="detail-content">Series of code-breaking challenges</div>
+                        <div class="detail-content">Multiple choice questions</div>
                     </div>
                 </div>
-                <a href="https://www.maths.manchester.ac.uk/cryptography_competition/" class="competition-link" target="_blank">Learn More</a>
+                <a href="https://www.maa.org/math-competitions/amc" class="competition-link" target="_blank">Learn More</a>
+            </div>
+
+            <div class="competition-card" data-subject="maths">
+                <span class="subject-badge maths-badge">Mathematics</span>
+                <h3>American Invitational Mathematics Examination (AIME)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Typically February</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">Invitation-only for top AMC12 scorers</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">15 questions, each with answers from 0-999</div>
+                    </div>
+                </div>
+                <a href="https://www.maa.org/math-competitions/aime" class="competition-link" target="_blank">Learn More</a>
             </div>
             
             <!-- Physics Competitions -->
@@ -429,45 +461,86 @@
             
             <div class="competition-card" data-subject="physics">
                 <span class="subject-badge physics-badge">Physics</span>
-                <h3>Sir Isaac Physics Award</h3>
+                <h3>Physics Bowl</h3>
                 <div class="competition-details">
                     <div class="detail-item">
                         <div class="detail-icon">📅</div>
-                        <div class="detail-content">Multiple challenges throughout academic year</div>
+                        <div class="detail-content">April</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">🎯</div>
-                        <div class="detail-content">For students in Year 9-11</div>
+                        <div class="detail-content">For high school students worldwide</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">📝</div>
-                        <div class="detail-content">Online physics problem-solving challenges</div>
+                        <div class="detail-content">Multiple choice questions testing physics knowledge</div>
                     </div>
                 </div>
-                <a href="https://www.isaacphysics.org/" class="competition-link" target="_blank">Learn More</a>
+                <a href="https://www.physicsbowl.org/" class="competition-link" target="_blank">Learn More</a>
             </div>
             
-            <div class="competition-card" data-subject="physics">
-                <span class="subject-badge physics-badge">Physics</span>
-                <h3>Physics Aptitude Test (PAT)</h3>
+            <!-- Robotics Competitions -->
+            <div class="competition-card" data-subject="robotics">
+                <span class="subject-badge robotics-badge">Robotics</span>
+                <h3>FIRST Tech Challenge UK</h3>
                 <div class="competition-details">
                     <div class="detail-item">
                         <div class="detail-icon">📅</div>
-                        <div class="detail-content">Typically early November</div>
+                        <div class="detail-content">Season runs September to March</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">🎯</div>
-                        <div class="detail-content">Required for Oxford Physics, Engineering, and Materials Science</div>
+                        <div class="detail-content">For students aged 12-18 (teams of up to 15)</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">📝</div>
-                        <div class="detail-content">Physics and mathematics questions</div>
+                        <div class="detail-content">Robotics competition with emphasis on programming</div>
                     </div>
                 </div>
-                <a href="https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/guide/admissions-tests/pat" class="competition-link" target="_blank">Learn More</a>
+                <a href="https://www.firsttechchallenge.org.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="robotics">
+                <span class="subject-badge robotics-badge">Robotics</span>
+                <h3>RoboChallenge</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Annual event, typically in June</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students aged 8-18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Robotics challenges focusing on design and programming</div>
+                    </div>
+                </div>
+                <a href="https://www.roboclub.org.uk/roboclub-events/roboclub-roboclub-challenge/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="robotics">
+                <span class="subject-badge robotics-badge">Robotics</span>
+                <h3>Student Robotics</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Annual event, typically in March</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students aged 11-18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Teams design, build, and program robots to complete tasks</div>
+                    </div>
+                </div>
+                <a href="https://studentrobotics.org/" class="competition-link" target="_blank">Learn More</a>
             </div>
         </div>
-        
+    </div>
 
     <script>
         // Filter functionality
