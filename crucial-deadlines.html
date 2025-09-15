@@ -8,6 +8,7 @@
         :root {
             --primary-color: #08d28f;
             --primary-hover: #08cdd0;
+            --disclaimer-color: #ff6b6b;
             --dark-bg: #35424a;
             --light-bg: #f4f4f4;
             --urgent: #ff4757;
@@ -186,7 +187,7 @@
         
         .info-disclaimer {
             background-color: #f8f9fa;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--disclaimer-color);
             padding: 15px;
             margin-top: 30px;
             font-size: 0.9rem;
@@ -238,6 +239,12 @@
                 ← Back to Home
             </button>
         </div>
+
+        <div class="info-disclaimer">
+                <strong>Information Sources:</strong> Deadline information is compiled from official UCAS guidelines and university websites. 
+                Please verify details on official university websites before making application decisions as dates may change.
+                <a href="https://www.ucas.com/deadlines" target="_blank">UCAS Deadlines</a>.
+            </div>
         
         <div class="deadlines-container">
             <h2 class="deadlines-header">Your Application Deadlines</h2>
@@ -251,12 +258,6 @@
             
             <div id="deadlines-list">
                 <!-- Deadlines will be displayed here -->
-            </div>
-            
-            <div class="info-disclaimer">
-                <strong>Information Sources:</strong> Deadline information is compiled from official UCAS guidelines and university websites. 
-                Please verify details on official university websites before making application decisions as dates may change.
-                <a href="https://www.ucas.com/deadlines" target="_blank">UCAS Deadlines</a>.
             </div>
         </div>
     </div>
@@ -483,6 +484,4 @@
         }
     </script>
 </body>
-
 </html>
-
