@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Competitions - UK Computer Science Course Finder</title>
+    <style>
+        :root {
+            --primary-color: #08d28f;
+            --primary-hover: #08cdd0;
+            --dark-bg: #35424a;
+            --light-bg: #f4f4f4;
+            --card-bg: #ffffe0;
+            --text-color: #333;
+            --subject-cs: #ff6b6b;
+            --subject-maths: #4ecdc4;
+            --subject-physics: #45b7d1;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--light-bg); 
+            line-height: 1.6;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header { 
+            background: var(--dark-bg); 
+            color: #ffffff; 
+            padding: 30px 0; 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        .intro-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .intro-section h2 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+        }
+        
+        .intro-section p {
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .disclaimer h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--dark-bg);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .competitions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .competition-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .competition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .subject-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 15px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-bottom-left-radius: 10px;
+        }
+        
+        .cs-badge {
+            background: var(--subject-cs);
+        }
+        
+        .maths-badge {
+            background: var(--subject-maths);
+        }
+        
+        .physics-badge {
+            background: var(--subject-physics);
+        }
+        
+        .competition-card h3 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            padding-right: 70px;
+            font-size: 1.4rem;
+        }
+        
+        .competition-details {
+            margin-bottom: 20px;
+        }
+        
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .detail-icon {
+            min-width: 25px;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .detail-content {
+            flex: 1;
+        }
+        
+        .competition-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .competition-link:hover {
+            background: var(--primary-hover);
+        }
+        
+        @media (max-width: 768px) {
+            .competitions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-button {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-buttons">
+            <button id="back-to-selection" class="nav-button">
+                ← Back to University Selection
+            </button>
+            <button id="back-to-home" class="nav-button">
+                ← Back to Main Page
+            </button>
+        </div>
+
+        <header>
+            <h1>Useful Competitions</h1>
+            <p>Enhance your university application with these valuable competitions</p>
+        </header>
+
+        <div class="disclaimer">
+            <h3>Important Disclaimer</h3>
+            <p>The competition information provided on this page was gathered from publicly available sources including official competition websites, educational resources, and university admissions guidance. While we strive to keep this information accurate and up-to-date, competition details, dates, and formats may change. We strongly recommend visiting the official websites (linked for each competition) to verify all information before making participation decisions.</p>
+            <p>This page is intended for informational purposes only and does not constitute an endorsement of any specific competition or organization.</p>
+        </div>
+        
+        <div class="intro-section">
+            <h2>Find Competitions to Boost Your Application</h2>
+            <p>Participating in relevant competitions demonstrates your passion for computer science and related subjects. These experiences can strengthen your personal statement and make your application stand out to university admissions teams.</p>
+            <p>Filter the competitions below by subject area to find opportunities that match your interests and skills.</p>
+        </div>
+        
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">All Competitions</button>
+            <button class="filter-button" data-filter="cs">Computer Science</button>
+            <button class="filter-button" data-filter="maths">Mathematics</button>
+            <button class="filter-button" data-filter="physics">Physics</button>
+        </div>
+        
+        <div class="competitions-container">
+            <!-- Computer Science Competitions -->
+            <div class="competition-card" data-subject="cs">
+                <span class="subject-badge cs-badge">Computer Science</span>
+                <h3>British Informatics Olympiad (BIO)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Registration: September - November, Final: March</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">Open to students aged 19 or under in full-time education</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Programming challenges and algorithmic problem solving</div>
+                    </div>
+                </div>
+                <a href="https://www.olympiad.org.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="cs">
+                <span class="subject-badge cs-badge">Computer Science</span>
+                <h3>Oxford University Computing Challenge (OUCC)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Round 1: January, Final: March</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students aged 14-19</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Algorithmic problems of increasing difficulty</div>
+                    </div>
+                </div>
+                <a href="https://oucc.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="cs">
+                <span class="subject-badge cs-badge">Computer Science</span>
+                <h3>FIRST Tech Challenge UK</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Season runs September to March</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students aged 12-18 (teams of up to 15)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Robotics competition with emphasis on programming</div>
+                    </div>
+                </div>
+                <a href="https://www.firsttechchallenge.org.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <!-- Mathematics Competitions -->
+            <div class="competition-card" data-subject="maths">
+                <span class="subject-badge maths-badge">Mathematics</span>
+                <h3>UK Mathematics Trust (UKMT) Challenges</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Senior Mathematical Challenge: November</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students in Year 13 or below</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Problem-solving questions testing mathematical reasoning</div>
+                    </div>
+                </div>
+                <a href="https://www.ukmt.org.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="maths">
+                <span class="subject-badge maths-badge">Mathematics</span>
+                <h3>British Mathematical Olympiad (BMO)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Round 1: November, Round 2: January</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">Top performers in UKMT Senior Challenge invited</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Proof-based mathematical problems</div>
+                    </div>
+                </div>
+                <a href="https://www.ukmt.org.uk/competitions/solo/bmo1" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="maths">
+                <span class="subject-badge maths-badge">Mathematics</span>
+                <h3>Alan Turing Cryptography Competition</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Runs from January to April</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students in Year 11 and below</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Series of code-breaking challenges</div>
+                    </div>
+                </div>
+                <a href="https://www.maths.manchester.ac.uk/cryptography_competition/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <!-- Physics Competitions -->
+            <div class="competition-card" data-subject="physics">
+                <span class="subject-badge physics-badge">Physics</span>
+                <h3>British Physics Olympiad (BPhO)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Round 1: November, Subsequent rounds in following months</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students in Year 11-13</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Challenging physics problems requiring theoretical solutions</div>
+                    </div>
+                </div>
+                <a href="https://www.bpho.org.uk/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="physics">
+                <span class="subject-badge physics-badge">Physics</span>
+                <h3>Sir Isaac Physics Award</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Multiple challenges throughout academic year</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">For students in Year 9-11</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Online physics problem-solving challenges</div>
+                    </div>
+                </div>
+                <a href="https://www.isaacphysics.org/" class="competition-link" target="_blank">Learn More</a>
+            </div>
+            
+            <div class="competition-card" data-subject="physics">
+                <span class="subject-badge physics-badge">Physics</span>
+                <h3>Physics Aptitude Test (PAT)</h3>
+                <div class="competition-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-content">Typically early November</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-content">Required for Oxford Physics, Engineering, and Materials Science</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-content">Physics and mathematics questions</div>
+                    </div>
+                </div>
+                <a href="https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/guide/admissions-tests/pat" class="competition-link" target="_blank">Learn More</a>
+            </div>
+        </div>
+        
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const competitionCards = document.querySelectorAll('.competition-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide cards based on filter
+                    competitionCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-subject') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        document.getElementById('back-to-selection').addEventListener('click', function() {
+            window.location.href = 'index.html'; 
+        });
+
+        document.getElementById('back-to-home').addEventListener('click', function() {
+            window.location.href = 'home-page.html'; 
+        });
+    </script>
+</body>
+</html>
