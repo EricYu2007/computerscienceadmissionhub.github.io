@@ -1,495 +1,1179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UK Computer Science Course - Crucial Deadlines</title>
     <style>
-        :root {
-            --primary-color: #08d28f;
-            --primary-hover: #08cdd0;
-            --disclaimer-color: #ff6b6b;
-            --dark-bg: #35424a;
-            --light-bg: #f4f4f4;
-            --urgent: #ff4757;
-            --warning: #ffa502;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--light-bg); 
-            line-height: 1.6;
-            color: var(--text-color);
-            font-size: 16px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header { 
-            background: var(--dark-bg); 
-            color: #ffffff; 
-            padding: 30px 0; 
-            text-align: center; 
-            margin-bottom: 30px;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
+      :root {
+        --primary-color: #08d28f;
+        --primary-hover: #08cdd0;
+        --disclaimer-color: #ff6b6b;
+        --dark-bg: #35424a;
+        --light-bg: #f4f4f4;
+        --urgent: #ff4757;
+        --warning: #ffa502;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light-bg);
+        line-height: 1.6;
+        color: var(--text-color);
+        font-size: 16px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: var(--dark-bg);
+        color: #ffffff;
+        padding: 30px 0;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .navigation-buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+        justify-content: center;
+      }
+
+      .nav-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-button:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-button:active {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
         .navigation-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            justify-content: center;
+          flex-direction: column;
+          align-items: center;
         }
 
         .nav-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 280px;
         }
+      }
 
-        .nav-button:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+      .deadlines-container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
 
-        .nav-button:active {
-            transform: translateY(0);
-        }
+      .deadlines-header {
+        text-align: center;
+        margin-bottom: 25px;
+        color: var(--dark-bg);
+      }
 
-        @media (max-width: 768px) {
-            .navigation-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-    
-            .nav-button {
-                width: 100%;
-                max-width: 280px;
-            }
+      .deadline-filters {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .filter-button {
+        background: var(--light-bg);
+        border: 1px solid #ddd;
+        padding: 8px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+      }
+
+      .filter-button:hover,
+      .filter-button.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      .deadline-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .deadline-item:last-child {
+        border-bottom: none;
+      }
+
+      .deadline-university {
+        font-weight: bold;
+        color: var(--dark-bg);
+        flex: 1;
+      }
+
+      .deadline-date {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+        text-align: center;
+        min-width: 120px;
+      }
+
+      .deadline-urgent {
+        background-color: var(--urgent);
+        animation: pulse 2s infinite;
+      }
+
+      .deadline-warning {
+        background-color: var(--warning);
+      }
+
+      .deadline-type {
+        font-size: 0.8rem;
+        display: block;
+        opacity: 0.9;
+      }
+
+      .no-deadlines {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+      }
+
+      .info-disclaimer {
+        background-color: #f8f9fa;
+        border-left: 4px solid var(--disclaimer-color);
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
         }
-        
-        .deadlines-container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-bottom: 30px;
+        50% {
+          opacity: 0.7;
         }
-        
-        .deadlines-header {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--dark-bg);
+        100% {
+          opacity: 1;
         }
-        
-        .deadline-filters {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .filter-button {
-            background: var(--light-bg);
-            border: 1px solid #ddd;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .filter-button:hover, .filter-button.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+      }
+
+      @media (max-width: 768px) {
         .deadline-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
         }
-        
-        .deadline-item:last-child {
-            border-bottom: none;
-        }
-        
-        .deadline-university {
-            font-weight: bold;
-            color: var(--dark-bg);
-            flex: 1;
-        }
-        
+
         .deadline-date {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-left: 10px;
-            text-align: center;
-            min-width: 120px;
+          align-self: flex-start;
+          margin-left: 0;
         }
-        
-        .deadline-urgent {
-            background-color: var(--urgent);
-            animation: pulse 2s infinite;
-        }
-        
-        .deadline-warning {
-            background-color: var(--warning);
-        }
-        
-        .deadline-type {
-            font-size: 0.8rem;
-            display: block;
-            opacity: 0.9;
-        }
-        
-        .no-deadlines {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-        
-        .info-disclaimer {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--disclaimer-color);
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 1000;
-        }
-        
-        @media (max-width: 768px) {
-            .deadline-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .deadline-date {
-                align-self: flex-start;
-                margin-left: 0;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="navigation-buttons">
-            <button id="back-to-selection" class="nav-button">
-                ← Back to University Selection
-            </button>
-            <button id="back-to-home" class="nav-button">
-                ← Back to Home Page
-            </button>
+      <div class="navigation-buttons">
+        <button id="back-to-selection" class="nav-button">
+          ← Back to University Selection
+        </button>
+        <button id="back-to-home" class="nav-button">
+          ← Back to Home Page
+        </button>
+      </div>
+
+      <header>
+        <h1>UK Computer Science Course Deadlines</h1>
+        <p>Application deadlines for your shortlisted universities</p>
+      </header>
+
+      <div class="info-disclaimer">
+        <strong>Information Sources:</strong> Deadline information is compiled
+        from official UCAS guidelines and university websites. Please verify
+        details on official university websites before making application
+        decisions as dates may change.
+        <a href="https://www.ucas.com/deadlines" target="_blank"
+          >UCAS Deadlines</a
+        >.
+      </div>
+
+      <div class="deadlines-container">
+        <h2 class="deadlines-header">Your Application Deadlines</h2>
+
+        <div class="deadline-filters">
+          <button class="filter-button active" data-filter="all">
+            All Deadlines
+          </button>
+          <button class="filter-button" data-filter="ucas">
+            UCAS Deadlines
+          </button>
+          <button class="filter-button" data-filter="test">
+            Test Deadlines
+          </button>
+          <button class="filter-button" data-filter="interview">
+            Interview Periods
+          </button>
         </div>
 
-        <header>
-            <h1>UK Computer Science Course Deadlines</h1>
-            <p>Application deadlines for your shortlisted universities</p>
-        </header>
-
-        <div class="info-disclaimer">
-                <strong>Information Sources:</strong> Deadline information is compiled from official UCAS guidelines and university websites. 
-                Please verify details on official university websites before making application decisions as dates may change.
-                <a href="https://www.ucas.com/deadlines" target="_blank">UCAS Deadlines</a>.
-            </div>
-        
-        <div class="deadlines-container">
-            <h2 class="deadlines-header">Your Application Deadlines</h2>
-            
-            <div class="deadline-filters">
-                <button class="filter-button active" data-filter="all">All Deadlines</button>
-                <button class="filter-button" data-filter="ucas">UCAS Deadlines</button>
-                <button class="filter-button" data-filter="test">Test Deadlines</button>
-                <button class="filter-button" data-filter="interview">Interview Periods</button>
-            </div>
-            
-            <div id="deadlines-list">
-                <!-- Deadlines will be displayed here -->
-            </div>
+        <div id="deadlines-list">
+          <!-- Deadlines will be displayed here -->
         </div>
+      </div>
     </div>
-    
-    <div class="notification" id="notification">
-        Notification message
-    </div>
+
+    <div class="notification" id="notification">Notification message</div>
 
     <script>
-        // UK University Application Deadlines for 2025/26 intake
-        // Based on UCAS deadlines and typical university patterns
-        const deadlinesData = {
-            "University of Oxford": [
-                { type: "ucas", date: "2024-10-15", description: "UCAS Application" },
-                { type: "test", date: "2024-10-22", description: "MAT Test" },
-                { type: "interview", date: "2024-12-01", description: "Interview (estimated)" }
-            ],
-            "University of Cambridge": [
-                { type: "ucas", date: "2024-10-15", description: "UCAS Application" },
-                { type: "test", date: "2024-10-13", description: "TMUA Test" },
-                { type: "interview", date: "2024-12-01", description: "Interview (estimated)" }
-            ],
-            "Imperial College London": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" },
-                { type: "test", date: "2025-02-15", description: "TMUA Test" }
-            ],
-            "University of St Andrews": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Birmingham": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Bath": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Warwick": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Bristol": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Manchester": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "King's College London": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "Durham University": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University College London (UCL)": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Sheffield": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Southampton": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Glasgow": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Edinburgh": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of York": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Exeter": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "University of Nottingham": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ],
-            "Loughborough University": [
-                { type: "ucas", date: "2025-01-29", description: "UCAS Application" }
-            ]
-        };
-        
-        // Display deadlines for shortlisted universities
-        function displayDeadlines() {
-            const shortlistJSON = localStorage.getItem('universityShortlist');
-            const shortlist = shortlistJSON ? JSON.parse(shortlistJSON) : [];
-            
-            const deadlinesList = document.getElementById('deadlines-list');
-            deadlinesList.innerHTML = '';
-            
-            // Check if shortlist is empty
-            if (shortlist.length === 0) {
-                deadlinesList.innerHTML = '<p class="no-deadlines">No universities selected. Please go back and add some to your shortlist.</p>';
-                return;
-            }
-            
-            // Get current date for highlighting urgent deadlines
-            // Note: Using 2025-09-15 as reference date as per user context
-            const today = new Date('2025-09-15');
-            const oneMonthFromNow = new Date(today);
-            oneMonthFromNow.setMonth(today.getMonth() + 1);
-            const twoMonthsFromNow = new Date(today);
-            twoMonthsFromNow.setMonth(today.getMonth() + 2);
-            
-            // Create deadline items for each shortlisted university
-            shortlist.forEach(university => {
-                const universityDeadlines = deadlinesData[university.name];
-                
-                if (universityDeadlines && universityDeadlines.length > 0) {
-                    // University header
-                    const universityHeader = document.createElement('h3');
-                    universityHeader.textContent = university.name;
-                    universityHeader.style.margin = '20px 0 10px 0';
-                    universityHeader.style.color = 'var(--dark-bg)';
-                    deadlinesList.appendChild(universityHeader);
-                    
-                    // Add each deadline for this university
-                    universityDeadlines.forEach(deadline => {
-                        const deadlineItem = document.createElement('div');
-                        deadlineItem.className = 'deadline-item';
-                        deadlineItem.dataset.type = deadline.type;
-                        
-                        const formattedDate = formatDate(deadline.date);
-                        const dateObj = new Date(deadline.date);
-                        
-                        let urgencyClass = '';
-                        if (dateObj <= oneMonthFromNow && dateObj >= today) {
-                            urgencyClass = 'deadline-urgent';
-                        } else if (dateObj <= twoMonthsFromNow && dateObj >= today) {
-                            urgencyClass = 'deadline-warning';
-                        }
-                        
-                        deadlineItem.innerHTML = `
+      // UK University Application Deadlines for 2025/26 intake
+      // Based on UCAS deadlines and typical university patterns
+      const earlyEntryDeadline = "2025-10-15"; // For Oxbridge and some others
+      const standardEntryDeadline = "2026-01-29"; // Most universities
+      const MATTestDate = "2025-10-22"; // MAT date
+      const TMUATestDate = "2025-10-13"; // TMUA date
+      const interviewDate = "2025-12-01"; // Interview date
+      const deadlinesData = {
+        "University of Oxford": [
+          {
+            type: "ucas",
+            date: earlyEntryDeadline,
+            description: "UCAS Application",
+          },
+          { type: "test", date: MATTestDate, description: "MAT Test" },
+          {
+            type: "interview",
+            date: interviewDate,
+            description: "Interview (estimated)",
+          },
+        ],
+        "University of Cambridge": [
+          {
+            type: "ucas",
+            date: earlyEntryDeadline,
+            description: "UCAS Application",
+          },
+          { type: "test", date: TMUATestDate, description: "TMUA Test" },
+          {
+            type: "interview",
+            date: interviewDate,
+            description: "Interview (estimated)",
+          },
+        ],
+        "Imperial College London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+          { type: "test", date: TMUATestDate, description: "TMUA Test" },
+          {
+            type: "interview",
+            date: "mid November 2025 - end of March 2026",
+            description: "Interview (estimated)",
+          }
+        ],
+        "University of St Andrews": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Birmingham": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Bath": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Warwick": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Bristol": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Manchester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "King's College London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Durham University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "UCL (University College London)": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Sheffield": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Southampton": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Glasgow": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "The University of Edinburgh": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of York": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Exeter": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Nottingham": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Loughborough University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Lancaster University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Leeds": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Queen's University Belfast": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Royal Holloway": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Cardiff University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Newcastle University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Queen Mary University of London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Liverpool": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Surrey": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Dundee": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Strathclyde": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Swansea University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Heriot-Watt University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Sussex": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Reading": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Leicester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Aston University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of East Anglia UEA": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "City St George's": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Aberystwyth University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Kent": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Aberdeen": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Bangor University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Lincoln": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Ulster University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Essex": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Bath Spa University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Brunel University of London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Stirling": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Northumbria University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        Bristol: [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Manchester Metropolitan University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Nottingham Trent University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Portsmouth": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Abertay University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Glasgow Caledonian University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Huddersfield": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Winchester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Oxford Brookes University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Hull": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Bradford": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Edge Hill University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Worcester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Keele University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Hertfordshire": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Kingston University London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Bournemouth University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Staffordshire": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Robert Gordon University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Birmingham City University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Edinburgh Napier University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Leeds Beckett University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Liverpool John Moores University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Brighton": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "London South Bank University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Leeds Trinity University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of the Arts London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Sheffield Hallam University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Plymouth": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of South Wales": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Falmouth University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Buckingham": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Salford": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Coventry University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Derby": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "De Montfort University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Teesside University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Greenwich": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "York St John University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        Goldsmiths: [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of West London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Sunderland": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Cardiff Metropolitan University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Chichester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Westminster": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Chester": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of East London": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Lancashire": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "University of Gloucestershire": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+        "Canterbury Christ Church University": [
+          {
+            type: "ucas",
+            date: standardEntryDeadline,
+            description: "UCAS Application",
+          },
+        ],
+      };
+
+      // Display deadlines for shortlisted universities
+      function displayDeadlines() {
+        const shortlistJSON = localStorage.getItem("universityShortlist");
+        const shortlist = shortlistJSON ? JSON.parse(shortlistJSON) : [];
+
+        const deadlinesList = document.getElementById("deadlines-list");
+        deadlinesList.innerHTML = "";
+
+        // Check if shortlist is empty
+        if (shortlist.length === 0) {
+          deadlinesList.innerHTML =
+            '<p class="no-deadlines">No universities selected. Please go back and add some to your shortlist.</p>';
+          return;
+        }
+
+        // Get current date for highlighting urgent deadlines
+        // Note: Using 2025-09-15 as reference date as per user context
+        const today = new Date("2025-09-15");
+        const oneMonthFromNow = new Date(today);
+        oneMonthFromNow.setMonth(today.getMonth() + 1);
+        const twoMonthsFromNow = new Date(today);
+        twoMonthsFromNow.setMonth(today.getMonth() + 2);
+
+        // Create deadline items for each shortlisted university
+        shortlist.forEach((university) => {
+          const universityDeadlines = deadlinesData[university.name];
+
+          if (universityDeadlines && universityDeadlines.length > 0) {
+            // University header
+            const universityHeader = document.createElement("h3");
+            universityHeader.textContent = university.name;
+            universityHeader.style.margin = "20px 0 10px 0";
+            universityHeader.style.color = "var(--dark-bg)";
+            deadlinesList.appendChild(universityHeader);
+
+            // Add each deadline for this university
+            universityDeadlines.forEach((deadline) => {
+              const deadlineItem = document.createElement("div");
+              deadlineItem.className = "deadline-item";
+              deadlineItem.dataset.type = deadline.type;
+
+              const formattedDate = formatDate(deadline.date);
+              const dateObj = new Date(deadline.date);
+
+              let urgencyClass = "";
+              if (dateObj <= oneMonthFromNow && dateObj >= today) {
+                urgencyClass = "deadline-urgent";
+              } else if (dateObj <= twoMonthsFromNow && dateObj >= today) {
+                urgencyClass = "deadline-warning";
+              }
+
+              deadlineItem.innerHTML = `
                             <span class="deadline-university">
                                 ${deadline.description}
                                 <span class="deadline-type">${deadline.type.toUpperCase()}</span>
                             </span>
                             <span class="deadline-date ${urgencyClass}">
                                 ${formattedDate}
-                                ${urgencyClass ? ' ⚠️' : ''}
+                                ${urgencyClass ? " ⚠️" : ""}
                             </span>
                         `;
-                        
-                        deadlinesList.appendChild(deadlineItem);
-                    });
+
+              deadlinesList.appendChild(deadlineItem);
+            });
+          }
+        });
+
+        // Show message if no deadlines found for shortlisted universities
+        if (deadlinesList.children.length === 0) {
+          deadlinesList.innerHTML =
+            '<p class="no-deadlines">No deadline information available for your selected universities.</p>';
+        }
+
+        // Add filter functionality
+        setupFilters();
+      }
+
+      // Setup filter functionality
+      function setupFilters() {
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const deadlineItems = document.querySelectorAll(".deadline-item");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Update active button
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filter = button.dataset.filter;
+
+            // Show/hide items based on filter
+            deadlineItems.forEach((item) => {
+              if (filter === "all") {
+                item.style.display = "flex";
+              } else {
+                if (item.dataset.type === filter) {
+                  item.style.display = "flex";
+                } else {
+                  item.style.display = "none";
                 }
+              }
             });
-            
-            // Show message if no deadlines found for shortlisted universities
-            if (deadlinesList.children.length === 0) {
-                deadlinesList.innerHTML = '<p class="no-deadlines">No deadline information available for your selected universities.</p>';
-            }
-            
-            // Add filter functionality
-            setupFilters();
-        }
-        
-        // Setup filter functionality
-        function setupFilters() {
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const deadlineItems = document.querySelectorAll('.deadline-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filter = button.dataset.filter;
-                    
-                    // Show/hide items based on filter
-                    deadlineItems.forEach(item => {
-                        if (filter === 'all') {
-                            item.style.display = 'flex';
-                        } else {
-                            if (item.dataset.type === filter) {
-                                item.style.display = 'flex';
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        }
-                    });
-                    
-                    // Show university headers based on visible items
-                    const universityHeaders = document.querySelectorAll('.deadlines-container h3');
-                    universityHeaders.forEach(header => {
-                        const universityName = header.textContent;
-                        const hasVisibleItems = Array.from(deadlineItems)
-                            .some(item => {
-                                return item.style.display !== 'none' && 
-                                       item.closest('.deadlines-container').contains(header);
-                            });
-                        
-                        // Simple approach: show all headers when filtering, they'll be empty if no items
-                        header.style.display = 'block';
-                    });
-                });
+
+            // Show university headers based on visible items
+            const universityHeaders = document.querySelectorAll(
+              ".deadlines-container h3"
+            );
+            universityHeaders.forEach((header) => {
+              const universityName = header.textContent;
+              const hasVisibleItems = Array.from(deadlineItems).some((item) => {
+                return (
+                  item.style.display !== "none" &&
+                  item.closest(".deadlines-container").contains(header)
+                );
+              });
+
+              // Simple approach: show all headers when filtering, they'll be empty if no items
+              header.style.display = "block";
             });
-        }
-        
-        // Format date as DD Month YYYY
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            return date.toLocaleDateString('en-GB', options);
-        }
-        
-        // Show notification
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.display = 'block';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Go back to university selection page
-        document.getElementById('back-to-selection').addEventListener('click', function() {
-            window.location.href = 'index.html'; 
+          });
+        });
+      }
+
+      // Format date as DD Month YYYY
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { day: "numeric", month: "long", year: "numeric" };
+        return date.toLocaleDateString("en-GB", options);
+      }
+
+      // Show notification
+      function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.style.display = "block";
+
+        setTimeout(() => {
+          notification.style.display = "none";
+        }, 3000);
+      }
+
+      // Go back to university selection page
+      document
+        .getElementById("back-to-selection")
+        .addEventListener("click", function () {
+          window.location.href = "index.html";
         });
 
-        // Go back to home page
-        document.getElementById('back-to-home').addEventListener('click', function() {
-            window.location.href = 'home-page.html'; 
+      // Go back to home page
+      document
+        .getElementById("back-to-home")
+        .addEventListener("click", function () {
+          window.location.href = "home-page.html";
         });
 
-        // Initialize the page
-        window.onload = function() {
-            displayDeadlines();
-        }
+      // Initialize the page
+      window.onload = function () {
+        displayDeadlines();
+      };
     </script>
-</body>
+  </body>
 </html>
