@@ -327,12 +327,9 @@
         </div>
         
         <div class="filters">
-            <div class="filter-group">
-                <label for="university-filter">Filter by University</label>
-                <select id="university-filter">
-                    <option value="all">All Universities</option>
-                    <!-- Options will be populated by JavaScript -->
-                </select>
+            <div class="filter-group search-box">
+                <label for="university-search">Search Universities 🔍</label>
+                <input type="text" id="university-search" placeholder="Search for universities...">
             </div>
             
             <div class="filter-group">
@@ -347,8 +344,8 @@
             </div>
             
             <div class="filter-group search-box">
-                <label for="search">Search Feedback 🔍</label>
-                <input type="text" id="search" placeholder="Search for keywords...">
+                <label for="feedback-search">Search Feedback 🔍</label>
+                <input type="text" id="feedback-search" placeholder="Search for keywords...">
             </div>
         </div>
         
@@ -525,7 +522,7 @@
                 ]
             },
             {
-                name: "University College London (UCL)",
+                name: "UCL (University College London)",
                 ranking: 12,
                 feedback: [
                     {
@@ -640,6 +637,1046 @@
                         aspects: ["Practical focus", "Industry connections", "Excellent campus"]
                     }
                 ]
+            },
+            {
+                name: "Lancaster University",
+                ranking: 21,
+                feedback: [
+                    {
+                        text: "Lancaster's CS program is well-regarded with a strong focus on both theoretical foundations and practical applications. The collegiate system provides a supportive community environment. The campus is modern with excellent facilities for computing students.",
+                        rating: 4.0,
+                        studentType: "Current Student",
+                        date: "2025-06-30",
+                        aspects: ["Theoretical foundations", "Collegiate system", "Modern facilities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Leeds",
+                ranking: 22,
+                feedback: [
+                    {
+                        text: "Leeds offers a comprehensive CS curriculum with opportunities to specialize in various fields. The university has strong industry connections in the thriving Leeds tech scene. The student union is one of the best in the UK with excellent facilities.",
+                        rating: 4.1,
+                        studentType: "Current Student",
+                        date: "2025-07-02",
+                        aspects: ["Comprehensive curriculum", "Industry connections", "Excellent student union"]
+                    }
+                ]
+            },
+            {
+                name: "Queen's University Belfast",
+                ranking: 23,
+                feedback: [
+                    {
+                        text: "Queen's Belfast has a strong CS program with particular strengths in cybersecurity and data analytics. The university has excellent research facilities and the cost of living in Belfast is relatively affordable compared to mainland UK.",
+                        rating: 4.0,
+                        studentType: "Current Student",
+                        date: "2025-06-28",
+                        aspects: ["Cybersecurity focus", "Research facilities", "Affordable city"]
+                    }
+                ]
+            },
+            {
+                name: "Royal Holloway",
+                ranking: 24,
+                feedback: [
+                    {
+                        text: "Royal Holloway's CS department is known for its research in information security and machine learning. The campus is beautiful with a mix of historic and modern buildings. The location offers a balance between campus life and proximity to London.",
+                        rating: 3.9,
+                        studentType: "Current Student",
+                        date: "2025-06-25",
+                        aspects: ["Information security", "Beautiful campus", "Proximity to London"]
+                    }
+                ]
+            },
+            {
+                name: "Cardiff University",
+                ranking: 25,
+                feedback: [
+                    {
+                        text: "Cardiff's CS program offers a good balance of theory and practice with strong industry links in Wales. The university has invested significantly in computing facilities. Cardiff as a city is affordable with a vibrant student scene.",
+                        rating: 4.0,
+                        studentType: "Current Student",
+                        date: "2025-07-01",
+                        aspects: ["Theory-practice balance", "Industry links", "Affordable city"]
+                    }
+                ]
+            },
+            {
+                name: "Newcastle University",
+                ranking: 26,
+                feedback: [
+                    {
+                        text: "Newcastle's CS department has a strong reputation in northern England. The course structure allows for flexibility in specialization. The city has a lively student scene and is more affordable than southern universities.",
+                        rating: 4.0,
+                        studentType: "Recent Graduate",
+                        date: "2025-06-20",
+                        aspects: ["Strong reputation", "Flexible course", "Lively student scene"]
+                    }
+                ]
+            },
+            {
+                name: "Queen Mary University of London",
+                ranking: 27,
+                feedback: [
+                    {
+                        text: "QMUL offers a diverse CS curriculum with strengths in AI and machine learning. The East London location provides good access to tech companies and startups. The university has a strong research focus with opportunities for undergraduate involvement.",
+                        rating: 4.0,
+                        studentType: "Current Student",
+                        date: "2025-07-05",
+                        aspects: ["AI and ML focus", "East London location", "Research opportunities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Liverpool",
+                ranking: 28,
+                feedback: [
+                    {
+                        text: "Liverpool's CS program has a practical orientation with good industry placement opportunities. The department has strong research groups in various computing fields. The city has a rich cultural scene and affordable living costs.",
+                        rating: 3.9,
+                        studentType: "Current Student",
+                        date: "2025-06-22",
+                        aspects: ["Practical orientation", "Industry placements", "Cultural scene"]
+                    }
+                ]
+            },
+            {
+                name: "University of Surrey",
+                ranking: 29,
+                feedback: [
+                    {
+                        text: "Surrey's CS program has a strong emphasis on employability with excellent industry connections. The university's location in the Thames Valley provides access to many tech companies. The program includes a professional training year option.",
+                        rating: 4.0,
+                        studentType: "Placement Student",
+                        date: "2025-06-18",
+                        aspects: ["Employability focus", "Industry connections", "Professional training year"]
+                    }
+                ]
+            },
+            {
+                name: "University of Dundee",
+                ranking: 30,
+                feedback: [
+                    {
+                        text: "Dundee has a growing reputation in computing with particular strengths in games development and human-computer interaction. The city is affordable with a friendly atmosphere. The university has good links with local tech industries.",
+                        rating: 3.9,
+                        studentType: "Current Student",
+                        date: "2025-06-15",
+                        aspects: ["Games development", "Affordable city", "Industry links"]
+                    }
+                ]
+            },
+            {
+                name: "University of Strathclyde",
+                ranking: 31,
+                feedback: [
+                    {
+                        text: "Strathclyde's CS program is known for its practical approach and strong industry connections. The university has a good reputation in Scotland with modern facilities in central Glasgow. The course emphasizes real-world applications.",
+                        rating: 3.9,
+                        studentType: "Current Student",
+                        date: "2025-06-12",
+                        aspects: ["Practical approach", "Industry connections", "Modern facilities"]
+                    }
+                ]
+            },
+            {
+                name: "Swansea University",
+                ranking: 32,
+                feedback: [
+                    {
+                        text: "Swansea offers a comprehensive CS curriculum with beautiful coastal campus locations. The university has strong research groups in various computing disciplines. The cost of living is reasonable and the city has a good quality of life.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-06-10",
+                        aspects: ["Comprehensive curriculum", "Coastal campus", "Reasonable costs"]
+                    }
+                ]
+            },
+            {
+                name: "Heriot-Watt University",
+                ranking: 33,
+                feedback: [
+                    {
+                        text: "Heriot-Watt's CS program has a strong practical orientation with good industry links. The university has campuses in Edinburgh and the Scottish Borders. The course emphasizes both technical skills and business awareness.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-06-08",
+                        aspects: ["Practical orientation", "Industry links", "Business awareness"]
+                    }
+                ]
+            },
+            {
+                name: "University of Sussex",
+                ranking: 34,
+                feedback: [
+                    {
+                        text: "Sussex's CS program is interdisciplinary with opportunities to combine computing with other subjects. The campus is located in beautiful countryside near Brighton. The university has a strong research reputation in certain computing fields.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-06-05",
+                        aspects: ["Interdisciplinary approach", "Campus location", "Research reputation"]
+                    }
+                ]
+            },
+            {
+                name: "University of Reading",
+                ranking: 35,
+                feedback: [
+                    {
+                        text: "Reading's CS department has a good balance of theoretical and practical elements. The university's location provides access to the Thames Valley tech corridor. The campus is self-contained with good facilities.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-06-02",
+                        aspects: ["Balanced curriculum", "Thames Valley location", "Good facilities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Leicester",
+                ranking: 36,
+                feedback: [
+                    {
+                        text: "Leicester offers a solid CS foundation with opportunities for specialization in later years. The university has good computing facilities and the city has a reasonable cost of living. The department has active research groups in various areas.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-30",
+                        aspects: ["Solid foundation", "Specialization options", "Reasonable costs"]
+                    }
+                ]
+            },
+            {
+                name: "Aston University",
+                ranking: 37,
+                feedback: [
+                    {
+                        text: "Aston's CS program has a strong professional focus with excellent industry links in Birmingham. The university emphasizes employability and practical skills. The campus location in central Birmingham provides good access to employers.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-05-28",
+                        aspects: ["Professional focus", "Industry links", "Central location"]
+                    }
+                ]
+            },
+            {
+                name: "University of East Anglia UEA",
+                ranking: 38,
+                feedback: [
+                    {
+                        text: "UEA's CS program offers a good mix of theoretical and practical computing. The campus is located in beautiful surroundings near Norwich. The university has a strong research reputation in certain computing specialties.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-25",
+                        aspects: ["Theoretical-practical mix", "Campus location", "Research reputation"]
+                    }
+                ]
+            },
+            {
+                name: "City St George's",
+                ranking: 39,
+                feedback: [
+                    {
+                        text: "City's CS program is industry-focused with strong links to London's tech sector. The university emphasizes practical skills and employability. The central London location provides excellent networking opportunities.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-05-22",
+                        aspects: ["Industry-focused", "London tech sector", "Networking opportunities"]
+                    }
+                ]
+            },
+            {
+                name: "Aberystwyth University",
+                ranking: 40,
+                feedback: [
+                    {
+                        text: "Aberystwyth offers a comprehensive CS curriculum in a beautiful coastal location. The department has strengths in certain research areas. The university provides a close-knit community atmosphere with good student support.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-20",
+                        aspects: ["Comprehensive curriculum", "Coastal location", "Community atmosphere"]
+                    }
+                ]
+            },
+            {
+                name: "University of Kent",
+                ranking: 41,
+                feedback: [
+                    {
+                        text: "Kent's CS program offers flexibility with options to combine computing with other subjects. The Canterbury campus provides a traditional university experience. The university has good computing facilities and research groups.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-18",
+                        aspects: ["Flexible program", "Traditional campus", "Good facilities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Aberdeen",
+                ranking: 42,
+                feedback: [
+                    {
+                        text: "Aberdeen's CS department has a solid reputation in Scotland with a comprehensive curriculum. The university has historic roots but modern computing facilities. The city has a lower cost of living than many UK university cities.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-05-15",
+                        aspects: ["Solid reputation", "Comprehensive curriculum", "Lower costs"]
+                    }
+                ]
+            },
+            {
+                name: "Bangor University",
+                ranking: 43,
+                feedback: [
+                    {
+                        text: "Bangor offers a range of CS programs in a scenic North Wales location. The university provides a supportive learning environment with good student-staff ratios. The cost of living is reasonable and the area offers outdoor activities.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-05-12",
+                        aspects: ["Scenic location", "Supportive environment", "Reasonable costs"]
+                    }
+                ]
+            },
+            {
+                name: "University of Lincoln",
+                ranking: 44,
+                feedback: [
+                    {
+                        text: "Lincoln's CS program has a practical focus with good industry links. The university has modern facilities in a historic city. The department emphasizes employability and practical skills development.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-10",
+                        aspects: ["Practical focus", "Industry links", "Modern facilities"]
+                    }
+                ]
+            },
+            {
+                name: "Ulster University",
+                ranking: 45,
+                feedback: [
+                    {
+                        text: "Ulster offers CS programs across its campuses in Northern Ireland. The university has strong industry connections in the region. The programs emphasize both technical skills and professional development.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-05-08",
+                        aspects: ["Multiple campuses", "Industry connections", "Professional development"]
+                    }
+                ]
+            },
+            {
+                name: "University of Essex",
+                ranking: 46,
+                feedback: [
+                    {
+                        text: "Essex's CS department has a strong research reputation with a diverse student body. The campus location provides a self-contained community atmosphere. The university offers a range of computing specializations.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-05-05",
+                        aspects: ["Research reputation", "Diverse community", "Specialization options"]
+                    }
+                ]
+            },
+            {
+                name: "Bath Spa University",
+                ranking: 47,
+                feedback: [
+                    {
+                        text: "Bath Spa offers computing programs with a creative and applied focus. The university's location in Bath provides a beautiful setting for study. The programs emphasize practical applications of computing skills.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-05-02",
+                        aspects: ["Creative focus", "Beautiful location", "Practical applications"]
+                    }
+                ]
+            },
+            {
+                name: "Brunel University of London",
+                ranking: 48,
+                feedback: [
+                    {
+                        text: "Brunel's CS program has a strong practical orientation with good industry links. The university emphasizes employability and professional skills. The West London location provides access to many tech employers.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-04-30",
+                        aspects: ["Practical orientation", "Industry links", "West London location"]
+                    }
+                ]
+            },
+            {
+                name: "University of Stirling",
+                ranking: 49,
+                feedback: [
+                    {
+                        text: "Stirling offers computing programs in a beautiful campus setting. The university provides a good balance of theoretical and practical computing. The scenic location offers a high quality of student life.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-28",
+                        aspects: ["Beautiful campus", "Balanced curriculum", "Quality of life"]
+                    }
+                ]
+            },
+            {
+                name: "Northumbria University",
+                ranking: 50,
+                feedback: [
+                    {
+                        text: "Northumbria's CS program has a strong professional focus with excellent industry connections. The university emphasizes practical skills and employability. The Newcastle location provides access to a growing tech scene.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-04-25",
+                        aspects: ["Professional focus", "Industry connections", "Growing tech scene"]
+                    }
+                ]
+            },
+            {
+                name: "Bristol",
+                ranking: 51,
+                feedback: [
+                    {
+                        text: "Bristol offers a range of computing programs with a good balance of theory and practice. The city has a vibrant tech scene with many innovative companies. The university has strong research groups in various computing areas.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-04-22",
+                        aspects: ["Theory-practice balance", "Vibrant tech scene", "Research groups"]
+                    }
+                ]
+            },
+            {
+                name: "Manchester Metropolitan University",
+                ranking: 52,
+                feedback: [
+                    {
+                        text: "Manchester Met's CS program has a practical orientation with strong industry links. The university emphasizes employability and professional development. The Manchester location provides access to a major tech hub.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-20",
+                        aspects: ["Practical orientation", "Industry links", "Major tech hub"]
+                    }
+                ]
+            },
+            {
+                name: "Nottingham Trent University",
+                ranking: 53,
+                feedback: [
+                    {
+                        text: "Nottingham Trent's CS program is industry-focused with excellent employability outcomes. The university has strong connections with local and national employers. The course emphasizes practical skills and real-world applications.",
+                        rating: 3.7,
+                        studentType: "Current Student",
+                        date: "2025-04-18",
+                        aspects: ["Industry-focused", "Employability outcomes", "Practical skills"]
+                    }
+                ]
+            },
+            {
+                name: "University of Portsmouth",
+                ranking: 54,
+                feedback: [
+                    {
+                        text: "Portsmouth's CS program has a practical focus with good industry connections. The university's coastal location provides a unique study environment. The department emphasizes both technical and professional skills.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-15",
+                        aspects: ["Practical focus", "Industry connections", "Coastal location"]
+                    }
+                ]
+            },
+            {
+                name: "Abertay University",
+                ranking: 55,
+                feedback: [
+                    {
+                        text: "Abertay is renowned for its games computing programs with strong industry links. The university has a practical, hands-on approach to computing education. The Dundee location provides access to a growing games development scene.",
+                        rating: 3.8,
+                        studentType: "Current Student",
+                        date: "2025-04-12",
+                        aspects: ["Games computing", "Practical approach", "Games development scene"]
+                    }
+                ]
+            },
+            {
+                name: "Glasgow Caledonian University",
+                ranking: 56,
+                feedback: [
+                    {
+                        text: "Glasgow Caledonian's CS program has a strong professional focus with good industry links. The university emphasizes practical skills and employability. The Glasgow location provides access to Scotland's largest tech scene.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-10",
+                        aspects: ["Professional focus", "Industry links", "Glasgow tech scene"]
+                    }
+                ]
+            },
+            {
+                name: "University of Huddersfield",
+                ranking: 57,
+                feedback: [
+                    {
+                        text: "Huddersfield's CS program has a practical orientation with strong industry connections. The university emphasizes employability and professional development. The course includes opportunities for work placements.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-08",
+                        aspects: ["Practical orientation", "Industry connections", "Work placements"]
+                    }
+                ]
+            },
+            {
+                name: "University of Winchester",
+                ranking: 58,
+                feedback: [
+                    {
+                        text: "Winchester offers computing programs with an applied focus. The university provides a supportive learning environment in a historic city setting. The programs emphasize practical applications of computing knowledge.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-04-05",
+                        aspects: ["Applied focus", "Supportive environment", "Historic city"]
+                    }
+                ]
+            },
+            {
+                name: "Oxford Brookes University",
+                ranking: 59,
+                feedback: [
+                    {
+                        text: "Oxford Brookes' CS program has a practical focus with good industry links. The university's Oxford location provides access to a knowledge-intensive economy. The course emphasizes both technical and professional skills.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-04-02",
+                        aspects: ["Practical focus", "Industry links", "Oxford location"]
+                    }
+                ]
+            },
+            {
+                name: "University of Hull",
+                ranking: 60,
+                feedback: [
+                    {
+                        text: "Hull's CS program offers a solid foundation in computing principles. The university has good facilities and the city has a low cost of living. The department provides a supportive learning environment.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-30",
+                        aspects: ["Solid foundation", "Good facilities", "Low costs"]
+                    }
+                ]
+            },
+            {
+                name: "University of Bradford",
+                ranking: 61,
+                feedback: [
+                    {
+                        text: "Bradford's CS program has a practical orientation with good industry links. The university emphasizes employability and professional development. The course includes opportunities for practical experience.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-28",
+                        aspects: ["Practical orientation", "Industry links", "Practical experience"]
+                    }
+                ]
+            },
+            {
+                name: "Edge Hill University",
+                ranking: 62,
+                feedback: [
+                    {
+                        text: "Edge Hill offers computing programs in a modern campus environment. The university provides a supportive learning atmosphere with good student-staff ratios. The programs emphasize practical skills development.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-03-25",
+                        aspects: ["Modern campus", "Supportive atmosphere", "Practical skills"]
+                    }
+                ]
+            },
+            {
+                name: "University of Worcester",
+                ranking: 63,
+                feedback: [
+                    {
+                        text: "Worcester's computing programs have an applied focus with good student support. The university provides a friendly learning environment in a historic city. The programs emphasize practical applications of computing.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-22",
+                        aspects: ["Applied focus", "Student support", "Friendly environment"]
+                    }
+                ]
+            },
+            {
+                name: "Keele University",
+                ranking: 64,
+                feedback: [
+                    {
+                        text: "Keele offers computing programs in a campus university setting. The university provides a good balance of theoretical and practical computing. The campus environment offers a cohesive student community.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-20",
+                        aspects: ["Campus university", "Balanced curriculum", "Student community"]
+                    }
+                ]
+            },
+            {
+                name: "University of Hertfordshire",
+                ranking: 65,
+                feedback: [
+                    {
+                        text: "Hertfordshire's CS program has a strong practical focus with excellent industry links. The university emphasizes employability and professional skills. The location provides good access to London's tech sector.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-03-18",
+                        aspects: ["Practical focus", "Industry links", "Access to London"]
+                    }
+                ]
+            },
+            {
+                name: "Kingston University London",
+                ranking: 66,
+                feedback: [
+                    {
+                        text: "Kingston's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The South West London location provides good transport links.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-15",
+                        aspects: ["Practical orientation", "Industry connections", "Transport links"]
+                    }
+                ]
+            },
+            {
+                name: "Bournemouth University",
+                ranking: 67,
+                feedback: [
+                    {
+                        text: "Bournemouth's CS program has a strong professional focus with excellent industry links. The university emphasizes practical skills and employability. The coastal location provides a high quality of student life.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-03-12",
+                        aspects: ["Professional focus", "Industry links", "Coastal location"]
+                    }
+                ]
+            },
+            {
+                name: "University of Staffordshire",
+                ranking: 68,
+                feedback: [
+                    {
+                        text: "Staffordshire's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The course includes opportunities for work experience.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-10",
+                        aspects: ["Practical orientation", "Industry connections", "Work experience"]
+                    }
+                ]
+            },
+            {
+                name: "Robert Gordon University",
+                ranking: 69,
+                feedback: [
+                    {
+                        text: "Robert Gordon's CS program has a strong professional focus with excellent industry links. The university emphasizes practical skills and employability. The Aberdeen location provides access to energy and tech sectors.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-03-08",
+                        aspects: ["Professional focus", "Industry links", "Energy sector access"]
+                    }
+                ]
+            },
+            {
+                name: "Birmingham City University",
+                ranking: 70,
+                feedback: [
+                    {
+                        text: "Birmingham City's CS program has a practical focus with strong industry links. The university emphasizes employability and professional skills. The Birmingham location provides access to a major employment market.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-03-05",
+                        aspects: ["Practical focus", "Industry links", "Major employment market"]
+                    }
+                ]
+            },
+            {
+                name: "Edinburgh Napier University",
+                ranking: 71,
+                feedback: [
+                    {
+                        text: "Edinburgh Napier's CS program has a strong practical orientation with excellent industry links. The university emphasizes employability and professional development. The Edinburgh location provides access to a growing tech scene.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-03-02",
+                        aspects: ["Practical orientation", "Industry links", "Edinburgh tech scene"]
+                    }
+                ]
+            },
+            {
+                name: "Leeds Beckett University",
+                ranking: 72,
+                feedback: [
+                    {
+                        text: "Leeds Beckett's CS program has a practical focus with good industry connections. The university emphasizes employability and professional skills. The Leeds location provides access to a vibrant tech sector.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-28",
+                        aspects: ["Practical focus", "Industry connections", "Vibrant tech sector"]
+                    }
+                ]
+            },
+            {
+                name: "Liverpool John Moores University",
+                ranking: 73,
+                feedback: [
+                    {
+                        text: "Liverpool John Moores' CS program has a practical orientation with strong industry links. The university emphasizes employability and professional development. The Liverpool location provides access to a growing digital sector.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-25",
+                        aspects: ["Practical orientation", "Industry links", "Growing digital sector"]
+                    }
+                ]
+            },
+            {
+                name: "University of Brighton",
+                ranking: 74,
+                feedback: [
+                    {
+                        text: "Brighton's CS program has an applied focus with good industry connections. The university emphasizes practical skills and employability. The coastal location provides a creative and vibrant student environment.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-22",
+                        aspects: ["Applied focus", "Industry connections", "Creative environment"]
+                    }
+                ]
+            },
+            {
+                name: "London South Bank University",
+                ranking: 75,
+                feedback: [
+                    {
+                        text: "London South Bank's CS program has a strong practical focus with excellent industry links. The university emphasizes employability and professional skills. The central London location provides good employment opportunities.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-20",
+                        aspects: ["Practical focus", "Industry links", "Central London location"]
+                    }
+                ]
+            },
+            {
+                name: "Leeds Trinity University",
+                ranking: 76,
+                feedback: [
+                    {
+                        text: "Leeds Trinity offers computing programs with a practical orientation. The university provides a supportive learning environment with good student-staff ratios. The programs emphasize employability and professional development.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-02-18",
+                        aspects: ["Practical orientation", "Supportive environment", "Employability focus"]
+                    }
+                ]
+            },
+            {
+                name: "University of the Arts London",
+                ranking: 77,
+                feedback: [
+                    {
+                        text: "UAL's computing programs have a creative and digital focus. The university emphasizes the intersection of technology and creative arts. The London location provides access to creative industries and tech startups.",
+                        rating: 3.6,
+                        studentType: "Current Student",
+                        date: "2025-02-15",
+                        aspects: ["Creative focus", "Technology-arts intersection", "Creative industries access"]
+                    }
+                ]
+            },
+            {
+                name: "Sheffield Hallam University",
+                ranking: 78,
+                feedback: [
+                    {
+                        text: "Sheffield Hallam's CS program has a strong practical focus with excellent industry links. The university emphasizes employability and professional skills. The Sheffield location provides access to a growing digital economy.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-12",
+                        aspects: ["Practical focus", "Industry links", "Growing digital economy"]
+                    }
+                ]
+            },
+            {
+                name: "University of Plymouth",
+                ranking: 79,
+                feedback: [
+                    {
+                        text: "Plymouth's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The coastal location provides a unique study environment.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-10",
+                        aspects: ["Practical orientation", "Industry connections", "Coastal location"]
+                    }
+                ]
+            },
+            {
+                name: "University of South Wales",
+                ranking: 80,
+                feedback: [
+                    {
+                        text: "South Wales' CS program has a practical focus with strong industry links. The university emphasizes employability and professional skills. The Welsh location provides access to growing tech sectors.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-02-08",
+                        aspects: ["Practical focus", "Industry links", "Welsh tech sectors"]
+                    }
+                ]
+            },
+            {
+                name: "Falmouth University",
+                ranking: 81,
+                feedback: [
+                    {
+                        text: "Falmouth's computing programs have a strong creative and digital focus. The university emphasizes the intersection of technology and creative industries. The coastal location provides an inspiring study environment.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-02-05",
+                        aspects: ["Creative focus", "Technology-creative intersection", "Inspiring environment"]
+                    }
+                ]
+            },
+            {
+                name: "University of Buckingham",
+                ranking: 82,
+                feedback: [
+                    {
+                        text: "Buckingham offers computing programs with a distinctive two-year degree structure. The university provides small class sizes and personalized attention. The programs emphasize both technical and professional skills.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-02-02",
+                        aspects: ["Two-year degrees", "Small classes", "Personalized attention"]
+                    }
+                ]
+            },
+            {
+                name: "University of Salford",
+                ranking: 83,
+                feedback: [
+                    {
+                        text: "Salford's CS program has a practical orientation with strong industry links. The university emphasizes employability and professional development. The Manchester location provides access to a major tech hub.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-01-30",
+                        aspects: ["Practical orientation", "Industry links", "Manchester tech hub"]
+                    }
+                ]
+            },
+            {
+                name: "Coventry University",
+                ranking: 84,
+                feedback: [
+                    {
+                        text: "Coventry's CS program has a strong practical focus with excellent industry links. The university emphasizes employability and professional skills. The course includes opportunities for work placements and practical experience.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-01-28",
+                        aspects: ["Practical focus", "Industry links", "Work placements"]
+                    }
+                ]
+            },
+            {
+                name: "University of Derby",
+                ranking: 85,
+                feedback: [
+                    {
+                        text: "Derby's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The course includes opportunities for practical experience.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-01-25",
+                        aspects: ["Practical orientation", "Industry connections", "Practical experience"]
+                    }
+                ]
+            },
+            {
+                name: "De Montfort University",
+                ranking: 86,
+                feedback: [
+                    {
+                        text: "De Montfort's CS program has a practical focus with strong industry links. The university emphasizes employability and professional skills. The Leicester location provides access to growing tech sectors.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-01-22",
+                        aspects: ["Practical focus", "Industry links", "Growing tech sectors"]
+                    }
+                ]
+            },
+            {
+                name: "Teesside University",
+                ranking: 87,
+                feedback: [
+                    {
+                        text: "Teesside's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The North East location provides access to emerging digital industries.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-01-20",
+                        aspects: ["Practical orientation", "Industry connections", "Emerging digital industries"]
+                    }
+                ]
+            },
+            {
+                name: "University of Greenwich",
+                ranking: 88,
+                feedback: [
+                    {
+                        text: "Greenwich's CS program has a practical focus with good industry links. The university emphasizes employability and professional skills. The London location provides access to a major employment market.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2025-01-18",
+                        aspects: ["Practical focus", "Industry links", "London employment market"]
+                    }
+                ]
+            },
+            {
+                name: "York St John University",
+                ranking: 89,
+                feedback: [
+                    {
+                        text: "York St John offers computing programs with a practical orientation. The university provides a supportive learning environment in a historic city. The programs emphasize employability and professional development.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2025-01-15",
+                        aspects: ["Practical orientation", "Supportive environment", "Historic city"]
+                    }
+                ]
+            },
+            {
+                name: "Goldsmiths",
+                ranking: 90,
+                feedback: [
+                    {
+                        text: "Goldsmiths' computing programs have a distinctive creative and critical approach. The university emphasizes the intersection of technology, arts, and humanities. The London location provides access to creative and tech communities.",
+                        rating: 3.5,
+                        studentType: "Current Student",
+                        date: "2025-01-12",
+                        aspects: ["Creative approach", "Technology-arts intersection", "Creative communities"]
+                    }
+                ]
+            },
+            {
+                name: "University of West London",
+                ranking: 91,
+                feedback: [
+                    {
+                        text: "West London's CS program has a practical focus with good industry connections. The university emphasizes employability and professional skills. The location provides good access to London's employment opportunities.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2025-01-10",
+                        aspects: ["Practical focus", "Industry connections", "London opportunities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Sunderland",
+                ranking: 92,
+                feedback: [
+                    {
+                        text: "Sunderland's CS program has a practical orientation with good industry links. The university emphasizes employability and professional development. The North East location provides access to growing digital sectors.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2025-01-08",
+                        aspects: ["Practical orientation", "Industry links", "Growing digital sectors"]
+                    }
+                ]
+            },
+            {
+                name: "Cardiff Metropolitan University",
+                ranking: 93,
+                feedback: [
+                    {
+                        text: "Cardiff Met's computing programs have an applied focus with good industry connections. The university emphasizes practical skills and employability. The Cardiff location provides access to Welsh tech sectors.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2025-01-05",
+                        aspects: ["Applied focus", "Industry connections", "Welsh tech sectors"]
+                    }
+                ]
+            },
+            {
+                name: "University of Chichester",
+                ranking: 94,
+                feedback: [
+                    {
+                        text: "Chichester offers computing programs with a practical orientation. The university provides a supportive learning environment in a historic city. The programs emphasize employability and professional development.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2025-01-02",
+                        aspects: ["Practical orientation", "Supportive environment", "Historic city"]
+                    }
+                ]
+            },
+            {
+                name: "University of Westminster",
+                ranking: 95,
+                feedback: [
+                    {
+                        text: "Westminster's CS program has a practical focus with good industry links. The university emphasizes employability and professional skills. The central London location provides excellent networking opportunities.",
+                        rating: 3.4,
+                        studentType: "Current Student",
+                        date: "2024-12-30",
+                        aspects: ["Practical focus", "Industry links", "Networking opportunities"]
+                    }
+                ]
+            },
+            {
+                name: "University of Chester",
+                ranking: 96,
+                feedback: [
+                    {
+                        text: "Chester's CS program has a practical orientation with good industry connections. The university emphasizes employability and professional development. The historic city location provides a pleasant study environment.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2024-12-28",
+                        aspects: ["Practical orientation", "Industry connections", "Historic city"]
+                    }
+                ]
+            },
+            {
+                name: "University of East London",
+                ranking: 97,
+                feedback: [
+                    {
+                        text: "East London's CS program has a practical focus with good industry links. The university emphasizes employability and professional skills. The location provides access to East London's growing tech scene.",
+                        rating: 3.3,
+                        studentType: "Current Student",
+                        date: "2024-12-25",
+                        aspects: ["Practical focus", "Industry links", "East London tech scene"]
+                    }
+                ]
+            },
+            {
+                name: "University of Lancashire",
+                ranking: 98,
+                feedback: [
+                    {
+                        text: "Lancashire's computing programs have a practical orientation with good industry connections. The university emphasizes employability and professional development. The programs are offered across multiple campuses.",
+                        rating: 3.2,
+                        studentType: "Current Student",
+                        date: "2024-12-22",
+                        aspects: ["Practical orientation", "Industry connections", "Multiple campuses"]
+                    }
+                ]
+            },
+            {
+                name: "University of Gloucestershire",
+                ranking: 99,
+                feedback: [
+                    {
+                        text: "Gloucestershire offers computing programs with an applied focus. The university provides a supportive learning environment across its campuses. The programs emphasize practical skills and employability.",
+                        rating: 3.2,
+                        studentType: "Current Student",
+                        date: "2024-12-20",
+                        aspects: ["Applied focus", "Supportive environment", "Practical skills"]
+                    }
+                ]
+            },
+            {
+                name: "Canterbury Christ Church University",
+                ranking: 100,
+                feedback: [
+                    {
+                        text: "Canterbury Christ Church's computing programs have a practical orientation. The university provides a supportive learning environment in a historic city. The programs emphasize employability and professional development.",
+                        rating: 3.2,
+                        studentType: "Current Student",
+                        date: "2024-12-18",
+                        aspects: ["Practical orientation", "Supportive environment", "Historic city"]
+                    }
+                ]
             }
         ];
 
@@ -654,13 +1691,12 @@
                 ? universities.filter(uni => shortlistedUniversities.some(su => su.name === uni.name))
                 : universities;
             
-            populateUniversityFilter(universitiesToShow);
             displayFeedback(universitiesToShow);
             
             // Set up event listeners for filters
-            document.getElementById('university-filter').addEventListener('change', filterFeedback);
+            document.getElementById('university-search').addEventListener('input', filterFeedback);
             document.getElementById('rating-filter').addEventListener('change', filterFeedback);
-            document.getElementById('search').addEventListener('input', filterFeedback);
+            document.getElementById('feedback-search').addEventListener('input', filterFeedback);
             
             // Set up navigation buttons
             document.getElementById('back-to-selection').addEventListener('click', function() {
@@ -671,23 +1707,6 @@
                 window.location.href = 'home-page.html';
             });
         });
-        
-        // Populate university filter dropdown
-        function populateUniversityFilter(unis) {
-            const filter = document.getElementById('university-filter');
-            // Clear existing options except "All"
-            while (filter.options.length > 1) {
-                filter.remove(1);
-            }
-            
-            // Add universities to filter
-            unis.forEach(uni => {
-                const option = document.createElement('option');
-                option.value = uni.name;
-                option.textContent = uni.name;
-                filter.appendChild(option);
-            });
-        }
         
         // Display feedback for universities
         function displayFeedback(unis) {
@@ -754,28 +1773,44 @@
         
         // Filter feedback based on selected criteria
         function filterFeedback() {
-            const universityFilter = document.getElementById('university-filter').value;
+            const universitySearch = document.getElementById('university-search').value.toLowerCase();
             const ratingFilter = parseFloat(document.getElementById('rating-filter').value);
-            const searchText = document.getElementById('search').value.toLowerCase();
+            const feedbackSearch = document.getElementById('feedback-search').value.toLowerCase();
             
-            const universitiesToShow = universityFilter === 'all' 
-                ? universities 
-                : universities.filter(uni => uni.name === universityFilter);
+            // Get shortlisted universities from localStorage
+            const shortlistJSON = localStorage.getItem('universityShortlist');
+            const shortlistedUniversities = shortlistJSON ? JSON.parse(shortlistJSON) : [];
+            
+            // Start with all universities or shortlisted ones
+            let universitiesToFilter = shortlistedUniversities.length > 0 
+                ? universities.filter(uni => shortlistedUniversities.some(su => su.name === uni.name))
+                : universities;
+            
+            // Filter by university name search
+            if (universitySearch) {
+                universitiesToFilter = universitiesToFilter.filter(uni => 
+                    uni.name.toLowerCase().includes(universitySearch)
+                );
+            }
             
             const container = document.getElementById('feedback-container');
             container.innerHTML = '';
             
-            universitiesToShow.forEach(uni => {
+            let hasResults = false;
+            
+            universitiesToFilter.forEach(uni => {
+                // Filter feedback for this university
                 const filteredFeedback = uni.feedback.filter(fb => {
                     const matchesRating = fb.rating >= ratingFilter;
-                    const matchesSearch = searchText === '' || 
-                        fb.text.toLowerCase().includes(searchText) || 
-                        fb.aspects.some(aspect => aspect.toLowerCase().includes(searchText));
+                    const matchesFeedbackSearch = !feedbackSearch || 
+                        fb.text.toLowerCase().includes(feedbackSearch) || 
+                        fb.aspects.some(aspect => aspect.toLowerCase().includes(feedbackSearch));
                     
-                    return matchesRating && matchesSearch;
+                    return matchesRating && matchesFeedbackSearch;
                 });
                 
                 if (filteredFeedback.length > 0) {
+                    hasResults = true;
                     const universitySection = document.createElement('div');
                     universitySection.className = 'university-feedback';
                     
@@ -793,7 +1828,7 @@
                 }
             });
             
-            if (container.innerHTML === '') {
+            if (!hasResults) {
                 container.innerHTML = `
                     <div class="no-feedback">
                         <h2>No Feedback Matches Your Criteria</h2>
