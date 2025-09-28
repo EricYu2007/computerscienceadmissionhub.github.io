@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UK Computer Science Course Finder</title>
   <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
       background-color: #f4f4f4;
       line-height: 1.6;
+      font-size: 16px;
     }
 
     header {
@@ -25,10 +32,11 @@
     }
 
     .container {
-      width: 80%;
-      margin: auto;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
       overflow: hidden;
-      padding-bottom: 50px;
+      padding-bottom: 80px;
     }
 
     .controls {
@@ -47,7 +55,7 @@
 
     #search-input {
       width: 100%;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border: 2px solid #ddd;
       border-radius: 4px;
       font-size: 16px;
@@ -63,25 +71,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
-      margin: 30px 0;
+      gap: 15px;
+      margin: 25px 0;
       padding: 15px;
       background: #f8f9fa;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
     }
 
     .pagination-controls button {
       background: #08d28f;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
       font-size: 16px;
       transition: all 0.3s ease;
-      min-width: 120px;
+      min-width: 100px;
+      flex: 1;
+      max-width: 150px;
     }
 
     .pagination-controls button:hover:not(:disabled) {
@@ -117,7 +128,8 @@
       background: #ffffe0;
       border: #ccc 1px solid;
       padding: 20px;
-      width: 300px;
+      width: 100%;
+      max-width: 400px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
@@ -133,23 +145,26 @@
       margin-top: 0;
       border-bottom: 2px solid #eee;
       padding-bottom: 10px;
+      font-size: 20px;
     }
 
     .university-card p {
       margin: 8px 0;
+      font-size: 16px;
     }
 
     .university-card button {
       background: #08d28f;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 4px;
       cursor: pointer;
       width: 100%;
       font-weight: bold;
       margin-top: 10px;
       transition: background 0.3s;
+      font-size: 16px;
     }
 
     .university-card button:hover {
@@ -171,8 +186,8 @@
     .next-button-container {
       position: fixed;
       bottom: 20px;
-      left: 0;
-      right: 0;
+      left: 20px;
+      right: 20px;
       display: flex;
       justify-content: center;
       z-index: 1000;
@@ -183,7 +198,7 @@
       color: white;
       border: none;
       text-align: center;
-      padding: 15px 40px;
+      padding: 15px 30px;
       border-radius: 50px;
       font-size: 18px;
       font-weight: bold;
@@ -191,6 +206,8 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       opacity: 0.6;
+      width: 100%;
+      max-width: 300px;
     }
 
     .next-button.enabled {
@@ -222,6 +239,131 @@
       justify-content: center;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+        font-size: 14px;
+      }
+      
+      .container {
+        width: 95%;
+        padding: 10px;
+        padding-bottom: 80px;
+      }
+
+      .controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .search-container {
+        width: 100%;
+      }
+
+      .university-card {
+        width: 100%;
+        margin: 10px 0;
+        padding: 15px;
+      }
+
+      .university-card h3 {
+        font-size: 18px;
+      }
+
+      .university-card p {
+        font-size: 14px;
+      }
+
+      .pagination-controls {
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .pagination-controls button {
+        padding: 10px 15px;
+        font-size: 14px;
+        min-width: 80px;
+      }
+
+      .page-info {
+        font-size: 16px;
+        min-width: 100px;
+      }
+
+      .next-button-container {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .next-button {
+        padding: 12px 25px;
+        font-size: 16px;
+      }
+
+      .shortlist-counter {
+        top: 15px;
+        right: 15px;
+      }
+
+      header {
+        padding: 15px 0;
+        margin-bottom: 15px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+      
+      header p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        width: 100%;
+        padding: 5px;
+        padding-bottom: 80px;
+      }
+      
+      .pagination-controls {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .pagination-controls button {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .page-info {
+        order: -1;
+        margin-bottom: 10px;
+      }
+      
+      .university-card {
+        padding: 12px;
+      }
+      
+      .next-button-container {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+      
+      .shortlist-counter {
+        top: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -268,13 +410,12 @@
     </div>
   </div>
 
-  </div>
   <div class="next-button-container">
     <button class="next-button" id="next-button">Next →</button>
   </div>
 
   <script>
-    // University data - Corrected information
+    // University data
     const universities = [
       {
         name: "University of Oxford",
@@ -1176,6 +1317,159 @@
         location: "Canterbury, England",
         language: "IELTS 6.0 (minimum 5.5 in each component)",
       },
+      {
+        name: "Liverpool Hope University",
+        aLevels: "BCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£14,500",
+        location: "Liverpool, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Northampton",
+        aLevels: "BCC",
+        ib: "26 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,200",
+        location: "Northampton, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Anglia Ruskin University",
+        aLevels: "BCC",
+        ib: "26 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£18,800",
+        location: "Cambridge, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Bedfordshire",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,500",
+        location: "Luton, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of the West of Scotland",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,500",
+        location: "Paisley, Scotland",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Greater Manchester",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,950",
+        location: "Manchester, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Southampton Solent University",
+        aLevels: "BBC",
+        ib: "26 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,000",
+        location: "Southampton, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Norwich University of the Arts",
+        aLevels: "BCC",
+        ib: "26 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,500",
+        location: "Norwich, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Suffolk",
+        aLevels: "BBC",
+        ib: "26 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,000",
+        location: "Suffolk, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Middlesex University",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,600",
+        location: "London, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "London Metropolitan University",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,000",
+        location: "London, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Wolverhampton",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£15,525",
+        location: "Wolverhampton, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Wrexham University",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£11,750",
+        location: "Wrexham, Wales",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Wales Trinity Saint David",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,300",
+        location: "Carmarthen, Wales",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "Buckinghamshire New University",
+        aLevels: "CCD",
+        ib: "22 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,500",
+        location: "High Wycombe, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Creative Arts",
+        aLevels: "BBC",
+        ib: "27 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,000",
+        location: "Farnham, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      },
+      {
+        name: "University of Roehampton",
+        aLevels: "CCC",
+        ib: "24 points (Maths optional)",
+        admissionTest: "None",
+        fees: "£16,500",
+        location: "London, England",
+        language: "IELTS 6.0 (minimum 5.5 in each component)",
+      }
     ];
 
     // Initialize shortlist array
@@ -1208,79 +1502,24 @@
       }
       currentPage = 1;
       renderUniversities();
-      UpdatePaginationButtons();
+      updatePaginationButtons();
     });
 
     prevPageButton.addEventListener("click", () => {
       if (currentPage > 1) {
         currentPage--;
         renderUniversities();
-        UpdatePaginationButtons();
+        updatePaginationButtons();
       }
     });
 
     nextPageButton.addEventListener("click", () => {
-      if (currentPage < 10) {
+      if (currentPage < Math.ceil(filteredUniversities.length / ITEMS_PER_PAGE)) {
         currentPage++;
         renderUniversities();
-        UpdatePaginationButtons();
+        updatePaginationButtons();
       }
     });
-
-    // Generate university cards
-    universities.forEach((uni, index) => {
-      const card = document.createElement("div");
-      card.className = "university-card";
-      card.innerHTML = `
-                <h3>${uni.name}</h3>
-                <p><strong>A-levels:</strong> ${uni.aLevels}</p>
-                <p><strong>IB:</strong> ${uni.ib}</p>
-                <p><strong>Admission Test:</strong> ${uni.admissionTest}</p>
-                <p><strong>Fees (Int'l):</strong> ${uni.fees}</p>
-                <p><strong>Location:</strong> ${uni.location}</p>
-                <p><strong>Language Requirements:</strong> ${uni.language}</p>
-                <button data-id="${index}">Add to Shortlist</button>
-            `;
-      universityList.appendChild(card);
-    });
-
-    // Add event listeners to buttons
-    document.querySelectorAll(".university-card button").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const id = parseInt(e.target.getAttribute("data-id"));
-        const university = universities[id];
-
-        // Check if already in shortlist
-        const index = shortlist.findIndex(
-          (item) => item.name === university.name
-        );
-
-        if (index === -1) {
-          // Add to shortlist if not already there and we have space
-          if (shortlist.length < MAX_SELECTION) {
-            shortlist.push(university);
-            e.target.textContent = "Remove from Shortlist";
-            e.target.classList.add("selected");
-          } else {
-            alert(`You can only select up to ${MAX_SELECTION} universities.`);
-          }
-        } else {
-          // Remove from shortlist
-          shortlist.splice(index, 1);
-          e.target.textContent = "Add to Shortlist";
-          e.target.classList.remove("selected");
-        }
-
-        // Update UI
-        updateShortlistCounter();
-        updateNextButton();
-      });
-    });
-
-    // Update shortlist counter
-    function updateShortlistCounter() {
-      shortlistCounter.textContent = shortlist.length;
-    }
 
     function renderUniversities() {
       universityList.innerHTML = "";
@@ -1289,21 +1528,20 @@
       const endIndex = startIndex + ITEMS_PER_PAGE;
       const universitiesToShow = filteredUniversities.slice(startIndex, endIndex);
 
-
       universitiesToShow.forEach((uni, index) => {
         const globalIndex = filteredUniversities.indexOf(uni);
         const card = document.createElement("div");
         card.className = "university-card";
         card.innerHTML = `
-                  <h3>${uni.name}</h3>
-                  <p><strong>A-levels:</strong> ${uni.aLevels}</p>
-                  <p><strong>IB:</strong> ${uni.ib}</p>
-                  <p><strong>Admission Test:</strong> ${uni.admissionTest}</p>
-                  <p><strong>Fees (Int'l):</strong> ${uni.fees}</p>
-                  <p><strong>Location:</strong> ${uni.location}</p>
-                  <p><strong>Language Requirements:</strong> ${uni.language}</p>
-                  <button data-id="${globalIndex}">${shortlist.find(item => item.name === uni.name) ? 'Remove from Shortlist' : 'Add to Shortlist'}</button>
-              `;
+          <h3>${uni.name}</h3>
+          <p><strong>A-levels:</strong> ${uni.aLevels}</p>
+          <p><strong>IB:</strong> ${uni.ib}</p>
+          <p><strong>Admission Test:</strong> ${uni.admissionTest}</p>
+          <p><strong>Fees (Int'l):</strong> ${uni.fees}</p>
+          <p><strong>Location:</strong> ${uni.location}</p>
+          <p><strong>Language Requirements:</strong> ${uni.language}</p>
+          <button data-id="${globalIndex}">${shortlist.find(item => item.name === uni.name) ? 'Remove from Shortlist' : 'Add to Shortlist'}</button>
+        `;
         universityList.appendChild(card);
       });
 
@@ -1341,7 +1579,7 @@
       });
     }
 
-    function UpdatePaginationButtons() {
+    function updatePaginationButtons() {
       const totalPages = Math.ceil(filteredUniversities.length / ITEMS_PER_PAGE);
       pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
 
@@ -1349,8 +1587,13 @@
       nextPageButton.disabled = currentPage === totalPages || totalPages === 0;
     }
 
-    UpdatePaginationButtons();
+    updatePaginationButtons();
     renderUniversities();
+
+    // Update shortlist counter
+    function updateShortlistCounter() {
+      shortlistCounter.textContent = shortlist.length;
+    }
 
     // Update next button state
     function updateNextButton() {
@@ -1382,5 +1625,4 @@
     updateNextButton();
   </script>
 </body>
-
 </html>
