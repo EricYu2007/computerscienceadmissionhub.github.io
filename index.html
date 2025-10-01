@@ -1523,13 +1523,13 @@
 
     function renderUniversities() {
       universityList.innerHTML = "";
-
+      
+      const instructions = document.querySelector(".instructions");
       const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
       const endIndex = startIndex + ITEMS_PER_PAGE;
       const universitiesToShow = filteredUniversities.slice(startIndex, endIndex);
 
       universitiesToShow.forEach((uni, index) => {
-        const globalIndex = filteredUniversities.indexOf(uni);
         const card = document.createElement("div");
         card.className = "university-card";
         card.innerHTML = `
@@ -1540,16 +1540,17 @@
           <p><strong>Fees (Int'l):</strong> ${uni.fees}</p>
           <p><strong>Location:</strong> ${uni.location}</p>
           <p><strong>Language Requirements:</strong> ${uni.language}</p>
-          <button data-id="${globalIndex}">${shortlist.find(item => item.name === uni.name) ? 'Remove from Shortlist' : 'Add to Shortlist'}</button>
+          <button data-name="${uni.name}">${shortlist.find(item => item.name === uni.name) ? 'Remove from Shortlist' : 'Add to Shortlist'}</button>
         `;
         universityList.appendChild(card);
       });
+      instructions.scrollIntoView({behavior: "smooth"})
 
       // Re-attach event listeners to new buttons
       document.querySelectorAll(".university-card button").forEach((button) => {
         button.addEventListener("click", (e) => {
-          const id = parseInt(e.target.getAttribute("data-id"));
-          const university = universities[id];
+          const universityName = e.target.getAttribute("data-name");
+          const university = universities.find(uni => uni.name === universityName);
 
           // Check if already in shortlist
           const index = shortlist.findIndex(
