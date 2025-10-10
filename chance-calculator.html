@@ -229,6 +229,28 @@
         color: white;
       }
 
+      .maths-error {
+        background-color: #ffe6e6;
+        border: 1px solid var(--error-color);
+        border-radius: 4px;
+        padding: 12px;
+        margin: 10px 0;
+        color: var(--error-color);
+        font-weight: 600;
+        display: none;
+      }
+
+      .maths-error p {
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      .maths-error-icon {
+        display: inline-block;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
       .low {
         background-color: #e67e22;
         color: white;
@@ -376,6 +398,10 @@
                 <option value="2">D</option>
                 <option value="0">E/U</option>
               </select>
+              <div id="maths-error" class="maths-error">
+                <span class="maths-error-icon">⚠️</span>
+                <p id="maths-error-text"></p>
+              </div>
             </div>
           </div>
 
@@ -493,10 +519,10 @@
           name: "University of Oxford",
           baseAcceptance: 0.065,
           maxAcceptance: 0.187,
-          minGrades: 152, // A* A A  -> 56 + 48 + 48 = 152
-          minIB: 39, // IB requirement
-          minMaths: 8, // A
-          minIBMaths: 6, // IB Maths 6
+          minGrades: 152,
+          minIB: 39,
+          minMaths: 10, // A* in Maths (A*A*A with A* in Maths)
+          minIBMaths: 7, // 7 in HL Maths
           requiresInterview: true,
           ieltsRequirement: 7.5,
           weightings: {
@@ -511,10 +537,10 @@
           name: "University of Cambridge",
           baseAcceptance: 0.08,
           maxAcceptance: 0.216,
-          minGrades: 160, // A* A* A -> 56 + 56 + 48 = 160
-          minIB: 40, // IB requirement
-          minMaths: 8, // A
-          minIBMaths: 6,
+          minGrades: 160,
+          minIB: 40,
+          minMaths: 10, // A* in Maths (A*A*A with A* in Maths)
+          minIBMaths: 7, // 7 in HL Maths
           requiresInterview: true,
           ieltsRequirement: 7.5,
           weightings: {
@@ -529,10 +555,10 @@
           name: "Imperial College London",
           baseAcceptance: 0.16,
           maxAcceptance: 0.638,
-          minGrades: 160, // A* A* A (interpreted as the A*A*A variant) -> 56+56+48 = 160
+          minGrades: 160,
           minIB: 39,
-          minMaths: 10, // A*
-          minIBMaths: 6,
+          minMaths: 10, // A* in Maths
+          minIBMaths: 7, // 7 in HL Maths
           requiresInterview: true,
           ieltsRequirement: 7.0,
           weightings: {
@@ -547,10 +573,10 @@
           name: "University of St Andrews",
           baseAcceptance: 0.4,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA -> 48+48+48 = 144
+          minGrades: 144,
           minIB: 36,
-          minMaths: 8, // A
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -565,10 +591,10 @@
           name: "University of Birmingham",
           baseAcceptance: 0.55,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA -> 48+48+48 = 144
+          minGrades: 144,
           minIB: 36,
-          minMaths: 8, // A
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -583,10 +609,10 @@
           name: "University of Bath",
           baseAcceptance: 0.35,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA -> 48+48+48 = 144 (range A*AA-AAA, used stricter AAA here)
+          minGrades: 144,
           minIB: 36,
-          minMaths: 8, // A
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -601,10 +627,10 @@
           name: "University of Warwick",
           baseAcceptance: 0.45,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA -> 48+48+48 = 144
+          minGrades: 144,
           minIB: 38,
-          minMaths: 8, // A
-          minIBMaths: 6,
+          minMaths: 10, // A* in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -619,10 +645,10 @@
           name: "University of Bristol",
           baseAcceptance: 0.4,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA -> used AAA side of AAA-AAB
+          minGrades: 144,
           minIB: 36,
-          minMaths: 8,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -637,10 +663,10 @@
           name: "University of Manchester",
           baseAcceptance: 0.5,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA (from AAA-AAB)
+          minGrades: 144,
           minIB: 36,
-          minMaths: 8,
-          minIBMaths: 6,
+          minMaths: 10, // A* in Maths (A*AA with A* in Maths)
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -655,10 +681,10 @@
           name: "King's College London",
           baseAcceptance: 0.45,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAB -> 48 + 48 + 40 = 136
+          minGrades: 136,
           minIB: 35,
-          minMaths: 6, // B
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 7.0,
           weightings: {
@@ -673,10 +699,10 @@
           name: "Durham University",
           baseAcceptance: 0.4,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA or AAB indicated; your 20-list used 136 (AAB) so used that
+          minGrades: 136,
           minIB: 38,
-          minMaths: 6, // B
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -691,10 +717,10 @@
           name: "UCL (University College London)",
           baseAcceptance: 0.35,
           maxAcceptance: 0.95,
-          minGrades: 152, // A* A A -> 56 + 48 + 48 = 152 (from A*A*A-AAA, used A*AA side)
+          minGrades: 152,
           minIB: 38,
-          minMaths: 8,
-          minIBMaths: 6,
+          minMaths: 10, // A* in Maths
+          minIBMaths: 7, // 7 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 7.0,
           weightings: {
@@ -709,10 +735,10 @@
           name: "University of Sheffield",
           baseAcceptance: 0.55,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> used AAB = 48+48+40 = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -727,10 +753,10 @@
           name: "University of Southampton",
           baseAcceptance: 0.5,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> AAB = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -745,10 +771,10 @@
           name: "University of Glasgow",
           baseAcceptance: 0.55,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA-AAB (used AAA -> 144)
+          minGrades: 144,
           minIB: 38,
-          minMaths: 8,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -763,10 +789,10 @@
           name: "The University of Edinburgh",
           baseAcceptance: 0.4,
           maxAcceptance: 0.95,
-          minGrades: 144, // AAA
+          minGrades: 152,
           minIB: 37,
-          minMaths: 8,
-          minIBMaths: 6,
+          minMaths: 10, // A* in Maths (A*AA with A* in Maths)
+          minIBMaths: 6, // 6 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -781,10 +807,10 @@
           name: "University of York",
           baseAcceptance: 0.55,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> used AAB = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -799,10 +825,10 @@
           name: "University of Exeter",
           baseAcceptance: 0.5,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> AAB = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -817,10 +843,10 @@
           name: "University of Nottingham",
           baseAcceptance: 0.5,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> AAB = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -835,10 +861,10 @@
           name: "Loughborough University",
           baseAcceptance: 0.55,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> used AAB
+          minGrades: 136,
           minIB: 35,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -849,17 +875,14 @@
             ielts: 0.05,
           },
         },
-
-        /* --- continuing the rest of the 100 list (remaining entries derived from the provided 100-university raw data) --- */
-
         {
           name: "Lancaster University",
           baseAcceptance: 0.5,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> AAB = 136
+          minGrades: 136,
           minIB: 36,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -874,10 +897,10 @@
           name: "University of Leeds",
           baseAcceptance: 0.48,
           maxAcceptance: 0.95,
-          minGrades: 136, // 35-36 points -> AAB/AAB mapped to AAB = 136
+          minGrades: 136,
           minIB: 35,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -892,10 +915,10 @@
           name: "Queen's University Belfast",
           baseAcceptance: 0.6,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> used AAB = 136 (your raw had AAA-AAB)
+          minGrades: 136,
           minIB: 34,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -910,10 +933,10 @@
           name: "Royal Holloway",
           baseAcceptance: 0.7,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAB 
+          minGrades: 136,
           minIB: 32,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -928,10 +951,10 @@
           name: "Cardiff University",
           baseAcceptance: 0.6,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> used AAB = 136
+          minGrades: 136,
           minIB: 34,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -946,10 +969,10 @@
           name: "Newcastle University",
           baseAcceptance: 0.58,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB -> AAB = 136
+          minGrades: 136,
           minIB: 35,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -964,10 +987,10 @@
           name: "Queen Mary University of London",
           baseAcceptance: 0.7,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAB 
+          minGrades: 136,
           minIB: 34,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -982,10 +1005,10 @@
           name: "University of Liverpool",
           baseAcceptance: 0.65,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB
+          minGrades: 136,
           minIB: 35,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1000,10 +1023,10 @@
           name: "University of Surrey",
           baseAcceptance: 0.68,
           maxAcceptance: 0.95,
-          minGrades: 136, // AAA-AAB
+          minGrades: 136,
           minIB: 34,
-          minMaths: 6,
-          minIBMaths: 6,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1018,10 +1041,10 @@
           name: "University of Dundee",
           baseAcceptance: 0.75,
           maxAcceptance: 0.95,
-          minGrades: 112, // ABB -> 48 + 40 + 40 = 128
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8, // HL Maths required (kept as HL requirement)
-          minIBMaths: null, 
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1036,10 +1059,10 @@
           name: "University of Strathclyde",
           baseAcceptance: 0.72,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB -> 48 + 40 + 40 = 128
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8, // HL Maths
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1054,10 +1077,10 @@
           name: "Swansea University",
           baseAcceptance: 0.75,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1072,10 +1095,10 @@
           name: "Heriot-Watt University",
           baseAcceptance: 0.75,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1090,10 +1113,10 @@
           name: "University of Sussex",
           baseAcceptance: 0.72,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1108,10 +1131,10 @@
           name: "University of Reading",
           baseAcceptance: 0.72,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1126,10 +1149,10 @@
           name: "University of Leicester",
           baseAcceptance: 0.7,
           maxAcceptance: 0.95,
-          minGrades: 128, // ABB
+          minGrades: 128,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1144,10 +1167,10 @@
           name: "Aston University",
           baseAcceptance: 0.68,
           maxAcceptance: 0.95,
-          minGrades: 120, // BBB -> 40+40+40 = 120
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1162,10 +1185,10 @@
           name: "University of East Anglia (UEA)",
           baseAcceptance: 0.7,
           maxAcceptance: 0.95,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1177,13 +1200,13 @@
           },
         },
         {
-          name: "City, University of London (City St George's)",
+          name: "City, University of London",
           baseAcceptance: 0.75,
           maxAcceptance: 0.95,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1198,10 +1221,10 @@
           name: "Aberystwyth University",
           baseAcceptance: 0.8,
           maxAcceptance: 0.98,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1216,10 +1239,10 @@
           name: "University of Kent",
           baseAcceptance: 0.72,
           maxAcceptance: 0.95,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1234,10 +1257,10 @@
           name: "University of Aberdeen",
           baseAcceptance: 0.75,
           maxAcceptance: 0.95,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1252,10 +1275,10 @@
           name: "Bangor University",
           baseAcceptance: 0.82,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1270,10 +1293,10 @@
           name: "University of Lincoln",
           baseAcceptance: 0.8,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1288,10 +1311,10 @@
           name: "Ulster University",
           baseAcceptance: 0.78,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1306,10 +1329,10 @@
           name: "University of Essex",
           baseAcceptance: 0.76,
           maxAcceptance: 0.98,
-          minGrades: 120, // BBB (raw said 30-32 points -> BBB)
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1324,10 +1347,10 @@
           name: "Bath Spa University",
           baseAcceptance: 0.85,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC or 26 points mapped -> BBC
+          minGrades: 112,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1342,10 +1365,10 @@
           name: "Brunel University London",
           baseAcceptance: 0.78,
           maxAcceptance: 0.98,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1360,10 +1383,10 @@
           name: "University of Stirling",
           baseAcceptance: 0.82,
           maxAcceptance: 0.99,
-          minGrades: 120, // BBB (28-30 points)
+          minGrades: 120,
           minIB: 28,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1378,10 +1401,10 @@
           name: "Northumbria University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC (28-30 points)
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1396,10 +1419,10 @@
           name: "University of the West of England (UWE Bristol)",
           baseAcceptance: 0.78,
           maxAcceptance: 0.98,
-          minGrades: 136, // AAB
+          minGrades: 136,
           minIB: 34,
-          minMaths: 6,
-          minIBMaths: 5,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1414,10 +1437,10 @@
           name: "Manchester Metropolitan University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1432,10 +1455,10 @@
           name: "Nottingham Trent University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1450,10 +1473,10 @@
           name: "University of Portsmouth",
           baseAcceptance: 0.82,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1468,10 +1491,10 @@
           name: "Abertay University",
           baseAcceptance: 0.88,
           maxAcceptance: 0.99,
-          minGrades: 104, // BCC -> 40 + 32 + 32 = 104 (raw said 26 points -> mapped to 26 IB points = low A-levels — I'll set 104)
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1486,10 +1509,10 @@
           name: "Glasgow Caledonian University",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1504,10 +1527,10 @@
           name: "University of Huddersfield",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1522,10 +1545,10 @@
           name: "University of Winchester",
           baseAcceptance: 0.88,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC (maths optional)
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1540,10 +1563,10 @@
           name: "Oxford Brookes University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 120,  // BBB
+          minGrades: 120,
           minIB: 29,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1558,10 +1581,10 @@
           name: "University of Hull",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1576,10 +1599,10 @@
           name: "University of Bradford",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1594,10 +1617,10 @@
           name: "Edge Hill University",
           baseAcceptance: 0.88,
           maxAcceptance: 0.99,
-          minGrades: 96, // BCC -> 40 + 32 + 32 = 104 but raw said 26 IB -> map to 104; to remain simple set 104
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1612,10 +1635,10 @@
           name: "University of Worcester",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC -> 32 + 32 + 32 = 96; raw said 24-26 points -> map to CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1630,10 +1653,10 @@
           name: "Keele University",
           baseAcceptance: 0.8,
           maxAcceptance: 0.98,
-          minGrades: 120, // BBB -> 40+40+40=120
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1648,10 +1671,10 @@
           name: "University of Hertfordshire",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1666,10 +1689,10 @@
           name: "Kingston University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1684,10 +1707,10 @@
           name: "Bournemouth University",
           baseAcceptance: 0.84,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC 
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1702,10 +1725,10 @@
           name: "University of Staffordshire",
           baseAcceptance: 0.88,
           maxAcceptance: 0.99,
-          minGrades: 104, // BCC 
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1720,10 +1743,10 @@
           name: "Robert Gordon University",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 120, // BBB -> 40+40+40=120 (raw said 30 -> BBB)
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1738,10 +1761,10 @@
           name: "Birmingham City University",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC -> 32+32+32 = 96
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1758,8 +1781,8 @@
           maxAcceptance: 0.99,
           minGrades: 104,
           minIB: 28,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1774,10 +1797,10 @@
           name: "Leeds Beckett University",
           baseAcceptance: 0.88,
           maxAcceptance: 0.995,
-          minGrades: 104, // BCC
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1792,10 +1815,10 @@
           name: "Liverpool John Moores University",
           baseAcceptance: 0.88,
           maxAcceptance: 0.995,
-          minGrades: 104, // BCC
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1810,10 +1833,10 @@
           name: "University of Brighton",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 104, // BCC-like
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1828,10 +1851,10 @@
           name: "London South Bank University",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1846,10 +1869,10 @@
           name: "Leeds Trinity University",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD -> 32+32+24 = 88
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1864,9 +1887,9 @@
           name: "University of the Arts London",
           baseAcceptance: 0.7,
           maxAcceptance: 0.98,
-          minGrades: 104, // BCC-ish
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
+          minMaths: null, // No specific Maths requirement for creative computing
           minIBMaths: null,
           requiresInterview: false,
           ieltsRequirement: 6.0,
@@ -1882,10 +1905,10 @@
           name: "Sheffield Hallam University",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1900,10 +1923,10 @@
           name: "University of Plymouth",
           baseAcceptance: 0.82,
           maxAcceptance: 0.99,
-          minGrades: 120, // BBB
+          minGrades: 120,
           minIB: 30,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1918,10 +1941,10 @@
           name: "University of South Wales",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1936,9 +1959,9 @@
           name: "Falmouth University",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 104, // BCC-ish
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
+          minMaths: null, // No specific Maths requirement for creative computing
           minIBMaths: null,
           requiresInterview: false,
           ieltsRequirement: 6.0,
@@ -1954,10 +1977,10 @@
           name: "University of Buckingham",
           baseAcceptance: 0.68,
           maxAcceptance: 0.98,
-          minGrades: 128, // AAB-ABB 
+          minGrades: 128,
           minIB: 34,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -1972,10 +1995,10 @@
           name: "University of Salford",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -1990,10 +2013,10 @@
           name: "Coventry University",
           baseAcceptance: 0.82,
           maxAcceptance: 0.99,
-          minGrades: 120, // BBB -> raw 28-30 IB -> used 120
+          minGrades: 120,
           minIB: 28,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2008,10 +2031,10 @@
           name: "University of Derby",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 112, // BBC-ish or 26-28 IB -> use 112
+          minGrades: 112,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2026,10 +2049,10 @@
           name: "De Montfort University",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 112, // BBC
+          minGrades: 112,
           minIB: 28,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2044,10 +2067,10 @@
           name: "Teesside University",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2062,10 +2085,10 @@
           name: "University of Greenwich",
           baseAcceptance: 0.88,
           maxAcceptance: 0.995,
-          minGrades: 104, // BCC
+          minGrades: 104,
           minIB: 26,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2080,10 +2103,10 @@
           name: "York St John University",
           baseAcceptance: 0.92,
           maxAcceptance: 0.999,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2098,10 +2121,10 @@
           name: "Goldsmiths, University of London",
           baseAcceptance: 0.78,
           maxAcceptance: 0.98,
-          minGrades: 120, // BBB (raw gave 32 IB)
+          minGrades: 120,
           minIB: 32,
-          minMaths: 8,
-          minIBMaths: null,
+          minMaths: 8, // A in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.5,
           weightings: {
@@ -2116,10 +2139,10 @@
           name: "University of West London",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2134,10 +2157,10 @@
           name: "University of Sunderland",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2152,10 +2175,10 @@
           name: "Cardiff Metropolitan University",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2170,10 +2193,10 @@
           name: "University of Chichester",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2188,10 +2211,10 @@
           name: "University of Westminster",
           baseAcceptance: 0.86,
           maxAcceptance: 0.99,
-          minGrades: 104, // BBC
+          minGrades: 104,
           minIB: 28,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 6, // B in Maths
+          minIBMaths: 5, // 5 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2206,10 +2229,10 @@
           name: "University of Chester",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2224,10 +2247,10 @@
           name: "University of East London",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2239,13 +2262,13 @@
           },
         },
         {
-          name: "University of Lancashire (UCLan)",
+          name: "University of Central Lancashire (UCLan)",
           baseAcceptance: 0.9,
           maxAcceptance: 0.995,
-          minGrades: 96, // CCC to BBC range (raw 24-28)
+          minGrades: 96,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2260,10 +2283,10 @@
           name: "University of Gloucestershire",
           baseAcceptance: 0.92,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2278,10 +2301,10 @@
           name: "Canterbury Christ Church University",
           baseAcceptance: 0.93,
           maxAcceptance: 0.995,
-          minGrades: 88, // CCD
+          minGrades: 88,
           minIB: 24,
-          minMaths: null,
-          minIBMaths: null,
+          minMaths: 4, // C in Maths
+          minIBMaths: 4, // 4 in HL Maths
           requiresInterview: false,
           ieltsRequirement: 6.0,
           weightings: {
@@ -2325,15 +2348,22 @@
       // Calculate admission chances
       function calculateChances() {
         // Get selected universities from localStorage
-            const selectedUniversities = JSON.parse(localStorage.getItem('universityShortlist') || '[]');
-            const selectedUniversityNames = selectedUniversities.map(uni => uni.name);
-            const universitiesToCalculate = universities.filter(uni => 
-                  selectedUniversityNames.includes(uni.name)
-            );
-            if (selectedUniversityNames.length === 0) {
-                alert("No universities selected. Calculating for all universities.");
-            }  
-            const universitiesToProcess = universitiesToCalculate.length > 0 ? universitiesToCalculate : universities;
+        const selectedUniversities = JSON.parse(
+          localStorage.getItem("universityShortlist") || "[]"
+        );
+        const selectedUniversityNames = selectedUniversities.map(
+          (uni) => uni.name
+        );
+        const universitiesToCalculate = universities.filter((uni) =>
+          selectedUniversityNames.includes(uni.name)
+        );
+        if (selectedUniversityNames.length === 0) {
+          alert("No universities selected. Calculating for all universities.");
+        }
+        const universitiesToProcess =
+          universitiesToCalculate.length > 0
+            ? universitiesToCalculate
+            : universities;
 
         const qualType = document.getElementById("qualification-type").value;
         if (!qualType) {
@@ -2342,26 +2372,52 @@
         }
 
         // Get values based on qualification type
-        let grades, mathsScore;
+        let grades, mathsScore, userGradesArray;
 
         if (qualType === "alevels") {
-          grades = document.getElementById("aLevel-grade-input").value;
-          mathsGrade = document.getElementById("maths").value;
-          mathsScore = parseInt(mathsGrade) || 0;
-          bestAlevel = findBestAlevelGrade(grades);
+          const gradesInput =
+            document.getElementById("aLevel-grade-input").value;
+          mathsScore = parseInt(document.getElementById("maths").value) || 0;
 
-          if (mathsScore > bestAlevel && grades !== "" && mathsGrade !== "") {
-            alert("Maths grade cannot be higher than your best A-level grade");
-            return;
-          }
-
-          if (!grades) {
+          if (!gradesInput) {
             alert("Please enter your A-level grades");
             return;
           }
 
-          // Convert grades to UCAS points
-          grades = calculateGradeScore(grades);
+          // Parse A-level grades
+          userGradesArray = parseAlevelGrades(gradesInput);
+          if (userGradesArray.length === 0) {
+            alert("Please enter valid A-level grades (e.g., A*A*A, AAB, ABC)");
+            return;
+          }
+
+          // Check if Maths grade is better than best A-level grade
+          const bestGradeValue = Math.max(
+            ...userGradesArray.map((grade) => getGradeValue(grade))
+          );
+          if (mathsScore > bestGradeValue) {
+            const bestGradeName = getGradeFromScore(bestGradeValue);
+            const mathsGradeName = getGradeFromScore(mathsScore);
+
+            // Show beautiful error message in the form
+            const errorElement = document.getElementById("maths-error");
+            const errorText = document.getElementById("maths-error-text");
+            errorText.innerHTML = `Your Maths grade (${mathsGradeName}) cannot be better than your best A-level grade (${bestGradeName}).<br><em>Please adjust your Maths grade to match your actual achievement.</em>`;
+            errorElement.style.display = "block";
+
+            // Scroll to the error message
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            return;
+          } else {
+            // Hide error message if validation passes
+            document.getElementById("maths-error").style.display = "none";
+          }
+
+          // Calculate UCAS points for chance calculation
+          grades = calculateGradeScore(gradesInput);
         } else {
           grades =
             parseInt(document.getElementById("ib-grade-input").value) || 0;
@@ -2385,26 +2441,54 @@
         const resultsContent = document.getElementById("results-content");
         resultsContent.innerHTML = "";
 
-
         universitiesToProcess.forEach((uni) => {
           // Check if meets minimum requirements
           let meetsMinimum = true;
           let rejectionReasons = [];
 
           // Check grades based on qualification type
-          const minGradeReq =
-            qualType === "alevels" ? uni.minGrades : uni.minIB;
-          const minMathsReq =
-            qualType === "alevels" ? uni.minMaths : uni.minIBMaths;
+          if (qualType === "alevels") {
+            // For A-levels, check if the three best grades meet the requirement
+            const meetsGradeRequirement = checkAlevelRequirements(
+              userGradesArray,
+              uni.minGrades
+            );
+            if (!meetsGradeRequirement) {
+              meetsMinimum = false;
+              const requiredGrade = getGradeFromScore(uni.minGrades);
+              rejectionReasons.push(
+                `Grades below minimum requirement (${requiredGrade})`
+              );
+            }
 
-          if (grades < minGradeReq) {
-            meetsMinimum = false;
-            rejectionReasons.push("Grades below minimum requirement");
-          }
+            // Check maths requiremens
+            const minMathsValue = getGradeValueFromSelect(uni.minMaths);
 
-          if (mathsScore < minMathsReq) {
-            meetsMinimum = false;
-            rejectionReasons.push("Maths grade below requirement");
+            if (mathsScore < minMathsValue) {
+              meetsMinimum = false;
+              const requiredMaths = getGradeFromScore(uni.minMaths);
+              rejectionReasons.push(
+                `Maths grade below requirement (${requiredMaths} required)`
+              );
+            }
+          } else {
+            // For IB, use the existing logic
+            const minGradeReq = uni.minIB;
+            const minMathsReq = uni.minIBMaths;
+
+            if (grades < minGradeReq) {
+              meetsMinimum = false;
+              rejectionReasons.push(
+                `IB score below minimum requirement (${minGradeReq})`
+              );
+            }
+
+            if (mathsScore < minMathsReq) {
+              meetsMinimum = false;
+              rejectionReasons.push(
+                `IB Maths grade below requirement (${minMathsReq} required)`
+              );
+            }
           }
 
           // Calculate IELTS score if international student
@@ -2417,7 +2501,9 @@
             } else if (ieltsScore > 0) {
               // IELTS score is too low
               meetsMinimum = false;
-              rejectionReasons.push("IELTS score below requirement");
+              rejectionReasons.push(
+                `IELTS score below requirement (${uni.ieltsRequirement})`
+              );
             } else {
               // IELTS not taken yet
               ieltsMultiplier = 0.95;
@@ -2434,16 +2520,22 @@
             maxChance = uni.maxAcceptance * 100;
 
             // Calculate multipliers
+            const minGradeReq =
+              qualType === "alevels" ? uni.minGrades : uni.minIB;
             const gradeMultiplier = calculateGradeMultiplier(
               grades,
               minGradeReq,
               uni
             );
+
+            const minMathsReq =
+              qualType === "alevels" ? uni.minMaths : uni.minIBMaths;
             const mathsMultiplier = calculateMathsMultiplier(
               mathsScore,
               minMathsReq,
               uni
             );
+
             const psMultiplier =
               calculatePersonalStatementMultiplier(personalStatement);
 
@@ -2457,22 +2549,18 @@
 
             // Apply interview adjustment if required
             if (uni.requiresInterview) {
-              // Interview performance is unknown, so we apply a moderate adjustment
-              chance *= 0.9; // Slightly reduce chance to account for interview uncertainty
+              chance *= 0.9;
             }
           } else {
-            // If doesn't meet minimum requirements, calculate a reduced chance
-            chance = uni.baseAcceptance * 100 * 0.2; // 20% of base chance
+            chance = uni.baseAcceptance * 100 * 0.2;
           }
 
-          // Ensure chance is within reasonable bounds
           chance = Math.min(Math.max(chance, 2), maxChance);
 
-          // Create result element
+          // Create result element (rest of the display code remains the same)
           const uniElement = document.createElement("div");
           uniElement.className = "university-chance";
 
-          // Determine probability label
           let labelClass, labelText;
           if (chance >= 70) {
             labelClass = "very-high";
@@ -2498,7 +2586,6 @@
             )}</div>`;
           }
 
-          // Format minimum requirements text based on qualification type
           const minReqText = getMinimumRequirementsText(
             uni,
             qualType,
@@ -2506,23 +2593,22 @@
           );
 
           uniElement.innerHTML = `
-                    <div class="university-info">
-                        <h3>${
-                          uni.name
-                        } <span class="probability-label ${labelClass}">${labelText}</span></h3>
-                        <div>Minimum requirements: ${minReqText}</div>
-                        ${requirementsHtml}
-                    </div>
-                    <div class="chance-bar-container">
-                        <div class="chance-bar" style="width: ${chance}%"></div>
-                    </div>
-                    <div class="chance-percentage">${chance.toFixed(1)}%</div>
-                `;
+              <div class="university-info">
+                  <h3>${
+                    uni.name
+                  } <span class="probability-label ${labelClass}">${labelText}</span></h3>
+                  <div>Minimum requirements: ${minReqText}</div>
+                  ${requirementsHtml}
+              </div>
+              <div class="chance-bar-container">
+                  <div class="chance-bar" style="width: ${chance}%"></div>
+              </div>
+              <div class="chance-percentage">${chance.toFixed(1)}%</div>
+          `;
 
           resultsContent.appendChild(uniElement);
         });
 
-        // Show results
         resultsContainer.style.display = "block";
         resultsContainer.scrollIntoView({ behavior: "smooth" });
       }
@@ -2531,12 +2617,12 @@
         // Convert A-level grades to UCAS points
         const gradeMap = {
           "A*": 56,
-          "A": 48,
-          "B": 40,
-          "C": 32,
-          "D": 24,
-          "E": 16,
-          "U": 0,
+          A: 48,
+          B: 40,
+          C: 32,
+          D: 24,
+          E: 16,
+          U: 0,
         };
 
         // Handle input like "A*A*A" or "A* A A"
@@ -2567,6 +2653,85 @@
         }
 
         return totalPoints;
+      }
+
+      // New function to parse A-level grades from input
+      function parseAlevelGrades(gradesInput) {
+        const cleanedInput = gradesInput.toUpperCase().replace(/\s+/g, "");
+
+        // Simple regex to extract all A-level grades (A*, A, B, C, D, E, U)
+        const grades = cleanedInput.match(/(A\*|[A-EU])/g);
+
+        return grades || [];
+      }
+
+      // function to check if A-level grades meet requirements
+      function checkAlevelRequirements(userGrades, minGradeRequirement) {
+        const userGradeValues = userGrades
+          .map((grade) => getGradeValue(grade))
+          .sort((a, b) => b - a)
+          .slice(0, 3);
+
+        const minGradeValues =
+          getGradeValuesFromRequirement(minGradeRequirement);
+
+        const sortedUserGrades = [...userGradeValues].sort((a, b) => b - a);
+        const sortedMinGrades = [...minGradeValues].sort((a, b) => b - a);
+
+        console.log("Sorted user:", sortedUserGrades);
+        console.log("Sorted min:", sortedMinGrades);
+
+        for (let i = 0; i < 3; i++) {
+          if (sortedUserGrades[i] < sortedMinGrades[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      // Helper function to get numerical value of a grade
+      function getGradeValue(grade) {
+        const gradeMap = {
+          "A*": 10,
+          A: 8,
+          B: 6,
+          C: 4,
+          D: 2,
+          E: 0,
+          U: 0,
+        };
+        return gradeMap[grade] || 0;
+      }
+
+      // Helper function to get grade value from select option
+      function getGradeValueFromSelect(selectValue) {
+        const valueMap = {
+          10: "A*",
+          8: "A",
+          6: "B",
+          4: "C",
+          2: "D",
+          0: "E/U",
+        };
+        return getGradeValue(valueMap[selectValue]);
+      }
+
+      // Helper function to convert requirement score to three grade values
+      function getGradeValuesFromRequirement(requirementScore) {
+        const requirementMap = {
+          160: [10, 10, 8], // A*A*A
+          152: [10, 8, 8], // A*AA
+          144: [8, 8, 8], // AAA
+          136: [8, 8, 6], // AAB
+          128: [8, 6, 6], // ABB
+          120: [6, 6, 6], // BBB
+          112: [6, 6, 4], // BBC
+          104: [6, 4, 4], // BCC
+          96: [4, 4, 4], // CCC
+          88: [4, 4, 2], // CCD
+        };
+
+        return requirementMap[requirementScore] || [8, 8, 8];
       }
 
       // Helper function to calculate grade multiplier
@@ -2676,12 +2841,12 @@
       function findBestAlevelGrade(grades) {
         const gradeMap = {
           "A*": 10,
-          "A": 8,
-          "B": 6,
-          "C": 4,
-          "D": 2,
-          "E": 0,
-          "U": 0,
+          A: 8,
+          B: 6,
+          C: 4,
+          D: 2,
+          E: 0,
+          U: 0,
         };
 
         const gradeList = grades
