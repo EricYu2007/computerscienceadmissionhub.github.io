@@ -1042,7 +1042,7 @@ universities_data = [
         "language": "IELTS 6.0 (minimum 5.5 in each component)",
     },
     {
-        "name": "University of Creative Arts",
+        "name": "University for the Creative Arts",
         "aLevels": "BBC",
         "ib": "27 points (Maths optional)",
         "admissionTest": "None",
@@ -1060,6 +1060,14 @@ universities_data = [
         "language": "IELTS 6.0 (minimum 5.5 in each component)",
     }
 ]
+
+import json
+import re
+import requests
+from bs4 import BeautifulSoup
+import time
+
+# [Your existing universities_data list would be here...]
 
 def universities_rankings():
     """Scrape university rankings from the website using requests + BeautifulSoup"""
@@ -1082,143 +1090,204 @@ def universities_rankings():
             ".uni_nam",
             ".lt_list2",
             "[class*='uni_nam']",
-            ".league-table-inner .uni-name"
+            ".league-table-inner .uni-name",
+            ".uni-name",
+            ".institution-name"
         ]
         
         university_elements = None
         for selector in selectors:
             university_elements = soup.select(selector)
             if university_elements:
-                print(f"Found elements with selector: {selector}")
+                print(f"Found {len(university_elements)} elements with selector: {selector}")
                 break
         
         if not university_elements:
             print("No university elements found with any selector")
-            return []
+            # Try alternative approach - look for any elements that might contain university names
+            all_elements = soup.find_all(text=re.compile(r'[Uu]niversity|[Cc]ollege'))
+            if all_elements:
+                print(f"Found {len(all_elements)} elements with university/college keywords")
+                university_elements = all_elements
+            else:
+                return []
         
-        # Get text from elements
+        # Get text from ALL elements, not just first 2
         universities = []
-        for element in university_elements[:2]:  # Check first 2 elements like original JS
-            text = element.get_text(strip=False)
-            if text and len(text) > 10:
-                universities.extend(text.split('\n'))
+        for element in university_elements:  # Removed [:2] limit
+            if hasattr(element, 'get_text'):
+                text = element.get_text(strip=False)
+            else:
+                text = str(element)
+            
+            if text and len(text.strip()) > 3:
+                # Split by newlines and add all parts
+                parts = text.split('\n')
+                for part in parts:
+                    clean_part = part.strip()
+                    if clean_part and len(clean_part) > 3:
+                        universities.append(clean_part)
         
-        # Define unwanted patterns to filter out
-        unwanted_patterns = [
-            'university name', 'book open day', 'view courses', 'get prospectus',
-            'in clearing', 'clearing', 'open day', 'book now', 'apply now',
-            'rank', 'ranking', 'position'
-        ]
+        print(f"Raw scraped data: {len(universities)} items")
         
-        # Filter universities more aggressively
+        # More lenient filtering - only remove obviously invalid content
         filtered_universities = []
         for content in universities:
             content_clean = content.strip()
             
             # Skip if empty or too short
-            if not content_clean or len(content_clean) < 5:
+            if not content_clean or len(content_clean) < 3:
                 continue
                 
             # Skip if it's obviously not a university name
             content_lower = content_clean.lower()
-            if any(unwanted in content_lower for unwanted in unwanted_patterns):
+            
+            # Only filter out content that's CLEARLY not a university
+            clearly_invalid = any(
+                pattern in content_lower for pattern in [
+                    'book open day', 'view courses', 'get prospectus', 
+                    'apply now', 'book now', 'rank:', 'position:',
+                    'open day', 'prospectus'
+                ]
+            )
+            
+            if clearly_invalid:
                 continue
                 
-            # Skip if it's mostly numbers or special characters
-            if content_clean.isdigit():
-                continue
-                
-            # Skip common non-university text patterns
-            if (content_lower.startswith('book ') or 
-                content_lower.startswith('view ') or 
-                content_lower.startswith('get ') or
-                'open day' in content_lower or
-                'prospectus' in content_lower):
+            # Skip if it's mostly numbers
+            if content_clean.replace(' ', '').isdigit():
                 continue
                 
             filtered_universities.append(content_clean)
         
-        # Process university names
+        # More lenient processing
         processed_universities = []
         for uni in filtered_universities:
-            processed = uni.strip()
+            processed = clean_university_name(uni)
             
-            # Remove common prefixes/suffixes and clean up
-            processed = re.sub(r'\bIN CLEARING\b', '', processed, flags=re.IGNORECASE).strip()
-            processed = re.sub(r'\bBOOK OPEN DAY\b', '', processed, flags=re.IGNORECASE).strip()
-            processed = re.sub(r'\bVIEW COURSES\b', '', processed, flags=re.IGNORECASE).strip()
-            processed = re.sub(r'\bGET PROSPECTUS\b', '', processed, flags=re.IGNORECASE).strip()
-            
-            # Remove content after comma (like in original JS)
-            comma_index = processed.find(",")
-            if comma_index != -1:
-                processed = processed[:comma_index].strip()
-            
-            # Remove ellipsis and clean up
-            processed = re.sub(r'\.{3,}', '', processed).strip()
-            
-            # Normalize whitespace
-            processed = re.sub(r'\s+', ' ', processed)
-            
-            # Final validation - must look like a university name
-            if (len(processed) > 5 and 
-                not processed.isdigit() and
-                not any(unwanted in processed.lower() for unwanted in unwanted_patterns) and
-                ('university' in processed.lower() or 'college' in processed.lower() or processed.count(' ') >= 1)):
-                processed_universities.append(processed)
+            if processed and len(processed) >= 3:
+                # Final check - much more lenient than before
+                words = processed.split()
+                if (len(words) >= 1 and  # Single word names are okay
+                    not any(bad in processed.lower() for bad in ['book ', 'view ', 'get ']) and
+                    not processed.isdigit()):
+                    processed_universities.append(processed)
         
-        print(f"Found {len(processed_universities)} valid universities after processing")
-        if processed_universities:
-            print("Sample processed universities:", processed_universities[:10])
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_universities = []
+        for uni in processed_universities:
+            if uni not in seen:
+                seen.add(uni)
+                unique_universities.append(uni)
         
-        return processed_universities[:100]
+        print(f"Found {len(unique_universities)} valid universities after processing")
+        
+        # DEBUG: Print what we found
+        if unique_universities:
+            print("First 10 universities:", unique_universities[:10])
+            print("Last 10 universities:", unique_universities[-10:])
+        
+        return unique_universities  # Return all
     
     except requests.RequestException as e:
         print(f"Request error: {e}")
         return []
     except Exception as e:
         print(f"Error during scraping: {e}")
+        import traceback
+        print(f"Traceback: {traceback.format_exc()}")
         return []
 
+def clean_university_name(name):
+    """Clean and normalize university name"""
+    if not name:
+        return None
+    
+    # Remove common suffixes and cleaning indicators
+    patterns_to_remove = [
+        r'\buniversity name\b',
+        r'\bIN CLEARING\b',
+        r'\bBOOK OPEN DAY\b', 
+        r'\bVIEW COURSES\b',
+        r'\bGET PROSPECTUS\b',
+        r'\s*\.{3,}\s*',  # Remove ellipsis
+    ]
+    
+    cleaned = name
+    for pattern in patterns_to_remove:
+        cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE)
+    
+    # Remove content after comma but be careful - only if there's substantial text before
+    comma_index = cleaned.find(",")
+    if comma_index != -1 and comma_index > 10:  # Only if there's substantial text before comma
+        cleaned = cleaned[:comma_index].strip()
+    
+    # Remove extra whitespace and normalize
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    
+    return cleaned
+
 def match_universities_with_data():
-    """Match scraped university names with our data"""
+    """CORRECTED: Match scraped university names with our data"""
     scraped_names = universities_rankings()
-    matched_universities = []
     
     print(f"Scraped {len(scraped_names)} university names")
     if scraped_names:
         print("First 10 scraped names:", scraped_names[:10])
     
-    # Handle truncated names (like 'University of Wales Trinity Saint D...')
-    def normalize_name(name):
-        name = re.sub(r'\.{3,}', '', name)  # Remove ellipsis
-        name = re.sub(r'\s+', ' ', name).strip()
-        return name
+    # Remove "University name" header if present
+    if scraped_names and scraped_names[0].lower() == 'university name':
+        print("Removing 'University name' header")
+        scraped_names = scraped_names[1:]
     
-    # More flexible matching
-    for uni_name in scraped_names:
-        normalized_scraped = normalize_name(uni_name)
-        found = False
+    # Create a lookup dictionary for exact matching
+    hardcoded_lookup = {}
+    for uni in universities_data:
+        # Store with lowercase key for case-insensitive matching
+        hardcoded_lookup[uni["name"].lower()] = uni
+    
+    matched_universities = []
+    used_hardcoded = set()  # Track which hardcoded universities we've used
+    
+    for scraped_name in scraped_names:
+        scraped_lower = scraped_name.lower()
+        found_match = None
         
-        for uni_data in universities_data:
-            normalized_data = normalize_name(uni_data["name"])
+        # Strategy 1: Exact match
+        if scraped_lower in hardcoded_lookup:
+            candidate = hardcoded_lookup[scraped_lower]
+            if candidate not in matched_universities:
+                found_match = candidate
+        
+        # Strategy 2: Try to find the best matching hardcoded university
+        if not found_match:
+            best_match = None
+            best_score = 0
             
-            # Try multiple matching strategies
-            if (normalized_data.lower() in normalized_scraped.lower() or 
-                normalized_scraped.lower() in normalized_data.lower() or
-                any(word in normalized_scraped.lower() for word in normalized_data.lower().split() if len(word) > 3)):
+            for hardcoded_uni in universities_data:
+                if hardcoded_uni in matched_universities:
+                    continue  # Skip already used universities
                 
-                # Avoid duplicates
-                if uni_data not in matched_universities:
-                    matched_universities.append(uni_data)
-                    found = True
-                    print(f"Matched: '{normalized_scraped}' -> '{uni_data['name']}'")
-                    break
+                hardcoded_lower = hardcoded_uni["name"].lower()
+                
+                # Calculate similarity score
+                score = calculate_similarity_score(scraped_lower, hardcoded_lower)
+                
+                if score > best_score and score > 0.7:  # Only good matches
+                    best_score = score
+                    best_match = hardcoded_uni
+            
+            if best_match:
+                found_match = best_match
         
-        # If no match found with existing data, create a basic entry for valid university names
-        if not found and len(normalized_scraped) > 5 and ('university' in normalized_scraped.lower() or 'college' in normalized_scraped.lower()):
+        if found_match:
+            matched_universities.append(found_match)
+            print(f"✅ CORRECT MATCH: '{scraped_name}' -> '{found_match['name']}'")
+        else:
+            # Create basic entry for universities not in hardcoded data
             basic_uni = {
-                "name": normalized_scraped,
+                "name": scraped_name,
                 "aLevels": "Check university website",
                 "ib": "Check university website", 
                 "admissionTest": "None",
@@ -1227,15 +1296,55 @@ def match_universities_with_data():
                 "language": "Check university website"
             }
             matched_universities.append(basic_uni)
-            print(f"Added basic entry for: '{normalized_scraped}'")
+            print(f"❌ NO MATCH: '{scraped_name}' - created basic entry")
+    
+    print(f"\n--- SUMMARY ---")
+    print(f"Total scraped universities: {len(scraped_names)}")
+    print(f"Successfully matched with hardcoded data: {len([u for u in matched_universities if 'Check university website' not in u['aLevels']])}")
+    print(f"Created basic entries: {len([u for u in matched_universities if 'Check university website' in u['aLevels']])}")
     
     return matched_universities
+
+def calculate_similarity_score(name1, name2):
+    """Calculate similarity between two university names"""
+    # Exact match
+    if name1 == name2:
+        return 1.0
+    
+    # One contains the other (most common case)
+    if name1 in name2 or name2 in name1:
+        return 0.9
+    
+    # Handle common abbreviations
+    abbreviations = {
+        'ucl': 'university college london',
+        'kcl': "king's college london", 
+        'ic': 'imperial college',
+        'rhul': 'royal holloway',
+        'qmul': 'queen mary university of london'
+    }
+    
+    for abbrev, full in abbreviations.items():
+        if (name1 == abbrev and full in name2) or (name2 == abbrev and full in name1):
+            return 0.85
+    
+    # Word overlap
+    words1 = set(name1.split())
+    words2 = set(name2.split())
+    
+    if words1 and words2:
+        common_words = words1.intersection(words2)
+        if common_words:
+            return len(common_words) / max(len(words1), len(words2))
+    
+    return 0.0
 
 def generate_university_json():
     """Generate the universities JSON file"""
     try:
         print("Starting university data scraping...")
         matched_universities = match_universities_with_data()
+        universities_ranking = universities_rankings()
         
         print(f"Successfully matched {len(matched_universities)} universities")
         
@@ -1247,6 +1356,8 @@ def generate_university_json():
         # Save to JSON file
         with open("universities.json", "w", encoding="utf-8") as f:
             json.dump(matched_universities, f, indent=2, ensure_ascii=False)
+        with open("universities-name.json", "w",encoding="utf-8") as f:
+            json.dump(universities_ranking, f, indent=2, ensure_ascii=False)
         
         print("✅ universities.json generated successfully!")
         
