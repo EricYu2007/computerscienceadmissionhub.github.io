@@ -450,9 +450,9 @@
     "language": "IELTS 6.0 (minimum 5.5 in each component)"
   },
   {
-    "name": "University of Bristol",
-    "aLevels": "AAA-AAB",
-    "ib": "36 points overall with 6 HL Maths",
+    "name": "Bristol, UWE",
+    "aLevels": "AAB",
+    "ib": "34 points with 6,5,5 at HL",
     "admissionTest": "None",
     "fees": "£27,000",
     "location": "Bristol, England",
@@ -897,6 +897,159 @@
     "admissionTest": "None",
     "fees": "£16,500",
     "location": "Canterbury, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Liverpool Hope University",
+    "aLevels": "BCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£14,500",
+    "location": "Liverpool, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Northampton",
+    "aLevels": "BCC",
+    "ib": "26 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,200",
+    "location": "Northampton, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Anglia Ruskin University",
+    "aLevels": "BCC",
+    "ib": "26 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£18,800",
+    "location": "Cambridge, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Bedfordshire",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,500",
+    "location": "Luton, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of the West of Scotland",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,500",
+    "location": "Paisley, Scotland",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Greater Manchester",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,950",
+    "location": "Manchester, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Southampton Solent University",
+    "aLevels": "BBC",
+    "ib": "26 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,000",
+    "location": "Southampton, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Norwich University of the Arts",
+    "aLevels": "BCC",
+    "ib": "26 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,500",
+    "location": "Norwich, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Suffolk",
+    "aLevels": "BBC",
+    "ib": "26 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,000",
+    "location": "Suffolk, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Middlesex University",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,600",
+    "location": "London, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "London Metropolitan University",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,000",
+    "location": "London, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Wolverhampton",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£15,525",
+    "location": "Wolverhampton, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Wrexham University",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£11,750",
+    "location": "Wrexham, Wales",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Wales Trinity Saint David",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,300",
+    "location": "Carmarthen, Wales",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "Buckinghamshire New University",
+    "aLevels": "CCD",
+    "ib": "22 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,500",
+    "location": "High Wycombe, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University for the Creative Arts",
+    "aLevels": "BBC",
+    "ib": "27 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,000",
+    "location": "Farnham, England",
+    "language": "IELTS 6.0 (minimum 5.5 in each component)"
+  },
+  {
+    "name": "University of Roehampton",
+    "aLevels": "CCC",
+    "ib": "24 points (Maths optional)",
+    "admissionTest": "None",
+    "fees": "£16,500",
+    "location": "London, England",
     "language": "IELTS 6.0 (minimum 5.5 in each component)"
   }
 ]
