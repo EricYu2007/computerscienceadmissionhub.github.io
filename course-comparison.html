@@ -306,6 +306,48 @@
     </div>
 
     <script>
+      let universityRankings = [];
+
+      // Function to load and apply university rankings
+      async function loadUniversityRankings() {
+        try {
+          const response = await fetch("universities-name.json");
+          if (!response.ok) {
+            throw new Error("Failed to load university rankings");
+          }
+          universityRankings = await response.json();
+
+          // Update universities with correct rankings using simple include matching
+          universityCourses.forEach((uni) => {
+            let rankIndex = -1;
+
+            // Try to find a match where one name includes the other
+            rankIndex = universityRankings.findIndex((rankedName) => {
+              return (
+                uni.name.includes(rankedName) || rankedName.includes(uni.name)
+              );
+            });
+
+            uni.ranking = rankIndex !== -1 ? rankIndex + 1 : 999;
+
+            // Log any universities that couldn't be matched for debugging
+            if (uni.ranking === 999) {
+              console.warn(`Could not find ranking for: ${uni.name}`);
+              console.log("Available names in JSON:", universityRankings);
+            }
+          });
+
+          // Sort universities by ranking
+          universityCourses.sort((a, b) => a.ranking - b.ranking);
+
+          return universityCourses;
+        } catch (error) {
+          console.error("Error loading university rankings:", error);
+          // Fallback: use existing order
+          return universityCourses;
+        }
+      }
+
       // University course data
       const universityCourses = [
         {
@@ -2801,10 +2843,527 @@
             averageSalary: "£21,000",
           },
         },
+
+        {
+          name: "Liverpool Hope University",
+          ranking: 101,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC-BBB (112 UCAS tariff / A-level BBC typical)",
+            requiredSubjects: "Maths recommended",
+            accreditation: "Some accredited routes / industry links",
+            placement: "Available (optional)",
+            studyAbroad: "Available",
+            modules: [
+              "Programming (Java, Python)",
+              "Databases",
+              "Networks",
+              "Software Engineering",
+              "AI & Robotics",
+            ],
+            teachingMethods: "Lectures, labs, projects",
+            specializations: [
+              "AI & Robotics",
+              "Networks",
+              "Software Development",
+            ],
+            employmentRate:
+              "65% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,000 (estimate)",
+          },
+        },
+        
+        {
+          name: "University of Northampton",
+          ranking: 102,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC (or 112 UCAS tariff) / A-level BBC typical",
+            requiredSubjects: "Maths recommended",
+            accreditation: "Some pathways with professional recognition",
+            placement: "Placement year available (optional)",
+            studyAbroad: "Limited",
+            modules: [
+              "Computer Systems",
+              "Software Engineering Fundamentals",
+              "Web Development",
+              "Data Structures & Algorithms",
+              "Cyber Security & Cryptography",
+            ],
+            teachingMethods: "Lectures, practicals, group projects",
+            specializations: ["Cyber Security", "Software Engineering", "AI"],
+            employmentRate:
+              "66% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,500 (estimate)",
+          },
+        },
+
+        {
+          name: "Anglia Ruskin University",
+          ranking: 103,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC / 112 UCAS tariff (varies by year)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Some courses have accredited modules / BCS-aligned content",
+            placement: "Optional placement / professional practice available",
+            studyAbroad: "Limited",
+            modules: [
+              "Introduction to Programming",
+              "Database Design",
+              "Algorithm Analysis",
+              "Digital Security",
+              "Software Engineering",
+            ],
+            teachingMethods: "Lectures, labs, team projects",
+            specializations: ["Digital Security", "Cloud & Networks", "AI"],
+            employmentRate:
+              "68% employed or in further study within 15 months (estimate)",
+            averageSalary: "£23,000 (estimate)",
+          },
+        },
+
+        {
+          name: "University of Bedfordshire",
+          ranking: 104,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC / 112 UCAS tariff (varies by pathway)",
+            requiredSubjects: "Maths recommended",
+            accreditation: "Some professional routes",
+            placement: "Optional placement / year in industry",
+            studyAbroad: "Limited",
+            modules: [
+              "Programming fundamentals",
+              "Databases",
+              "Computer Networks",
+              "AI & Machine Learning",
+              "Final Project",
+            ],
+            teachingMethods: "Lectures, labs, practical projects",
+            specializations: [
+              "Software Engineering",
+              "Data Science",
+              "Cyber Security",
+            ],
+            employmentRate:
+              "64% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,500 (estimate)",
+          },
+        },
+
+        {
+          name: "University of the West of Scotland",
+          ranking: 105,
+          course: {
+            duration: "3 years",
+            degree: "BSc (Hons) Computing Science",
+            typicalOffer:
+              "Varies (commonly BBC / 112 UCAS tariff) / Scottish tariff equivalents",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "BCS accreditation on some deliveries (subject to re-accreditation)",
+            placement: "Placement options available",
+            studyAbroad: "Limited",
+            modules: [
+              "Foundations of Programming",
+              "Object-Oriented Analysis & Design",
+              "Databases",
+              "Web & Mobile Development",
+              "Systems Architecture",
+            ],
+            teachingMethods: "Lectures, labs, industry talks",
+            specializations: [
+              "Networking",
+              "Software Development",
+              "Cyber Security",
+            ],
+            employmentRate:
+              "67% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,000 (estimate)",
+          },
+        },
+        
+        {
+          name: "University of Greater Manchester",
+          ranking: 106,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC–BBB depending on route (varies by entry year)",
+            requiredSubjects:
+              "Maths recommended; some routes require specific subjects",
+            accreditation:
+              "Course frameworks align with professional expectations",
+            placement: "Placement / industrial experience options",
+            studyAbroad: "Available in some programmes",
+            modules: [
+              "Programming & Software Development",
+              "Data Structures & Algorithms",
+              "Networks and Operating Systems",
+              "AI & Machine Learning",
+              "Final Project",
+            ],
+            teachingMethods: "Lectures, seminars, labs, group work",
+            specializations: [
+              "AI & Machine Learning",
+              "Cyber Security",
+              "Software Engineering",
+            ],
+            employmentRate:
+              "69% employed or in further study within 15 months (estimate)",
+            averageSalary: "£23,000 (estimate)",
+          },
+        },
+
+        {
+          name: "Southampton Solent University",
+          ranking: 107,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC / 112 UCAS tariff (varies)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "No formal universal accreditation listed (course-level accreditations may exist)",
+            placement: "Placement year / sandwich year available (optional)",
+            studyAbroad: "Limited",
+            modules: [
+              "Programming (Java, Python)",
+              "Internet Software Architecture",
+              "Databases",
+              "Web APIs & Mobile Apps",
+              "Final Software Project",
+            ],
+            teachingMethods: "Practical labs, projects, studio sessions",
+            specializations: [
+              "Software Development",
+              "Web & Mobile",
+              "Data Analytics",
+            ],
+            employmentRate:
+              "66% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,000 (estimate)",
+          },
+        },
+
+        {
+          name: "Norwich University of the Arts",
+          ranking: 108,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "Varies by course (Creative Computing / Computer Science routes start around 112 UCAS tariff)",
+            requiredSubjects:
+              "Portfolio sometimes required for creative routes; Maths recommended",
+            accreditation:
+              "Creative/industry partnerships; course-specific details vary",
+            placement:
+              "Professional practice / placement options on some courses",
+            studyAbroad: "Limited",
+            modules: [
+              "Creative Computing foundations",
+              "Programming for Creative Media",
+              "Machine Learning basics",
+              "Interactive Systems",
+              "Project & Portfolio",
+            ],
+            teachingMethods: "Studio-based teaching, projects, workshops",
+            specializations: [
+              "Creative Computing",
+              "Robotics & AR/VR",
+              "Digital Media",
+            ],
+            employmentRate:
+              "62% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,000 (estimate)",
+          },
+        },
+
+        {
+          name: "University of Suffolk",
+          ranking: 109,
+          course: {
+            duration: "3 years",
+            degree: "BSc (Hons) Computer Science",
+            typicalOffer: "112 UCAS tariff (BBC) typical",
+            requiredSubjects:
+              "GCSE Maths usually expected; A-level Maths recommended",
+            accreditation: "Course aligned with BCS / QAA benchmarks",
+            placement: "Placement / professional practice optional",
+            studyAbroad: "Limited",
+            modules: [
+              "Programming basics (Python/JavaScript)",
+              "Web & Mobile Development",
+              "Databases",
+              "AI & Data Analytics",
+              "Final Project",
+            ],
+            teachingMethods:
+              "Block & blend delivery: lectures, practicals, projects",
+            specializations: ["Web & Mobile", "Cyber Security", "AI"],
+            employmentRate:
+              "63% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,500 (estimate)",
+          },
+        },
+
+        {
+          name: "Middlesex University",
+          ranking: 110,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "112 UCAS tariff (BBC) typical; foundation-year options exist",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Programme specification available; professional links",
+            placement: "Professional practice / placement options",
+            studyAbroad: "Limited",
+            modules: [
+              "Foundations of Computing",
+              "Computational Mathematics",
+              "Operating Systems",
+              "Networks & Security",
+              "Final Project",
+            ],
+            teachingMethods: "Lectures, lab practicals, group projects",
+            specializations: ["Software Engineering", "Networks", "AI"],
+            employmentRate:
+              "67% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,000 (estimate)",
+          },
+        },
+
+        {
+          name: "London Metropolitan University",
+          ranking: 111,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "CCC / C,C,C (varies by year; foundation route available)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Course-level professional links; foundation routes available",
+            placement: "Placement / work-based learning options",
+            studyAbroad: "Limited",
+            modules: [
+              "Computer Hardware & Software Architectures",
+              "Programming",
+              "Logic and Mathematical Techniques",
+              "Information Systems",
+              "Cyber Security Fundamentals",
+            ],
+            teachingMethods: "Lectures, workshops, practical labs",
+            specializations: [
+              "Cyber Security",
+              "IoT & Robotics",
+              "Software Dev",
+            ],
+            employmentRate:
+              "60% employed or in further study within 15 months (estimate)",
+            averageSalary: "£20,500 (estimate)",
+          },
+        },
+
+        {
+          name: "University of Wolverhampton",
+          ranking: 112,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "BBC / 96–112 UCAS tariff (varies by route)",
+            requiredSubjects: "Maths recommended",
+            accreditation: "Some programmes have professional recognition",
+            placement: "Placement / sandwich year options",
+            studyAbroad: "Limited",
+            modules: [
+              "Fundamentals of Computing",
+              "Internet Software Architecture",
+              "Computational Mathematics",
+              "Databases",
+              "Final Project",
+            ],
+            teachingMethods: "Lectures, labs, practical assessments",
+            specializations: [
+              "Software Engineering",
+              "Networks",
+              "Data Science",
+            ],
+            employmentRate:
+              "61% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,000 (estimate)",
+          },
+        },
+
+        {
+          name: "Wrexham University",
+          ranking: 113,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "Varies (common offers around CCC–BBC / tariff 96–112)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Programme documentation / BCS alignment in some cases",
+            placement: "Placement / professional practice available",
+            studyAbroad: "Limited",
+            modules: [
+              "Programming & Software Development",
+              "Data Analytics & Machine Learning",
+              "Networks & Security",
+              "Project & Professional Practice",
+            ],
+            teachingMethods: "Lectures, lab work, supervised projects",
+            specializations: [
+              "AI & Data Analytics",
+              "Cyber Security",
+              "Software Dev",
+            ],
+            employmentRate:
+              "63% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,500 (estimate)",
+          },
+        },
+
+        {
+          name: "University of Wales Trinity Saint David",
+          ranking: 114,
+          course: {
+            duration: "3 years",
+            degree: "BSc (Applied Computing / Computing)",
+            typicalOffer:
+              "Varies by campus & pathway (commonly in 88–112 UCAS tariff range)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Some BCS-accredited modules / professional recognition on specific routes",
+            placement: "Placement / industrial experience options available",
+            studyAbroad: "Limited",
+            modules: [
+              "Database Design",
+              "Web Development",
+              "Software Engineering",
+              "Systems & Networks",
+              "Project",
+            ],
+            teachingMethods: "Lectures, labs, placements",
+            specializations: [
+              "Software Dev",
+              "Cyber Security",
+              "Data Applications",
+            ],
+            employmentRate:
+              "62% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,000 (estimate)",
+          },
+        },
+      
+        {
+          name: "Buckinghamshire New University",
+          ranking: 115,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "88–112 UCAS tariff (varies by pathway; foundation year option)",
+            requiredSubjects: "Maths recommended",
+            accreditation:
+              "Course programme specification available; industry links",
+            placement: "Professional placement options",
+            studyAbroad: "Limited",
+            modules: [
+              "Programming & Software Engineering",
+              "Cloud & Data Technologies",
+              "AI fundamentals",
+              "Cyber Security basics",
+              "Major Project",
+            ],
+            teachingMethods: "Lectures, practical labs, industry projects",
+            specializations: ["AI", "Cyber Security", "Cloud Computing"],
+            employmentRate:
+              "64% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,500 (estimate)",
+          },
+        },
+
+        {
+          name: "University for the Creative Arts",
+          ranking: 116,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer:
+              "112 UCAS tariff (BBC) typical; foundation and placement routes available",
+            requiredSubjects:
+              "Portfolio for some creative-specialist routes; Maths recommended",
+            accreditation:
+              "Creative-industry partnerships; course specifics vary",
+            placement: "Professional practice / placement year available",
+            studyAbroad: "Limited",
+            modules: [
+              "Creative Computing foundations",
+              "Game & Interactive Programming",
+              "AI for Creative Media",
+              "VR/AR & Interactive Systems",
+              "Major Project",
+            ],
+            teachingMethods:
+              "Studio sessions, project-based learning, workshops",
+            specializations: [
+              "Creative Computing",
+              "Game Tech",
+              "Digital Arts",
+            ],
+            employmentRate:
+              "61% employed or in further study within 15 months (estimate)",
+            averageSalary: "£21,000 (estimate)",
+          },
+        },
+
+        {
+          name: "University of Roehampton",
+          ranking: 117,
+          course: {
+            duration: "3 years",
+            degree: "BSc",
+            typicalOffer: "112 UCAS tariff (A-level BBC often quoted)",
+            requiredSubjects:
+              "Maths recommended; Computer Science or related subject desirable",
+            accreditation:
+              "Course aligned with professional practice; detailed accreditations on programme pages",
+            placement:
+              "Placement / year in industry options on some programmes",
+            studyAbroad: "Limited",
+            modules: [
+              "Software Development 1–3",
+              "Computer Systems",
+              "Mathematics for Computer Science",
+              "Databases",
+              "Computing Project",
+            ],
+            teachingMethods: "Lectures, labs, seminars, project supervision",
+            specializations: ["Software Dev", "Data Science", "Networks"],
+            employmentRate:
+              "66% employed or in further study within 15 months (estimate)",
+            averageSalary: "£22,000 (estimate)",
+          },
+        },
       ];
 
       // Initialize the page
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", async function () {
+        // Load university rankings
+        const sortedUniversities = await loadUniversityRankings();
+
         // Get shortlisted universities from localStorage
         const shortlistJSON = localStorage.getItem("universityShortlist");
         const shortlistedUniversities = shortlistJSON
@@ -2814,11 +3373,10 @@
         // If universities are shortlisted, only show comparison for those
         const universitiesToCompare =
           shortlistedUniversities.length > 0
-            ? universityCourses.filter((uni) =>
+            ? sortedUniversities.filter((uni) =>
                 shortlistedUniversities.some((su) => su.name === uni.name)
               )
-            : universityCourses;
-
+            : sortedUniversities;
         displayComparison(universitiesToCompare);
 
         // Set up navigation buttons
