@@ -292,7 +292,10 @@
       const earlyEntryDeadline = "2025-10-15"; // For Oxbridge and some others
       const standardEntryDeadline = "2026-01-29"; // Most universities
       const MATTestDate = "2025-10-22"; // MAT date
-      const TMUATestDate = "2025-10-13"; // TMUA date
+      const earlyTMUATestDate = "2025-10-13"; // TMUA date
+      const earlyTARATestDate = "2025-10-15"; // TARA date
+      const lateTMUATestDate = "2026-01-08" ; // TMUA late date
+      const lateTARATestDate = "2026-01-12"; // TMUA late date
       const interviewDate = "2025-12-01"; // Interview date
       const deadlinesData = {
         "University of Oxford": [
@@ -314,7 +317,7 @@
             date: earlyEntryDeadline,
             description: "UCAS Application",
           },
-          { type: "test", date: TMUATestDate, description: "TMUA Test" },
+          { type: "test", date: earlyTMUATestDate, description: "TMUA Test" },
           {
             type: "interview",
             date: interviewDate,
@@ -327,7 +330,8 @@
             date: standardEntryDeadline,
             description: "UCAS Application",
           },
-          { type: "test", date: TMUATestDate, description: "TMUA Test" },
+          { type: "test", date: earlyTMUATestDate, description: "TMUA Test (early entry)" },
+          { type: "test", date: lateTMUATestDate, description: "TMUA Test (late entry)" },
           {
             type: "interview",
             date: "mid November 2025 - end of March 2026",
@@ -361,6 +365,8 @@
             date: standardEntryDeadline,
             description: "UCAS Application",
           },
+          {type: "test", date: earlyTARATestDate, description: "TARA Test (early entry)"},
+          {type: "test", date: lateTARATestDate, description: "TARA Test (late entry)"},
         ],
         "University of Bristol": [
           {
@@ -396,6 +402,8 @@
             date: standardEntryDeadline,
             description: "UCAS Application",
           },
+          {type: "test", date: earlyTARATestDate, description: "TARA Test (early entry)"},
+          {type: "test", date: lateTARATestDate, description: "TARA Test (late entry)"},
         ],
         "University of Sheffield": [
           {
