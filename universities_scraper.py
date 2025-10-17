@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
-# Your existing data
 universities_data = [
     {
         "name": "University of Oxford",
@@ -1061,14 +1060,6 @@ universities_data = [
     }
 ]
 
-import json
-import re
-import requests
-from bs4 import BeautifulSoup
-import time
-
-# [Your existing universities_data list would be here...]
-
 def universities_rankings():
     """Scrape university rankings from the website using requests + BeautifulSoup"""
     try:
@@ -1378,3 +1369,4 @@ def generate_university_json():
 
 if __name__ == "__main__":
     generate_university_json()
+
