@@ -1,0 +1,35 @@
+# File: .github/workflows/debug.yml
+name: Debug Scraper
+
+on: [workflow_dispatch]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4 lxml
+        
+    - name: List files
+      run: ls -la
+      
+    - name: Test Python
+      run: |
+        python -c "import requests; import bs4; print('✅ Imports work')"
+        
+    - name: Run scraper with debug
+      run: |
+        python -c "
+        import universities_scraper
+        print('✅ Module imports')
+        result = universities_scraper.generate_university_json()
+        print('✅ Scraper completed')
+        "
