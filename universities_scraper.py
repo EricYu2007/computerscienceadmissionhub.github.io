@@ -2,7 +2,6 @@ import json
 import re
 import requests
 from bs4 import BeautifulSoup
-import time
 
 universities_data = [
     {
@@ -27,7 +26,7 @@ universities_data = [
         "name": "Imperial College London",
         "aLevels": "A*A*A to A*AA (A* in Maths)",
         "ib": "40-42 points with 7,6,6 at HL (Maths HL required)",
-        "admissionTest": "None",
+        "admissionTest": "TMUA",
         "fees": "£35,100",
         "location": "London, England",
         "language": "IELTS 7.0 (minimum 6.5 in each component)",
@@ -63,7 +62,7 @@ universities_data = [
         "name": "University of Warwick",
         "aLevels": "AAA",
         "ib": "38 points with 6 HL Maths",
-        "admissionTest": "None",
+        "admissionTest": "TMUA",
         "fees": "£26,700",
         "location": "Coventry, England",
         "language": "IELTS 6.5 (minimum 6.0 in each component)",
@@ -108,7 +107,7 @@ universities_data = [
         "name": "UCL (University College London)",
         "aLevels": "A*A*A-AAA",
         "ib": "39 points with 19-20 HL, including 6 in HL Maths",
-        "admissionTest": "None",
+        "admissionTest": "TARA",
         "fees": "£28,000",
         "location": "London, England",
         "language": "IELTS 7.0 (minimum 6.5 in each component)",
@@ -1239,7 +1238,6 @@ def match_universities_with_data():
         hardcoded_lookup[uni["name"].lower()] = uni
     
     matched_universities = []
-    used_hardcoded = set()  # Track which hardcoded universities we've used
     
     for scraped_name in scraped_names:
         scraped_lower = scraped_name.lower()
@@ -1369,4 +1367,3 @@ def generate_university_json():
 
 if __name__ == "__main__":
     generate_university_json()
-
