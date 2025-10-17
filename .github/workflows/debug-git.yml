@@ -1,0 +1,65 @@
+# File: .github/workflows/debug-git.yml
+name: Debug Git Operations
+
+on: [workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  debug-git:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: pip install requests beautifulsoup4 lxml
+
+    - name: Create test files (simulate scraper)
+      run: |
+        echo '{"test": "data"}' > universities.json
+        echo '["test1", "test2"]' > universities-name.json
+        echo "Files created:"
+        ls -la *.json
+
+    - name: Git status before
+      run: |
+        echo "=== Git status before ==="
+        git status
+        echo "=== Git diff before ==="
+        git diff
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Stage files
+      run: |
+        git add universities.json universities-name.json
+        echo "=== After git add ==="
+        git status
+
+    - name: Try to commit
+      run: |
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Test commit" || echo "Commit failed"
+          echo "Commit attempted"
+        fi
+
+    - name: Try to push
+      run: |
+        git status
+        echo "Attempting push..."
+        git push || echo "Push failed with error: $?"
