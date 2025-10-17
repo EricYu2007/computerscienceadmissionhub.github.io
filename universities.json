@@ -21,7 +21,7 @@
     "name": "Imperial College London",
     "aLevels": "A*A*A to A*AA (A* in Maths)",
     "ib": "40-42 points with 7,6,6 at HL (Maths HL required)",
-    "admissionTest": "TMUA",
+    "admissionTest": "None",
     "fees": "£35,100",
     "location": "London, England",
     "language": "IELTS 7.0 (minimum 6.5 in each component)"
@@ -57,7 +57,7 @@
     "name": "University of Warwick",
     "aLevels": "AAA",
     "ib": "38 points with 6 HL Maths",
-    "admissionTest": "TMUA",
+    "admissionTest": "None",
     "fees": "£26,700",
     "location": "Coventry, England",
     "language": "IELTS 6.5 (minimum 6.0 in each component)"
@@ -102,7 +102,7 @@
     "name": "UCL (University College London)",
     "aLevels": "A*A*A-AAA",
     "ib": "39 points with 19-20 HL, including 6 in HL Maths",
-    "admissionTest": "TARA",
+    "admissionTest": "None",
     "fees": "£28,000",
     "location": "London, England",
     "language": "IELTS 7.0 (minimum 6.5 in each component)"
