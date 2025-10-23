@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-10P45GZ5Y6");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UK Computer Science Course Finder</title>
@@ -242,6 +256,374 @@
         z-index: 1001;
       }
 
+      /* === Enhanced Cookie Banner Styles - Centered Version === */
+      #cookie-banner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        color: #35424a;
+        padding: 25px;
+        text-align: left;
+        font-size: 15px;
+        z-index: 2000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+        width: 90%;
+        max-width: 550px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      #cookie-banner.show {
+        display: block;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .cookie-container {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .cookie-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .cookie-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #35424a;
+        margin: 0;
+      }
+
+      .cookie-icon {
+        font-size: 22px;
+        color: #08d28f;
+      }
+
+      .cookie-content {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .cookie-description {
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .cookie-types {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .cookie-type {
+        background-color: #e7f3fe;
+        padding: 6px 10px;
+        border-radius: 16px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .cookie-type.essential {
+        background-color: #e7f9f0;
+      }
+
+      .cookie-type.analytics {
+        background-color: #e7f3fe;
+      }
+
+      .cookie-type.preferences {
+        background-color: #fff4e5;
+      }
+
+      .cookie-type-icon {
+        font-size: 12px;
+      }
+
+      .cookie-details {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #08d28f;
+      }
+
+      .cookie-details-title {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #35424a;
+        font-size: 14px;
+      }
+
+      .cookie-details ul {
+        margin: 0;
+        padding-left: 15px;
+        font-size: 13px;
+      }
+
+      .cookie-details li {
+        margin-bottom: 5px;
+        line-height: 1.4;
+      }
+
+      .cookie-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 10px;
+        padding-top: 15px;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .cookie-link {
+        color: #08d28f;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 13px;
+        margin-right: auto;
+      }
+
+      .cookie-link:hover {
+        color: #08cdd0;
+      }
+
+      .cookie-button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 110px;
+        font-size: 14px;
+      }
+
+      #accept-cookies {
+        background-color: #08d28f;
+        color: white;
+      }
+
+      #accept-cookies:hover {
+        background-color: #08cdd0;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 8px rgba(8, 210, 143, 0.3);
+      }
+
+      #configure-cookies {
+        background-color: transparent;
+        color: #35424a;
+        border: 1px solid #ddd;
+      }
+
+      #configure-cookies:hover {
+        background-color: #f5f5f5;
+        border-color: #08d28f;
+      }
+
+      /* Add a semi-transparent overlay */
+      #cookie-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      #cookie-overlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Cookie Preferences Modal */
+      #cookie-preferences {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 3000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #cookie-preferences.show {
+        display: flex;
+        opacity: 1;
+      }
+
+      .preferences-container {
+        background-color: white;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .preferences-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .preferences-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #35424a;
+        margin: 0;
+      }
+
+      .close-preferences {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #777;
+      }
+
+      .close-preferences:hover {
+        color: #35424a;
+      }
+
+      .preference-section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+      }
+
+      .preference-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .preference-name {
+        font-weight: bold;
+        color: #35424a;
+      }
+
+      .preference-toggle {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .preference-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .preference-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+
+      .preference-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .preference-slider {
+        background-color: #08d28f;
+      }
+
+      input:checked + .preference-slider:before {
+        transform: translateX(26px);
+      }
+
+      .preference-description {
+        font-size: 13px;
+        line-height: 1.5;
+        color: #666;
+      }
+
+      .preferences-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .preferences-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 110px;
+        font-size: 14px;
+      }
+
+      #save-preferences {
+        background-color: #08d28f;
+        color: white;
+      }
+
+      #save-preferences:hover {
+        background-color: #08cdd0;
+      }
+
+      #reject-all {
+        background-color: transparent;
+        color: #35424a;
+        border: 2px solid #ddd;
+      }
+
+      #reject-all:hover {
+        background-color: #f5f5f5;
+        border-color: #35424a;
+      }
+
       /* Mobile Responsive Styles */
       @media (max-width: 768px) {
         body {
@@ -418,6 +800,130 @@
       <button class="next-button" id="next-button">Next →</button>
     </div>
 
+    <!-- Cookie Overlay -->
+    <div id="cookie-overlay"></div>
+
+    <!-- Enhanced Cookie Consent Banner -->
+    <div id="cookie-banner">
+      <div class="cookie-container">
+        <div class="cookie-header">
+          <h3 class="cookie-title">🍪 Cookie Preferences</h3>
+          <div class="cookie-icon">📊</div>
+        </div>
+
+        <div class="cookie-content">
+          <div class="cookie-description">
+            <p>
+              We use cookies to enhance your browsing experience, analyze site
+              traffic, and personalize content. Some cookies are essential for
+              the website to function properly, while others help us improve
+              your experience.
+            </p>
+
+            <div class="cookie-types">
+              <div class="cookie-type essential">
+                <span class="cookie-type-icon">🔒</span> Essential
+              </div>
+              <div class="cookie-type analytics">
+                <span class="cookie-type-icon">📈</span> Analytics
+              </div>
+              <div class="cookie-type preferences">
+                <span class="cookie-type-icon">⚙️</span> Preferences
+              </div>
+            </div>
+          </div>
+
+          <div class="cookie-details">
+            <div class="cookie-details-title">Why we use cookies:</div>
+            <ul>
+              <li>Essential: Site functionality and security</li>
+              <li>Analytics: Understanding how you use our site</li>
+              <li>Preferences: Remembering your settings and choices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cookie-controls">
+          <a class="cookie-link" id="learn-more"
+            >Learn more in our Privacy Policy</a
+          >
+          <button class="cookie-button" id="configure-cookies">
+            Customize
+          </button>
+          <button class="cookie-button" id="accept-cookies">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookie Preferences Modal -->
+    <div id="cookie-preferences">
+      <div class="preferences-container">
+        <div class="preferences-header">
+          <h3 class="preferences-title">Cookie Preferences</h3>
+          <button class="close-preferences" id="close-preferences">×</button>
+        </div>
+
+        <p>
+          Manage your cookie preferences below. You can change these settings at
+          any time.
+        </p>
+
+        <div class="preference-section">
+          <div class="preference-header">
+            <span class="preference-name">Essential Cookies</span>
+            <label class="preference-toggle">
+              <input type="checkbox" checked disabled />
+              <span class="preference-slider"></span>
+            </label>
+          </div>
+          <p class="preference-description">
+            These cookies are necessary for the website to function and cannot
+            be switched off. They are usually only set in response to actions
+            made by you such as setting your privacy preferences, logging in, or
+            filling in forms.
+          </p>
+        </div>
+
+        <div class="preference-section">
+          <div class="preference-header">
+            <span class="preference-name">Analytics Cookies</span>
+            <label class="preference-toggle">
+              <input type="checkbox" id="analytics-toggle" checked />
+              <span class="preference-slider"></span>
+            </label>
+          </div>
+          <p class="preference-description">
+            These cookies allow us to count visits and traffic sources so we can
+            measure and improve the performance of our site. They help us know
+            which pages are the most and least popular and see how visitors move
+            around the site.
+          </p>
+        </div>
+
+        <div class="preference-section">
+          <div class="preference-header">
+            <span class="preference-name">Preference Cookies</span>
+            <label class="preference-toggle">
+              <input type="checkbox" id="preferences-toggle" checked />
+              <span class="preference-slider"></span>
+            </label>
+          </div>
+          <p class="preference-description">
+            These cookies enable the website to provide enhanced functionality
+            and personalization. They may be set by us or by third-party
+            providers whose services we have added to our pages.
+          </p>
+        </div>
+
+        <div class="preferences-buttons">
+          <button class="preferences-button" id="reject-all">Reject All</button>
+          <button class="preferences-button" id="save-preferences">
+            Save Preferences
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Initialize shortlist array
       let universities = [];
@@ -452,7 +958,7 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", function(){
+      document.addEventListener("DOMContentLoaded", function () {
         loadUniversitiesData();
       });
 
@@ -613,6 +1119,130 @@
       // Initialize UI
       updateShortlistCounter();
       updateNextButton();
+
+      // === Enhanced Cookie Consent Script ===
+      function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = `${name}=${encodeURIComponent(
+          value
+        )}; expires=${expires}; path=/`;
+      }
+
+      function getCookie(name) {
+        return document.cookie.split("; ").reduce((r, v) => {
+          const parts = v.split("=");
+          return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+        }, "");
+      }
+
+      function setCookiePreferences(analytics, preferences) {
+        setCookie("cookiesAnalytics", analytics ? "true" : "false", 365);
+        setCookie("cookiesPreferences", preferences ? "true" : "false", 365);
+        setCookie("cookiesConfigured", "true", 365);
+
+        // Update Google Analytics based on user choice
+        if (typeof gtag !== "undefined") {
+          gtag("consent", "update", {
+            analytics_storage: analytics ? "granted" : "denied",
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set default consent state based on user preference
+        const analyticsAccepted = getCookie("cookiesAnalytics") === "true";
+        if (typeof gtag !== "undefined") {
+          gtag("consent", "default", {
+            analytics_storage: analyticsAccepted ? "granted" : "denied",
+          });
+        }
+      });
+
+      window.addEventListener("load", () => {
+        const banner = document.getElementById("cookie-banner");
+        const overlay = document.getElementById("cookie-overlay");
+        const acceptBtn = document.getElementById("accept-cookies");
+        const configureBtn = document.getElementById("configure-cookies");
+        const learnMoreLink = document.getElementById("learn-more");
+        const preferencesModal = document.getElementById("cookie-preferences");
+        const closePreferences = document.getElementById("close-preferences");
+        const savePreferences = document.getElementById("save-preferences");
+        const rejectAll = document.getElementById("reject-all");
+        const analyticsToggle = document.getElementById("analytics-toggle");
+        const preferencesToggle = document.getElementById("preferences-toggle");
+
+        // Check if user has already made a choice
+        if (!getCookie("cookiesConfigured")) {
+          banner.classList.add("show");
+          overlay.classList.add("show");
+        }
+
+        // Accept all cookies
+        acceptBtn.addEventListener("click", () => {
+          setCookiePreferences(true, true);
+          banner.classList.remove("show");
+          overlay.classList.remove("show");
+          setTimeout(() => {
+            banner.style.display = "none";
+            overlay.style.display = "none";
+          }, 500);
+        });
+
+        // Open preferences modal
+        configureBtn.addEventListener("click", () => {
+          preferencesModal.classList.add("show");
+        });
+
+        // Close preferences modal
+        closePreferences.addEventListener("click", () => {
+          preferencesModal.classList.remove("show");
+        });
+
+        // Save preferences
+        savePreferences.addEventListener("click", () => {
+          setCookiePreferences(
+            analyticsToggle.checked,
+            preferencesToggle.checked
+          );
+          preferencesModal.classList.remove("show");
+          banner.classList.remove("show");
+          overlay.classList.remove("show");
+          setTimeout(() => {
+            banner.style.display = "none";
+            overlay.style.display = "none";
+          }, 500);
+        });
+
+        // Reject all non-essential cookies
+        rejectAll.addEventListener("click", () => {
+          setCookiePreferences(false, false);
+          preferencesModal.classList.remove("show");
+          banner.classList.remove("show");
+          overlay.classList.remove("show");
+          setTimeout(() => {
+            banner.style.display = "none";
+            overlay.style.display = "none";
+          }, 500);
+        });
+
+        // Learn more link (placeholder)
+        learnMoreLink.addEventListener("click", () => {
+          alert(
+            "This would typically link to your detailed privacy policy page."
+          );
+        });
+      });
+
+      // Temporary function for testing - remove in production
+      function resetCookies() {
+        document.cookie =
+          "cookiesConfigured=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie =
+          "cookiesAnalytics=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie =
+          "cookiesPreferences=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        location.reload();
+      }
     </script>
   </body>
 </html>
