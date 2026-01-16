@@ -37,7 +37,7 @@
     },
     {
         "name": "University of Birmingham",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*AA",
         "ib": "36 points overall with 6 in HL Maths",
         "admissionTest": "None",
         "fees": "£32,100",
@@ -46,7 +46,7 @@
     },
     {
         "name": "University of Bath",
-        "aLevels": "A*AA-AAA",
+        "aLevels": "A*A*A",
         "ib": "36-37 points overall with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,900",
@@ -55,7 +55,7 @@
     },
     {
         "name": "University of Warwick",
-        "aLevels": "AAA",
+        "aLevels": "A*A*A",
         "ib": "38 points with 6 HL Maths",
         "admissionTest": "TMUA",
         "fees": "£26,700",
@@ -64,7 +64,7 @@
     },
     {
         "name": "University of Bristol",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*AA",
         "ib": "36 points overall with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£27,000",
@@ -73,7 +73,7 @@
     },
     {
         "name": "University of Manchester",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*A*A",
         "ib": "36 points with 6 in HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -82,7 +82,7 @@
     },
     {
         "name": "King's College London",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*A*A",
         "ib": "35-36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£27,000",
@@ -91,7 +91,7 @@
     },
     {
         "name": "Durham University",
-        "aLevels": "AAA",
+        "aLevels": "A*AA",
         "ib": "38 points overall with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -100,7 +100,7 @@
     },
     {
         "name": "UCL (University College London)",
-        "aLevels": "A*A*A-AAA",
+        "aLevels": "A*A*A",
         "ib": "39 points with 19-20 HL, including 6 in HL Maths",
         "admissionTest": "TARA",
         "fees": "£28,000",
@@ -109,7 +109,7 @@
     },
     {
         "name": "University of Sheffield",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*AA-AAA",
         "ib": "36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -118,7 +118,7 @@
     },
     {
         "name": "University of Southampton",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*AA",
         "ib": "36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -136,8 +136,8 @@
     },
     {
         "name": "The University of Edinburgh",
-        "aLevels": "AAA",
-        "ib": "37-40 points with 6 HL Maths",
+        "aLevels": "A*AA",
+        "ib": "37-40 points with 7 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Edinburgh, Scotland",
@@ -145,7 +145,7 @@
     },
     {
         "name": "University of York",
-        "aLevels": "AAA-AAB",
+        "aLevels": "AAA",
         "ib": "36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -163,7 +163,7 @@
     },
     {
         "name": "University of Nottingham",
-        "aLevels": "AAA-AAB",
+        "aLevels": "A*AA-AAA",
         "ib": "36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -172,7 +172,7 @@
     },
     {
         "name": "Loughborough University",
-        "aLevels": "AAA-AAB",
+        "aLevels": "AAA",
         "ib": "35 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£25,000",
@@ -181,7 +181,7 @@
     },
     {
         "name": "Lancaster University",
-        "aLevels": "AAA-AAB",
+        "aLevels": "AAB",
         "ib": "36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£24,000",
@@ -190,7 +190,7 @@
     },
     {
         "name": "University of Leeds",
-        "aLevels": "AAA-AAB",
+        "aLevels": "AAA",
         "ib": "35-36 points with 6 HL Maths",
         "admissionTest": "None",
         "fees": "£26,500",
