@@ -6,7 +6,7 @@
         "admissionTest": "MAT",
         "fees": "£39,010",
         "location": "Oxford, England",
-        "language": "IELTS 7.5 (minimum 7.0 in each component)",
+        "language": "IELTS 7.5 (minimum 7.0 in each component)"
     },
     {
         "name": "University of Cambridge",
@@ -15,7 +15,7 @@
         "admissionTest": "TMUA",
         "fees": "£37,293",
         "location": "Cambridge, England",
-        "language": "IELTS 7.5 (minimum 7.0 in each component)",
+        "language": "IELTS 7.5 (minimum 7.0 in each component)"
     },
     {
         "name": "Imperial College London",
@@ -24,7 +24,7 @@
         "admissionTest": "TMUA",
         "fees": "£35,100",
         "location": "London, England",
-        "language": "IELTS 7.0 (minimum 6.5 in each component)",
+        "language": "IELTS 7.0 (minimum 6.5 in each component)"
     },
     {
         "name": "University of St Andrews",
@@ -33,7 +33,7 @@
         "admissionTest": "None",
         "fees": "£23,800",
         "location": "St Andrews, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Birmingham",
@@ -42,7 +42,7 @@
         "admissionTest": "None",
         "fees": "£32,100",
         "location": "Birmingham, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Bath",
@@ -51,7 +51,7 @@
         "admissionTest": "None",
         "fees": "£25,900",
         "location": "Bath, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Warwick",
@@ -60,7 +60,7 @@
         "admissionTest": "TMUA",
         "fees": "£26,700",
         "location": "Coventry, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Bristol",
@@ -69,7 +69,7 @@
         "admissionTest": "None",
         "fees": "£27,000",
         "location": "Bristol, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Manchester",
@@ -78,7 +78,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Manchester, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "King's College London",
@@ -87,7 +87,7 @@
         "admissionTest": "None",
         "fees": "£27,000",
         "location": "London, England",
-        "language": "IELTS 7.0 (minimum 6.5 in each component)",
+        "language": "IELTS 7.0 (minimum 6.5 in each component)"
     },
     {
         "name": "Durham University",
@@ -96,7 +96,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Durham, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "UCL (University College London)",
@@ -105,7 +105,7 @@
         "admissionTest": "TARA",
         "fees": "£28,000",
         "location": "London, England",
-        "language": "IELTS 7.0 (minimum 6.5 in each component)",
+        "language": "IELTS 7.0 (minimum 6.5 in each component)"
     },
     {
         "name": "University of Sheffield",
@@ -114,7 +114,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Sheffield, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Southampton",
@@ -123,7 +123,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Southampton, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Glasgow",
@@ -132,7 +132,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Glasgow, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "The University of Edinburgh",
@@ -141,7 +141,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Edinburgh, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of York",
@@ -150,7 +150,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "York, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Exeter",
@@ -159,7 +159,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Exeter, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Nottingham",
@@ -168,7 +168,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Nottingham, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Loughborough University",
@@ -177,7 +177,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Loughborough, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Lancaster University",
@@ -186,7 +186,7 @@
         "admissionTest": "None",
         "fees": "£24,000",
         "location": "Lancaster, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Leeds",
@@ -195,7 +195,7 @@
         "admissionTest": "None",
         "fees": "£26,500",
         "location": "Leeds, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Queen's University Belfast",
@@ -204,7 +204,7 @@
         "admissionTest": "None",
         "fees": "£22,000",
         "location": "Belfast, Northern Ireland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Royal Holloway",
@@ -213,7 +213,7 @@
         "admissionTest": "None",
         "fees": "£23,500",
         "location": "London, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Cardiff University",
@@ -222,7 +222,7 @@
         "admissionTest": "None",
         "fees": "£24,500",
         "location": "Cardiff, Wales",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Newcastle University",
@@ -231,7 +231,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Newcastle, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Queen Mary University of London",
@@ -240,7 +240,7 @@
         "admissionTest": "None",
         "fees": "£26,000",
         "location": "London, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Liverpool",
@@ -249,7 +249,7 @@
         "admissionTest": "None",
         "fees": "£24,000",
         "location": "Liverpool, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Surrey",
@@ -258,7 +258,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "Guildford, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Dundee",
@@ -267,7 +267,7 @@
         "admissionTest": "None",
         "fees": "£22,000",
         "location": "Dundee, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Strathclyde",
@@ -276,7 +276,7 @@
         "admissionTest": "None",
         "fees": "£23,000",
         "location": "Glasgow, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Swansea University",
@@ -285,7 +285,7 @@
         "admissionTest": "None",
         "fees": "£21,000",
         "location": "Swansea, Wales",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Heriot-Watt University",
@@ -294,7 +294,7 @@
         "admissionTest": "None",
         "fees": "£22,500",
         "location": "Edinburgh, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Sussex",
@@ -303,7 +303,7 @@
         "admissionTest": "None",
         "fees": "£24,500",
         "location": "Brighton, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Reading",
@@ -312,7 +312,7 @@
         "admissionTest": "None",
         "fees": "£23,500",
         "location": "Reading, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Leicester",
@@ -321,7 +321,7 @@
         "admissionTest": "None",
         "fees": "£22,500",
         "location": "Leicester, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Aston University",
@@ -330,7 +330,7 @@
         "admissionTest": "None",
         "fees": "£23,000",
         "location": "Birmingham, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of East Anglia UEA",
@@ -339,7 +339,7 @@
         "admissionTest": "None",
         "fees": "£24,000",
         "location": "Norwich, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "City St George's",
@@ -348,7 +348,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "London, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Aberystwyth University",
@@ -357,7 +357,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Aberystwyth, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Kent",
@@ -366,7 +366,7 @@
         "admissionTest": "None",
         "fees": "£23,000",
         "location": "Canterbury, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Aberdeen",
@@ -375,7 +375,7 @@
         "admissionTest": "None",
         "fees": "£22,000",
         "location": "Aberdeen, Scotland",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Bangor University",
@@ -384,7 +384,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Bangor, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Lincoln",
@@ -393,7 +393,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Lincoln, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Ulster University",
@@ -402,7 +402,7 @@
         "admissionTest": "None",
         "fees": "£18,000",
         "location": "Belfast, Northern Ireland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Essex",
@@ -411,7 +411,7 @@
         "admissionTest": "None",
         "fees": "£22,500",
         "location": "Colchester, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Bath Spa University",
@@ -420,7 +420,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Bath, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Brunel University of London",
@@ -429,7 +429,7 @@
         "admissionTest": "None",
         "fees": "£24,000",
         "location": "London, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Stirling",
@@ -438,7 +438,7 @@
         "admissionTest": "None",
         "fees": "£20,500",
         "location": "Stirling, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Northumbria University",
@@ -447,7 +447,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Newcastle, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Bristol, UWE",
@@ -456,7 +456,7 @@
         "admissionTest": "None",
         "fees": "£27,000",
         "location": "Bristol, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "Manchester Metropolitan University",
@@ -465,7 +465,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Manchester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Nottingham Trent University",
@@ -474,7 +474,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Nottingham, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Portsmouth",
@@ -483,7 +483,7 @@
         "admissionTest": "None",
         "fees": "£20,500",
         "location": "Portsmouth, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Abertay University",
@@ -492,7 +492,7 @@
         "admissionTest": "None",
         "fees": "£17,000",
         "location": "Dundee, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Glasgow Caledonian University",
@@ -501,7 +501,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Glasgow, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Huddersfield",
@@ -510,7 +510,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Huddersfield, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Winchester",
@@ -519,7 +519,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Winchester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Oxford Brookes University",
@@ -528,7 +528,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Oxford, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Hull",
@@ -537,7 +537,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Hull, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Bradford",
@@ -546,7 +546,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Bradford, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Edge Hill University",
@@ -555,7 +555,7 @@
         "admissionTest": "None",
         "fees": "£18,000",
         "location": "Ormskirk, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Worcester",
@@ -564,7 +564,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Worcester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Keele University",
@@ -573,7 +573,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Keele, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Hertfordshire",
@@ -582,7 +582,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Hatfield, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Kingston University",
@@ -591,7 +591,7 @@
         "admissionTest": "None",
         "fees": "£20,500",
         "location": "Kingston, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Bournemouth University",
@@ -600,7 +600,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Bournemouth, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Staffordshire",
@@ -609,7 +609,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Stoke-on-Trent, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Robert Gordon University",
@@ -618,7 +618,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Aberdeen, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Birmingham City University",
@@ -627,7 +627,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Birmingham, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Edinburgh Napier University",
@@ -636,7 +636,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Edinburgh, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Leeds Beckett University",
@@ -645,7 +645,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Leeds, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Liverpool John Moores University",
@@ -654,7 +654,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Liverpool, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Brighton",
@@ -663,7 +663,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Brighton, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "London South Bank University",
@@ -672,7 +672,7 @@
         "admissionTest": "None",
         "fees": "£20,500",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Leeds Trinity University",
@@ -681,7 +681,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Leeds, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of the Arts London",
@@ -690,7 +690,7 @@
         "admissionTest": "None",
         "fees": "£25,000",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Sheffield Hallam University",
@@ -699,7 +699,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Sheffield, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Plymouth",
@@ -708,7 +708,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "Plymouth, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of South Wales",
@@ -717,7 +717,7 @@
         "admissionTest": "None",
         "fees": "£18,500",
         "location": "Cardiff, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Falmouth University",
@@ -726,7 +726,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Falmouth, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Buckingham",
@@ -735,7 +735,7 @@
         "admissionTest": "None",
         "fees": "£28,000",
         "location": "Buckingham, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of Salford",
@@ -744,7 +744,7 @@
         "admissionTest": "None",
         "fees": "£19,500",
         "location": "Salford, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Coventry University",
@@ -753,7 +753,7 @@
         "admissionTest": "None",
         "fees": "£20,000",
         "location": "Coventry, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Derby",
@@ -762,7 +762,7 @@
         "admissionTest": "None",
         "fees": "£14,900",
         "location": "Derby, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "De Montfort University",
@@ -771,7 +771,7 @@
         "admissionTest": "None",
         "fees": "£16,000",
         "location": "Leicester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Teesside University",
@@ -780,7 +780,7 @@
         "admissionTest": "None",
         "fees": "£17,000",
         "location": "Middlesbrough, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Greenwich",
@@ -789,7 +789,7 @@
         "admissionTest": "None",
         "fees": "£18,000",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "York St John University",
@@ -798,7 +798,7 @@
         "admissionTest": "None",
         "fees": "£17,500",
         "location": "York, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Goldsmiths, University of London",
@@ -807,7 +807,7 @@
         "admissionTest": "None",
         "fees": "£22,000",
         "location": "London, England",
-        "language": "IELTS 6.5 (minimum 6.0 in each component)",
+        "language": "IELTS 6.5 (minimum 6.0 in each component)"
     },
     {
         "name": "University of West London",
@@ -816,7 +816,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Sunderland",
@@ -825,7 +825,7 @@
         "admissionTest": "None",
         "fees": "£16,000",
         "location": "Sunderland, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Cardiff Metropolitan University",
@@ -834,7 +834,7 @@
         "admissionTest": "None",
         "fees": "£17,500",
         "location": "Cardiff, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Chichester",
@@ -843,7 +843,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "Chichester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Westminster",
@@ -852,7 +852,7 @@
         "admissionTest": "None",
         "fees": "£19,000",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Chester",
@@ -861,7 +861,7 @@
         "admissionTest": "None",
         "fees": "£17,000",
         "location": "Chester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of East London",
@@ -870,7 +870,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Lancashire",
@@ -879,7 +879,7 @@
         "admissionTest": "None",
         "fees": "£17,500",
         "location": "Preston, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Gloucestershire",
@@ -888,7 +888,7 @@
         "admissionTest": "None",
         "fees": "£16,000",
         "location": "Gloucestershire, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Canterbury Christ Church University",
@@ -897,7 +897,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "Canterbury, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Liverpool Hope University",
@@ -906,7 +906,7 @@
         "admissionTest": "None",
         "fees": "£14,500",
         "location": "Liverpool, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Northampton",
@@ -915,7 +915,7 @@
         "admissionTest": "None",
         "fees": "£15,200",
         "location": "Northampton, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Anglia Ruskin University",
@@ -924,7 +924,7 @@
         "admissionTest": "None",
         "fees": "£18,800",
         "location": "Cambridge, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Bedfordshire",
@@ -933,7 +933,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "Luton, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of the West of Scotland",
@@ -942,7 +942,7 @@
         "admissionTest": "None",
         "fees": "£15,500",
         "location": "Paisley, Scotland",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Greater Manchester",
@@ -951,7 +951,7 @@
         "admissionTest": "None",
         "fees": "£15,950",
         "location": "Manchester, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Southampton Solent University",
@@ -960,7 +960,7 @@
         "admissionTest": "None",
         "fees": "£15,000",
         "location": "Southampton, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Norwich University of the Arts",
@@ -969,7 +969,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "Norwich, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Suffolk",
@@ -978,7 +978,7 @@
         "admissionTest": "None",
         "fees": "£15,000",
         "location": "Suffolk, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Middlesex University",
@@ -987,7 +987,7 @@
         "admissionTest": "None",
         "fees": "£16,600",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "London Metropolitan University",
@@ -996,7 +996,7 @@
         "admissionTest": "None",
         "fees": "£15,000",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Wolverhampton",
@@ -1005,7 +1005,7 @@
         "admissionTest": "None",
         "fees": "£15,525",
         "location": "Wolverhampton, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Wrexham University",
@@ -1014,7 +1014,7 @@
         "admissionTest": "None",
         "fees": "£11,750",
         "location": "Wrexham, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Wales Trinity Saint David",
@@ -1023,7 +1023,7 @@
         "admissionTest": "None",
         "fees": "£16,300",
         "location": "Carmarthen, Wales",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "Buckinghamshire New University",
@@ -1032,7 +1032,7 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "High Wycombe, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University for the Creative Arts",
@@ -1041,7 +1041,7 @@
         "admissionTest": "None",
         "fees": "£16,000",
         "location": "Farnham, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     },
     {
         "name": "University of Roehampton",
@@ -1050,6 +1050,6 @@
         "admissionTest": "None",
         "fees": "£16,500",
         "location": "London, England",
-        "language": "IELTS 6.0 (minimum 5.5 in each component)",
+        "language": "IELTS 6.0 (minimum 5.5 in each component)"
     }
 ]
